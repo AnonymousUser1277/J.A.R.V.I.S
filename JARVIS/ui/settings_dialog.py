@@ -36,7 +36,7 @@ class SettingsDialog:
         self.changes_made = False
         
         # Load config FIRST
-        self.config = configparser.ConfigParser()
+        self.config = configparser.ConfigParser(interpolation=None)
         if not self.config_path.exists():
             logger.error(f"Config file not found: {self.config_path}")
             messagebox.showerror("Error", f"Config file not found:\n{self.config_path}")
