@@ -1,0 +1,93 @@
+
+## 📚 **How to Add New Settings in the Future:**
+
+### **Step 1: Add to `config.ini`**
+```ini
+[NewSection]
+my_new_setting = true
+numeric_setting = 42
+text_setting = Hello World
+```
+
+### **Step 2: Update `config/loader.py`**
+```python
+class Config:
+    def __init__(self):
+        # ... existing code ...
+        
+        # [NewSection]
+        self.my_new_setting = parser.getboolean('NewSection', 'my_new_setting')
+        self.numeric_setting = parser.getint('NewSection', 'numeric_setting')
+        self.text_setting = parser.get('NewSection', 'text_setting')
+```
+
+### **Step 3: Add to Settings Dialog**
+
+**Option A: Add to existing tab**
+```python
+# In the appropriate _create_*_tab() method:
+self._create_setting_row(
+    scrollable_frame,
+    "My New Setting:",       # Label
+    'checkbox',              # Type: checkbox/slider/entry/dropdown
+    'NewSection',            # Config section
+    'my_new_setting',        # Config key
+)
+```
+
+**Option B: Create new tab**
+```python
+def _create_newsection_tab(self):
+    tab = tk.Frame(self.notebook, bg='#1e1e1e')
+    self.notebook.add(tab, text="🆕 New Section")
+    
+    # Scrollable setup (copy from existing tabs)
+    canvas = tk.Canvas(tab, bg='#1e1e1e', highlightthickness=0)
+    scrollbar = tk.Scrollbar(tab, orient="vertical", command=canvas.yview)
+    scrollable_frame = tk.Frame(canvas, bg='#1e1e1e')
+    
+    scrollable_frame.bind(
+        "<Configure>",
+        lambda e: canvas.configure(scrollregion=canvas.bbox("all"))
+    )
+    
+    canvas.create_window((0, 0), window=scrollable_frame, anchor="nw")
+    canvas.configure(yscrollcommand=scrollbar.set)
+    
+    canvas.pack(side="left", fill="both", expand=True)
+    scrollbar.pack(side="right", fill="y")
+    
+    # Add settings
+    self._create_setting_row(
+        scrollable_frame,
+        "My Setting:",
+        'checkbox',
+        'NewSection',
+        'my_new_setting'
+    )
+
+# Call in _create_ui():
+self._create_newsection_tab()
+```
+
+### **Widget Types Available:**
+
+1. **Checkbox** (boolean):
+   ```python
+   'checkbox'
+   ```
+
+2. **Slider** (numeric with range):
+   ```python
+   'slider', from_=0, to=100, resolution=0.1
+   ```
+
+3. **Entry** (text input):
+   ```python
+   'entry', width=40
+   ```
+
+4. **Dropdown** (selection):
+   ```python
+   'dropdown', values=['Option 1', 'Option 2'], width=30
+   ```

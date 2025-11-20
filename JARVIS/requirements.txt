@@ -1,0 +1,44 @@
+# Core Dependencies
+opencv-python
+face-recognition
+numpy
+
+# Audio
+pygame
+edge-tts
+pyttsx3
+pycaw
+
+# AI Providers
+cohere
+groq
+google-generativeai
+
+# UI & Automation
+pyautogui
+pytesseract
+pystray
+Pillow
+pynput
+dateparser
+pyspellchecker
+# Web & Scraping
+selenium
+mss
+google-auth 
+google-auth-oauthlib 
+google-api-python-client 
+google-auth-httplib2
+# Driver manager for Selenium (auto-download chromedriver)
+webdriver-manager
+
+# System Monitoring
+psutil
+wmi
+pywin32
+comtypes
+
+# Utilities
+python-dotenv
+watchdog
+requests

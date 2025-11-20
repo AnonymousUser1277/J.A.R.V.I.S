@@ -1,0 +1,16 @@
+{
+  "manifest_version": 3,
+  "name": "JARVIS Context Bridge",
+  "version": "1.0",
+  "description": "Sends the active tab's URL to the local JARVIS assistant.",
+  "permissions": [
+    "tabs",
+    "activeTab"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "host_permissions": [
+    "http://localhost:8989/"
+  ]
+}

@@ -1,0 +1,15 @@
+2025-11-20 11:58:19 | ERROR    | integrations.calendar_integration | _authenticate:68
+Authentication failed: Expecting value: line 1 column 1 (char 0)
+
+2025-11-20 11:58:19 | ERROR    | ui.gui | show_terminal_output:827
+[TERMINAL] ❌ Calendar not configured. Please set up OAuth2 credentials.
+
+2025-11-20 12:11:31 | ERROR    | ui.settings_dialog | _create_new_setting:1147
+Failed to create setting: invalid interpolation syntax in 'https://calendar.google.com/calendar/ical/panditnandlal271%40gmail.com/private-fe33165dcfea88168357ea64263f5384/basic.ics' at position 58
+
+2025-11-20 13:09:28 | ERROR    | ui.gui | show_terminal_output:827
+[TERMINAL] ❌ Couldn't parse recipient and message for email.
+
+2025-11-20 13:12:53 | ERROR    | audio.tts_native | stop_speaking:126
+Stop speaking error: 'NoneType' object has no attribute 'Speak'
+

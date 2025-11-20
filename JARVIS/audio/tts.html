@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jarvis TTS</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        .container {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            max-width: 800px;
+            width: 100%;
+        }
+        h1 {
+            color: #764ba2;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+        }
+        .status {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .speaking {
+            color: #667eea;
+            animation: pulse 1.5s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        .idle {
+            color: #999;
+        }
+        .settings {
+            background: #f3e5f5;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        .setting-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+        .setting-row label {
+            font-weight: bold;
+            color: #4a148c;
+        }
+        input[type="range"] {
+            width: 200px;
+        }
+        select {
+            padding: 8px 15px;
+            border-radius: 5px;
+            border: 2px solid #ce93d8;
+            font-size: 16px;
+        }
+        .text-box {
+            background: #f7f7f7;
+            border-radius: 15px;
+            padding: 25px;
+            min-height: 150px;
+            border: 2px solid #e0e0e0;
+            margin-bottom: 20px;
+        }
+        .text-content {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #333;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+        .info {
+            background: #e8f5e9;
+            border-left: 4px solid #4caf50;
+            padding: 15px;
+            border-radius: 5px;
+            text-align: center;
+        }
+        .info p {
+            margin: 5px 0;
+            color: #2e7d32;
+        }
+        button {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎤 Jarvis TTS Engine</h1>
+        
+        <div class="status">
+            <span id="status" class="idle">Initializing...</span>
+        </div>
+
+        <button id="startBtn" style="display:none;">Start</button>
+
+        <div class="settings">
+            <div class="setting-row">
+                <label>Voice:</label>
+                <select id="voiceSelect"></select>
+            </div>
+            <div class="setting-row">
+                <label>Speed: <span id="rateValue">1.2</span>x</label>
+                <input type="range" id="rate" min="0.5" max="2" step="0.1" value="1.2">
+            </div>
+            <div class="setting-row">
+                <label>Pitch: <span id="pitchValue">0.5</span></label>
+                <input type="range" id="pitch" min="0.5" max="2" step="0.1" value="0.5">
+            </div>
+            <div class="setting-row">
+                <label>Volume: <span id="volumeValue">100</span>%</label>
+                <input type="range" id="volume" min="0" max="100" step="1" value="100">
+            </div>
+        </div>
+
+        <div class="text-box">
+            <div class="text-content" id="textContent">Ready for speech...</div>
+        </div>
+
+        <div class="info">
+            <p><strong>✅ TTS Engine Active</strong></p>
+            <p>Microsoft Ryan Voice Ready</p>
+        </div>
+    </div>
+
+    <script>
+        let synth = window.speechSynthesis;
+        let voices = [];
+        let isReady = false;
+
+        const status = document.getElementById('status');
+        const textContent = document.getElementById('textContent');
+        const voiceSelect = document.getElementById('voiceSelect');
+        const rateInput = document.getElementById('rate');
+        const pitchInput = document.getElementById('pitch');
+        const volumeInput = document.getElementById('volume');
+        const rateValue = document.getElementById('rateValue');
+        const pitchValue = document.getElementById('pitchValue');
+        const volumeValue = document.getElementById('volumeValue');
+
+        // Load voices and set Microsoft Ryan
+        function loadVoices() {
+            voices = synth.getVoices();
+            voiceSelect.innerHTML = '';
+            
+            let ryanIndex = 0;
+            
+            voices.forEach((voice, i) => {
+                const option = document.createElement('option');
+                option.value = i;
+                option.textContent = `${voice.name} (${voice.lang})`;
+                
+                // Find Microsoft Ryan
+                if (voice.name.toLowerCase().includes('ryan')) {
+                    ryanIndex = i;
+                    option.textContent += ' ⭐';
+                }
+                
+                voiceSelect.appendChild(option);
+            });
+            
+            voiceSelect.value = ryanIndex;
+            isReady = true;
+            status.textContent = '✅ Ready';
+            status.className = 'idle';
+        }
+
+        // Load voices when available
+        loadVoices();
+        if (synth.onvoiceschanged !== undefined) {
+            synth.onvoiceschanged = loadVoices;
+        }
+
+        // Update value displays
+        rateInput.addEventListener('input', () => {
+            rateValue.textContent = rateInput.value;
+        });
+        pitchInput.addEventListener('input', () => {
+            pitchValue.textContent = pitchInput.value;
+        });
+        volumeInput.addEventListener('input', () => {
+            volumeValue.textContent = volumeInput.value;
+        });
+
+        // Main speak function (called from Selenium)
+        function speak(text) {
+            if (!text || text.trim() === '' || !isReady) return;
+
+            // Cancel any ongoing speech
+            synth.cancel();
+
+            const utterance = new SpeechSynthesisUtterance(text);
+            utterance.voice = voices[voiceSelect.value];
+            utterance.rate = parseFloat(rateInput.value);
+            utterance.pitch = parseFloat(pitchInput.value);
+            utterance.volume = parseFloat(volumeInput.value) / 100;
+
+            utterance.onstart = () => {
+                status.textContent = '🔊 Speaking...';
+                status.className = 'speaking';
+            };
+
+            utterance.onend = () => {
+                status.textContent = '✅ Ready';
+                status.className = 'idle';
+            };
+
+            utterance.onerror = (event) => {
+                console.error('Speech error:', event);
+                status.textContent = '⚠️ Error';
+                status.className = 'idle';
+            };
+
+            synth.speak(utterance);
+        }
+
+        // Auto-initialize
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                if (!isReady) {
+                    loadVoices();
+                }
+            }, 500);
+        });
+
+        // Make speak function globally accessible
+        window.speak = speak;
+    </script>
+</body>
+</html>

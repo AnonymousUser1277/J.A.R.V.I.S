@@ -1,0 +1,1343 @@
+2025-11-19 22:34:28 | INFO     | ai.providers | ✅ Using Cohere COHERE Key 1 key
+2025-11-19 22:34:28 | INFO     | root | 🎤 Initializing Native TTS...
+2025-11-19 22:34:28 | INFO     | audio.tts_native | ✅ Native TTS initialized with Microsoft David Desktop - English (United States)
+2025-11-19 22:34:28 | INFO     | audio.tts | ✅ Global TTS engine set
+2025-11-19 22:34:28 | INFO     | root | ✅ Native TTS initialized
+2025-11-19 22:34:30 | INFO     | JARVIS | ✅ TTS ready
+2025-11-19 22:34:34 | INFO     | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-19 22:34:34 | INFO     | ai.providers | ✅ Using GROQ Key 1 key
+2025-11-19 22:34:34 | INFO     | ai.providers | ✅ Using HUGGINGFACE Key 1 key
+2025-11-19 22:34:34 | INFO     | ai.providers | ✅ Using OPENROUTER Key 1 key
+2025-11-19 22:34:34 | INFO     | ai.providers | ✅ Using MISTRAL Key 1 key
+2025-11-19 22:34:34 | INFO     | audio.stt | ✅ STT ChromeDriver created (attempt 1)
+2025-11-19 22:34:34 | INFO     | audio.stt | ✅ FORTIFIED STT initialized
+2025-11-19 22:34:34 | INFO     | JARVIS | ✅ STT ready
+2025-11-19 22:34:34 | INFO     | audio.volume | Volume controller initialized (current: 7%)
+2025-11-19 22:34:34 | INFO     | core.local_server | 🚀 Local context server started at http://localhost:8989
+2025-11-19 22:34:36 | INFO     | audio.stt_fallback | ✅ Fallback STT initialized
+2025-11-19 22:34:36 | INFO     | monitors.clipboard | ✅ Event-driven clipboard monitor started
+2025-11-19 22:34:36 | INFO     | ui.gui | 📺 Auto-selected secondary monitor
+2025-11-19 22:34:36 | INFO     | ai.task_queue | ✅ Started 3 AI worker threads
+2025-11-19 22:34:37 | WARNING  | urllib3.connectionpool | Connection pool is full, discarding connection: localhost. Connection pool size: 1
+2025-11-19 22:34:38 | INFO     | JARVIS | 🚀 JARVIS is now running
+2025-11-19 22:34:40 | INFO     | audio.stt | ✅ STT page fully initialized
+2025-11-19 22:34:40 | WARNING  | urllib3.connectionpool | Connection pool is full, discarding connection: localhost. Connection pool size: 1
+2025-11-19 22:34:40 | INFO     | audio.stt | ✅ STT page fully initialized
+2025-11-19 22:34:42 | INFO     | ui.gui | [TERMINAL] 🌐 Internet Connected
+2025-11-19 22:34:43 | INFO     | config.aliases | Loaded 1 custom aliases
+2025-11-19 22:34:44 | INFO     | audio.stt | 🎤 Real-time Mic Watchdog thread has started and is now waiting for events.
+2025-11-19 22:34:44 | INFO     | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-19 22:34:44 | INFO     | ui.gui | [TERMINAL] DEBUG PROMPT:
+2025-11-19 22:34:44 | INFO     | ui.gui | [TERMINAL] <class 'str'>
+2025-11-19 22:34:44 | INFO     | ui.gui | [TERMINAL] hello
+2025-11-19 22:34:44 | INFO     | ui.gui | [TERMINAL] DEBUG RESPONSE:
+2025-11-19 22:34:44 | INFO     | ui.gui | [TERMINAL] <class 'str'>
+2025-11-19 22:34:44 | INFO     | ui.gui | [TERMINAL] print("Hello")
+2025-11-19 22:34:44 | INFO     | ui.gui | [TERMINAL] Exception in thread
+2025-11-19 22:34:44 | INFO     | ui.gui | [TERMINAL] Thread-16 (generate_instructions)
+2025-11-19 22:34:45 | INFO     | ui.gui | [TERMINAL] :
+2025-11-19 22:34:45 | INFO     | ui.gui | [TERMINAL] Traceback (most recent call last):
+2025-11-19 22:34:45 | INFO     | ui.gui | [TERMINAL] File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.12_3.12.2800.0_x64__qbz5n2kfra8p0\Lib\threading.py", line 1075, in _bootstrap_inner
+2025-11-19 22:34:45 | INFO     | ui.gui | [TERMINAL] self.run()
+2025-11-19 22:34:45 | INFO     | ui.gui | [TERMINAL] File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.12_3.12.2800.0_x64__qbz5n2kfra8p0\Lib\threading.py", line 1012, in run
+2025-11-19 22:34:45 | INFO     | ui.gui | [TERMINAL] self._target(*self._args, **self._kwargs)
+2025-11-19 22:34:45 | INFO     | ui.gui | [TERMINAL] File "C:\Users\Nandlal\Documents\.NANDLAL\python\JARVIS\ai\instructions.py", line 571, in generate_instructions
+2025-11-19 22:34:45 | INFO     | ui.gui | [TERMINAL] cache_key = cache.set_pending(prompt, response)
+2025-11-19 22:34:45 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:34:45 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:34:45 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:34:45 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:34:45 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:34:46 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:34:46 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:34:46 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:34:46 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:34:46 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:34:46 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:34:46 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:34:46 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:34:46 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:34:46 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:34:47 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:34:47 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:34:47 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:34:47 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:34:47 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:34:47 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:34:47 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:34:47 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:34:48 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:34:48 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:34:48 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:34:48 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:34:48 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:34:48 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:34:48 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:34:48 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:34:48 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:34:48 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:34:49 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:34:49 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:34:49 | INFO     | ui.gui | [TERMINAL] File "C:\Users\Nandlal\Documents\.NANDLAL\python\JARVIS\ai\redis_cache.py", line 89, in set_pending
+2025-11-19 22:34:49 | INFO     | ui.gui | [TERMINAL] return self.db.hset(key, mapping=mapping)
+2025-11-19 22:34:49 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:34:49 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:34:49 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:34:49 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:34:50 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:34:50 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:34:50 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:34:50 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:34:50 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:34:50 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:34:50 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:34:50 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:34:51 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:34:51 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:34:51 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:34:51 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:34:51 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:34:51 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:34:51 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:34:51 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:34:52 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:34:52 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:34:52 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:34:52 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:34:52 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:34:52 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:34:53 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:34:53 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:34:53 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:34:53 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:34:53 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:34:53 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:34:53 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:34:53 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:34:53 | INFO     | ui.gui | [TERMINAL] File "C:\Users\Nandlal\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\redis\commands\core.py", line 5191, in hset
+2025-11-19 22:34:53 | INFO     | ui.gui | [TERMINAL] return self.execute_command("HSET", name, *pieces)
+2025-11-19 22:34:54 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:34:54 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:34:54 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:34:54 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:34:54 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:34:54 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:34:54 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:34:54 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:34:54 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:34:54 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:34:55 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:34:55 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:34:55 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:34:55 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:34:55 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:34:55 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:34:55 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:34:55 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:34:55 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:34:55 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:34:55 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:34:56 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:34:56 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:34:56 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:34:56 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:34:56 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:34:56 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:34:56 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:34:56 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:34:56 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:34:56 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:34:56 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:34:56 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:34:56 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:34:57 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:34:57 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:34:57 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:34:57 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:34:57 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:34:57 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:34:57 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:34:57 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:34:57 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:34:57 | INFO     | ui.gui | [TERMINAL] File "C:\Users\Nandlal\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\redis\client.py", line 657, in execute_command
+2025-11-19 22:34:57 | INFO     | ui.gui | [TERMINAL] return self._execute_command(*args, **options)
+2025-11-19 22:34:57 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:34:58 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:34:58 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:34:58 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:34:58 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:34:58 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:34:58 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:34:58 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:34:58 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:34:58 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:34:58 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:34:58 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:34:58 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:34:59 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:34:59 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:34:59 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:34:59 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:34:59 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:34:59 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:34:59 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:34:59 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:34:59 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:34:59 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:34:59 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:34:59 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:35:00 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:35:00 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:35:00 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:35:00 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:35:00 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:35:00 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:35:00 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:35:00 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:35:00 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:35:00 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:35:00 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:35:00 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:35:00 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:35:01 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:35:01 | INFO     | ui.gui | [TERMINAL] File "C:\Users\Nandlal\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\redis\client.py", line 668, in _execute_command
+2025-11-19 22:35:01 | INFO     | ui.gui | [TERMINAL] return conn.retry.call_with_retry(
+2025-11-19 22:35:01 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:35:01 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:35:01 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:35:01 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:35:01 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:35:01 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:35:01 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:35:01 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:35:01 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:35:01 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:35:02 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:35:02 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:35:02 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:35:02 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:35:02 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:35:02 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:35:02 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:35:02 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:35:02 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:35:02 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:35:02 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:35:02 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:35:02 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:35:03 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:35:03 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:35:03 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:35:03 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:35:03 | INFO     | ui.gui | [TERMINAL] File "C:\Users\Nandlal\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\redis\retry.py", line 116, in call_with_retry
+2025-11-19 22:35:03 | INFO     | ui.gui | [TERMINAL] return do()
+2025-11-19 22:35:03 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:35:03 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:35:03 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:35:03 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:35:03 | INFO     | ui.gui | [TERMINAL] File "C:\Users\Nandlal\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\redis\client.py", line 669, in <lambda>
+2025-11-19 22:35:03 | INFO     | ui.gui | [TERMINAL] lambda: self._send_command_parse_response(
+2025-11-19 22:35:03 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:35:04 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:35:04 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:35:04 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:35:04 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:35:04 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:35:04 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:35:04 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:35:04 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:35:04 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:35:04 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:35:04 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:35:05 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:35:05 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:35:05 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:35:05 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:35:05 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:35:05 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:35:05 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:35:05 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:35:05 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:35:05 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:35:05 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:35:05 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:35:05 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:35:06 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:35:06 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:35:06 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:35:06 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:35:06 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:35:06 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:35:06 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:35:06 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:35:06 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:35:07 | INFO     | ui.gui | [TERMINAL] File "C:\Users\Nandlal\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\redis\client.py", line 640, in _send_command_parse_response
+2025-11-19 22:35:07 | INFO     | ui.gui | [TERMINAL] return self.parse_response(conn, command_name, **options)
+2025-11-19 22:35:07 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:35:07 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:35:07 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:35:07 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:35:07 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:35:07 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:35:07 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:35:07 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:35:08 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:35:08 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:35:08 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:35:08 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:35:08 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:35:08 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:35:08 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:35:08 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:35:08 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:35:08 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:35:08 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:35:09 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:35:09 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:35:09 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:35:09 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:35:09 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:35:09 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:35:09 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:35:09 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:35:09 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:35:09 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:35:09 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:35:10 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:35:10 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:35:10 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:35:10 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:35:10 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:35:10 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:35:10 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:35:10 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:35:10 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:35:10 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:35:10 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:35:11 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:35:11 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:35:11 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:35:11 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:35:11 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:35:11 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:35:11 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:35:11 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:35:11 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:35:11 | INFO     | ui.gui | [TERMINAL] File "C:\Users\Nandlal\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\redis\client.py", line 691, in parse_response
+2025-11-19 22:35:11 | INFO     | ui.gui | [TERMINAL] response = connection.read_response()
+2025-11-19 22:35:11 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:35:12 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:35:12 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:35:12 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:35:12 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:35:12 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:35:12 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:35:12 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:35:12 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:35:12 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:35:12 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:35:12 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:35:13 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:35:13 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:35:13 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:35:13 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:35:13 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:35:13 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:35:13 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:35:13 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:35:13 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:35:13 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:35:13 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:35:14 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:35:14 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:35:14 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:35:14 | INFO     | ui.gui | [TERMINAL] File "C:\Users\Nandlal\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\redis\connection.py", line 1155, in read_response
+2025-11-19 22:35:14 | INFO     | ui.gui | [TERMINAL] raise response
+2025-11-19 22:35:14 | INFO     | ui.gui | [TERMINAL] redis.exceptions
+2025-11-19 22:35:14 | INFO     | ui.gui | [TERMINAL] .
+2025-11-19 22:35:14 | INFO     | ui.gui | [TERMINAL] ResponseError
+2025-11-19 22:35:14 | INFO     | ui.gui | [TERMINAL] :
+2025-11-19 22:35:14 | INFO     | ui.gui | [TERMINAL] wrong number of arguments for 'hset' command
+2025-11-19 22:35:26 | INFO     | audio.volume | Volume lowered: 8% → 5%
+2025-11-19 22:35:26 | WARNING  | urllib3.connectionpool | Connection pool is full, discarding connection: localhost. Connection pool size: 1
+2025-11-19 22:35:26 | INFO     | audio.volume | Volume restored to 7%
+2025-11-19 22:35:32 | INFO     | ui.gui | [TERMINAL] 📶 Bluetooth Connected: ZEB-THUNDER Avrcp Transport
+2025-11-19 22:35:34 | WARNING  | urllib3.connectionpool | Connection pool is full, discarding connection: localhost. Connection pool size: 1
+2025-11-19 22:35:34 | INFO     | ui.gui | [TERMINAL] 🔌 Device Connected: AMD USB 3.10 eXtensible Host Controller - 1.10 (Microsoft)
+2025-11-19 22:38:23 | WARNING  | audio.stt | 🎤 Mic watchdog [EVENT]: Mic use by Chrome's specific process path not found. Forcing re-activation.
+2025-11-19 22:38:44 | INFO     | ui.gui | [TERMINAL] 🔄 Restarting from system tray...
+2025-11-19 22:38:44 | INFO     | ui.gui | [TERMINAL] 🔄 Restarting program...
+2025-11-19 22:38:52 | INFO     | JARVIS | ============================================================
+2025-11-19 22:38:52 | INFO     | JARVIS | 🚀 JARVIS Started - 2025-11-19 22:38:52
+2025-11-19 22:38:52 | INFO     | JARVIS | 📁 Log Directory: C:\Users\Nandlal\Documents\.NANDLAL\python\JARVIS\Data\logs
+2025-11-19 22:38:52 | INFO     | JARVIS | ============================================================
+2025-11-19 22:39:11 | INFO     | ai.providers | ✅ Using Cohere COHERE Key 1 key
+2025-11-19 22:39:11 | INFO     | root | 🎤 Initializing Native TTS...
+2025-11-19 22:39:12 | INFO     | audio.tts_native | ✅ Native TTS initialized with Microsoft David Desktop - English (United States)
+2025-11-19 22:39:12 | INFO     | audio.tts | ✅ Global TTS engine set
+2025-11-19 22:39:12 | INFO     | root | ✅ Native TTS initialized
+2025-11-19 22:39:14 | INFO     | JARVIS | ✅ TTS ready
+2025-11-19 22:39:17 | INFO     | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-19 22:39:17 | INFO     | ai.providers | ✅ Using GROQ Key 1 key
+2025-11-19 22:39:17 | INFO     | ai.providers | ✅ Using HUGGINGFACE Key 1 key
+2025-11-19 22:39:17 | INFO     | ai.providers | ✅ Using OPENROUTER Key 1 key
+2025-11-19 22:39:17 | INFO     | ai.providers | ✅ Using MISTRAL Key 1 key
+2025-11-19 22:39:17 | INFO     | audio.stt | ✅ STT ChromeDriver created (attempt 1)
+2025-11-19 22:39:17 | INFO     | audio.stt | ✅ FORTIFIED STT initialized
+2025-11-19 22:39:17 | INFO     | JARVIS | ✅ STT ready
+2025-11-19 22:39:17 | INFO     | audio.volume | Volume controller initialized (current: 7%)
+2025-11-19 22:39:17 | INFO     | core.local_server | 🚀 Local context server started at http://localhost:8989
+2025-11-19 22:39:20 | INFO     | audio.stt_fallback | ✅ Fallback STT initialized
+2025-11-19 22:39:20 | INFO     | monitors.clipboard | ✅ Event-driven clipboard monitor started
+2025-11-19 22:39:20 | INFO     | ui.gui | 📺 Auto-selected secondary monitor
+2025-11-19 22:39:20 | INFO     | ai.task_queue | ✅ Started 3 AI worker threads
+2025-11-19 22:39:21 | WARNING  | urllib3.connectionpool | Connection pool is full, discarding connection: localhost. Connection pool size: 1
+2025-11-19 22:39:22 | INFO     | JARVIS | 🚀 JARVIS is now running
+2025-11-19 22:39:24 | INFO     | audio.stt | ✅ STT page fully initialized
+2025-11-19 22:39:24 | WARNING  | urllib3.connectionpool | Connection pool is full, discarding connection: localhost. Connection pool size: 1
+2025-11-19 22:39:24 | INFO     | audio.stt | ✅ STT page fully initialized
+2025-11-19 22:39:26 | INFO     | ui.gui | [TERMINAL] 🌐 Internet Connected
+2025-11-19 22:39:27 | INFO     | audio.stt | 🎤 Real-time Mic Watchdog thread has started and is now waiting for events.
+2025-11-19 22:40:17 | WARNING  | urllib3.connectionpool | Connection pool is full, discarding connection: localhost. Connection pool size: 1
+2025-11-19 22:40:23 | INFO     | config.aliases | Loaded 1 custom aliases
+2025-11-19 22:40:24 | INFO     | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-19 22:40:24 | INFO     | ui.gui | [TERMINAL] DEBUG PROMPT:
+2025-11-19 22:40:24 | INFO     | ui.gui | [TERMINAL] <class 'str'>
+2025-11-19 22:40:24 | INFO     | ui.gui | [TERMINAL] hello
+2025-11-19 22:40:24 | INFO     | ui.gui | [TERMINAL] DEBUG RESPONSE:
+2025-11-19 22:40:25 | INFO     | ui.gui | [TERMINAL] <class 'str'>
+2025-11-19 22:40:25 | INFO     | ui.gui | [TERMINAL] print("Hello, I'm ready to assist you")
+2025-11-19 22:40:25 | INFO     | ui.gui | [TERMINAL] FINAL MAPPING:
+2025-11-19 22:40:25 | INFO     | ui.gui | [TERMINAL] {'prompt': 'hello', 'response': 'print("Hello, I\'m ready to assist you")', 'status': 'pending', 'created_at': '1763572224.815693', 'last_accessed': '1763572224.815693', 'access_count': '1'}
+2025-11-19 22:40:25 | INFO     | ui.gui | [TERMINAL] FIELD:
+2025-11-19 22:40:25 | INFO     | ui.gui | [TERMINAL] 'prompt'
+2025-11-19 22:40:25 | INFO     | ui.gui | [TERMINAL] VALUE:
+2025-11-19 22:40:25 | INFO     | ui.gui | [TERMINAL] 'hello'
+2025-11-19 22:40:25 | INFO     | ui.gui | [TERMINAL] FIELD:
+2025-11-19 22:40:25 | INFO     | ui.gui | [TERMINAL] 'response'
+2025-11-19 22:40:25 | INFO     | ui.gui | [TERMINAL] VALUE:
+2025-11-19 22:40:25 | INFO     | ui.gui | [TERMINAL] 'print("Hello, I\'m ready to assist you")'
+2025-11-19 22:40:25 | INFO     | ui.gui | [TERMINAL] FIELD:
+2025-11-19 22:40:25 | INFO     | ui.gui | [TERMINAL] 'status'
+2025-11-19 22:40:25 | INFO     | ui.gui | [TERMINAL] VALUE:
+2025-11-19 22:40:26 | INFO     | ui.gui | [TERMINAL] 'pending'
+2025-11-19 22:40:26 | INFO     | ui.gui | [TERMINAL] FIELD:
+2025-11-19 22:40:26 | INFO     | ui.gui | [TERMINAL] 'created_at'
+2025-11-19 22:40:26 | INFO     | ui.gui | [TERMINAL] VALUE:
+2025-11-19 22:40:26 | INFO     | ui.gui | [TERMINAL] '1763572224.815693'
+2025-11-19 22:40:26 | INFO     | ui.gui | [TERMINAL] FIELD:
+2025-11-19 22:40:26 | INFO     | ui.gui | [TERMINAL] 'last_accessed'
+2025-11-19 22:40:26 | INFO     | ui.gui | [TERMINAL] VALUE:
+2025-11-19 22:40:26 | INFO     | ui.gui | [TERMINAL] '1763572224.815693'
+2025-11-19 22:40:26 | INFO     | ui.gui | [TERMINAL] FIELD:
+2025-11-19 22:40:26 | INFO     | ui.gui | [TERMINAL] 'access_count'
+2025-11-19 22:40:26 | INFO     | ui.gui | [TERMINAL] VALUE:
+2025-11-19 22:40:26 | INFO     | ui.gui | [TERMINAL] '1'
+2025-11-19 22:40:26 | INFO     | ui.gui | [TERMINAL] Exception in thread
+2025-11-19 22:40:27 | INFO     | ui.gui | [TERMINAL] Thread-16 (generate_instructions)
+2025-11-19 22:40:27 | INFO     | ui.gui | [TERMINAL] :
+2025-11-19 22:40:27 | INFO     | ui.gui | [TERMINAL] Traceback (most recent call last):
+2025-11-19 22:40:27 | INFO     | ui.gui | [TERMINAL] File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.12_3.12.2800.0_x64__qbz5n2kfra8p0\Lib\threading.py", line 1075, in _bootstrap_inner
+2025-11-19 22:40:27 | INFO     | ui.gui | [TERMINAL] self.run()
+2025-11-19 22:40:27 | INFO     | ui.gui | [TERMINAL] File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.12_3.12.2800.0_x64__qbz5n2kfra8p0\Lib\threading.py", line 1012, in run
+2025-11-19 22:40:27 | INFO     | ui.gui | [TERMINAL] self._target(*self._args, **self._kwargs)
+2025-11-19 22:40:27 | INFO     | ui.gui | [TERMINAL] File "C:\Users\Nandlal\Documents\.NANDLAL\python\JARVIS\ai\instructions.py", line 571, in generate_instructions
+2025-11-19 22:40:27 | INFO     | ui.gui | [TERMINAL] cache_key = cache.set_pending(prompt, response)
+2025-11-19 22:40:27 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:27 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:27 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:27 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:27 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:28 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:28 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:28 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:28 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:28 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:28 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:28 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:28 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:28 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:28 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:28 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:28 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:28 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:28 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:29 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:29 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:29 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:29 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:29 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:29 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:29 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:29 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:29 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:29 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:29 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:29 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:30 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:30 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:30 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:30 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:30 | INFO     | ui.gui | [TERMINAL] File "C:\Users\Nandlal\Documents\.NANDLAL\python\JARVIS\ai\redis_cache.py", line 95, in set_pending
+2025-11-19 22:40:30 | INFO     | ui.gui | [TERMINAL] return self.db.hset(key, mapping=mapping)
+2025-11-19 22:40:30 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:30 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:30 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:30 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:30 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:30 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:30 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:30 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:31 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:31 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:31 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:31 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:31 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:31 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:31 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:31 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:31 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:31 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:32 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:32 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:32 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:32 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:32 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:32 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:32 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:32 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:33 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:33 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:33 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:33 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:33 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:33 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:33 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:33 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:33 | INFO     | ui.gui | [TERMINAL] File "C:\Users\Nandlal\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\redis\commands\core.py", line 5191, in hset
+2025-11-19 22:40:33 | INFO     | ui.gui | [TERMINAL] return self.execute_command("HSET", name, *pieces)
+2025-11-19 22:40:33 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:34 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:34 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:34 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:34 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:34 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:34 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:34 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:34 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:34 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:34 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:35 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:35 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:35 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:35 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:35 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:35 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:35 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:36 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:36 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:36 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:36 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:36 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:36 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:37 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:37 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:37 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:37 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:37 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:37 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:37 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:37 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:37 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:38 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:38 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:38 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:38 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:38 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:38 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:38 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:39 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:39 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:39 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:39 | INFO     | ui.gui | [TERMINAL] File "C:\Users\Nandlal\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\redis\client.py", line 657, in execute_command
+2025-11-19 22:40:39 | INFO     | ui.gui | [TERMINAL] return self._execute_command(*args, **options)
+2025-11-19 22:40:39 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:39 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:40 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:40 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:40 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:40 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:40 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:40 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:40 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:40 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:41 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:41 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:41 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:41 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:41 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:41 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:41 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:41 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:41 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:41 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:42 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:42 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:42 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:42 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:42 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:42 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:42 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:42 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:42 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:42 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:42 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:43 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:43 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:43 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:43 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:43 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:43 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:43 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:43 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:43 | INFO     | ui.gui | [TERMINAL] File "C:\Users\Nandlal\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\redis\client.py", line 668, in _execute_command
+2025-11-19 22:40:43 | INFO     | ui.gui | [TERMINAL] return conn.retry.call_with_retry(
+2025-11-19 22:40:44 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:44 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:44 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:44 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:44 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:44 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:44 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:44 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:44 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:45 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:45 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:45 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:45 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:45 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:45 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:45 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:45 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:45 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:45 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:46 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:46 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:46 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:46 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:46 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:46 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:46 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:46 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:46 | INFO     | ui.gui | [TERMINAL] File "C:\Users\Nandlal\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\redis\retry.py", line 116, in call_with_retry
+2025-11-19 22:40:46 | INFO     | ui.gui | [TERMINAL] return do()
+2025-11-19 22:40:46 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:47 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:47 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:47 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:47 | INFO     | ui.gui | [TERMINAL] File "C:\Users\Nandlal\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\redis\client.py", line 669, in <lambda>
+2025-11-19 22:40:47 | INFO     | ui.gui | [TERMINAL] lambda: self._send_command_parse_response(
+2025-11-19 22:40:47 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:47 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:47 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:47 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:47 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:48 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:48 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:48 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:48 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:48 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:48 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:48 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:48 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:48 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:48 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:48 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:48 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:48 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:49 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:49 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:49 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:49 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:49 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:49 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:49 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:49 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:49 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:49 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:49 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:50 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:50 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:50 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:50 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:50 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:50 | INFO     | ui.gui | [TERMINAL] File "C:\Users\Nandlal\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\redis\client.py", line 640, in _send_command_parse_response
+2025-11-19 22:40:50 | INFO     | ui.gui | [TERMINAL] return self.parse_response(conn, command_name, **options)
+2025-11-19 22:40:50 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:50 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:50 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:50 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:51 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:51 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:51 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:51 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:51 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:51 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:51 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:51 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:51 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:51 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:51 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:52 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:52 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:52 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:52 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:52 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:52 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:52 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:52 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:52 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:52 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:52 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:52 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:53 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:53 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:53 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:53 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:53 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:53 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:53 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:53 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:53 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:53 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:53 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:53 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:53 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:54 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:54 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:54 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:54 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:54 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:54 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:54 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:54 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:54 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:54 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:54 | INFO     | ui.gui | [TERMINAL] File "C:\Users\Nandlal\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\redis\client.py", line 691, in parse_response
+2025-11-19 22:40:54 | INFO     | ui.gui | [TERMINAL] response = connection.read_response()
+2025-11-19 22:40:54 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:54 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:55 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:55 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:55 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:55 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:55 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:55 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:55 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:55 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:55 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:55 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:55 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:55 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:56 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:56 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:56 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:56 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:56 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:56 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:56 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:56 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:56 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:56 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:56 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:56 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:40:56 | INFO     | ui.gui | [TERMINAL] File "C:\Users\Nandlal\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\redis\connection.py", line 1155, in read_response
+2025-11-19 22:40:57 | INFO     | ui.gui | [TERMINAL] raise response
+2025-11-19 22:40:57 | INFO     | ui.gui | [TERMINAL] redis.exceptions
+2025-11-19 22:40:57 | INFO     | ui.gui | [TERMINAL] .
+2025-11-19 22:40:57 | INFO     | ui.gui | [TERMINAL] ResponseError
+2025-11-19 22:40:57 | INFO     | ui.gui | [TERMINAL] :
+2025-11-19 22:40:57 | INFO     | ui.gui | [TERMINAL] wrong number of arguments for 'hset' command
+2025-11-19 22:41:13 | INFO     | ui.gui | [TERMINAL] 🔄 Restarting from system tray...
+2025-11-19 22:41:13 | INFO     | ui.gui | [TERMINAL] 🔄 Restarting program...
+2025-11-19 22:41:22 | INFO     | JARVIS | ============================================================
+2025-11-19 22:41:22 | INFO     | JARVIS | 🚀 JARVIS Started - 2025-11-19 22:41:22
+2025-11-19 22:41:22 | INFO     | JARVIS | 📁 Log Directory: C:\Users\Nandlal\Documents\.NANDLAL\python\JARVIS\Data\logs
+2025-11-19 22:41:22 | INFO     | JARVIS | ============================================================
+2025-11-19 22:41:42 | INFO     | ai.providers | ✅ Using Cohere COHERE Key 1 key
+2025-11-19 22:41:42 | INFO     | root | 🎤 Initializing Native TTS...
+2025-11-19 22:41:42 | INFO     | audio.tts_native | ✅ Native TTS initialized with Microsoft David Desktop - English (United States)
+2025-11-19 22:41:42 | INFO     | audio.tts | ✅ Global TTS engine set
+2025-11-19 22:41:42 | INFO     | root | ✅ Native TTS initialized
+2025-11-19 22:41:44 | INFO     | JARVIS | ✅ TTS ready
+2025-11-19 22:41:47 | INFO     | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-19 22:41:47 | INFO     | ai.providers | ✅ Using GROQ Key 1 key
+2025-11-19 22:41:47 | INFO     | ai.providers | ✅ Using HUGGINGFACE Key 1 key
+2025-11-19 22:41:47 | INFO     | ai.providers | ✅ Using OPENROUTER Key 1 key
+2025-11-19 22:41:47 | INFO     | ai.providers | ✅ Using MISTRAL Key 1 key
+2025-11-19 22:41:48 | INFO     | audio.stt | ✅ STT ChromeDriver created (attempt 1)
+2025-11-19 22:41:48 | INFO     | audio.stt | ✅ FORTIFIED STT initialized
+2025-11-19 22:41:48 | INFO     | JARVIS | ✅ STT ready
+2025-11-19 22:41:48 | INFO     | audio.volume | Volume controller initialized (current: 7%)
+2025-11-19 22:41:49 | INFO     | core.local_server | 🚀 Local context server started at http://localhost:8989
+2025-11-19 22:41:51 | INFO     | audio.stt_fallback | ✅ Fallback STT initialized
+2025-11-19 22:41:51 | INFO     | monitors.clipboard | ✅ Event-driven clipboard monitor started
+2025-11-19 22:41:51 | INFO     | ui.gui | 📺 Auto-selected secondary monitor
+2025-11-19 22:41:51 | INFO     | ai.task_queue | ✅ Started 3 AI worker threads
+2025-11-19 22:41:52 | WARNING  | urllib3.connectionpool | Connection pool is full, discarding connection: localhost. Connection pool size: 1
+2025-11-19 22:41:53 | INFO     | JARVIS | 🚀 JARVIS is now running
+2025-11-19 22:41:55 | INFO     | audio.stt | ✅ STT page fully initialized
+2025-11-19 22:41:55 | WARNING  | urllib3.connectionpool | Connection pool is full, discarding connection: localhost. Connection pool size: 1
+2025-11-19 22:41:55 | INFO     | audio.stt | ✅ STT page fully initialized
+2025-11-19 22:41:57 | INFO     | ui.gui | [TERMINAL] 🌐 Internet Connected
+2025-11-19 22:41:58 | INFO     | audio.stt | 🎤 Real-time Mic Watchdog thread has started and is now waiting for events.
+2025-11-19 22:41:58 | INFO     | config.aliases | Loaded 1 custom aliases
+2025-11-19 22:42:00 | INFO     | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-19 22:42:00 | INFO     | ui.gui | [TERMINAL] DEBUG PROMPT:
+2025-11-19 22:42:00 | INFO     | ui.gui | [TERMINAL] <class 'str'>
+2025-11-19 22:42:00 | INFO     | ui.gui | [TERMINAL] hello
+2025-11-19 22:42:00 | INFO     | ui.gui | [TERMINAL] DEBUG RESPONSE:
+2025-11-19 22:42:00 | INFO     | ui.gui | [TERMINAL] <class 'str'>
+2025-11-19 22:42:00 | INFO     | ui.gui | [TERMINAL] print("Hello")
+2025-11-19 22:42:00 | INFO     | ui.gui | [TERMINAL] FINAL MAPPING:
+2025-11-19 22:42:00 | INFO     | ui.gui | [TERMINAL] {'prompt': 'hello', 'response': 'print("Hello")', 'status': 'pending', 'created_at': '1763572320.202657', 'last_accessed': '1763572320.202657', 'access_count': '1'}
+2025-11-19 22:42:01 | INFO     | ui.gui | [TERMINAL] FIELD:
+2025-11-19 22:42:01 | INFO     | ui.gui | [TERMINAL] 'prompt'
+2025-11-19 22:42:01 | INFO     | ui.gui | [TERMINAL] VALUE:
+2025-11-19 22:42:01 | INFO     | ui.gui | [TERMINAL] 'hello'
+2025-11-19 22:42:01 | INFO     | ui.gui | [TERMINAL] FIELD:
+2025-11-19 22:42:01 | INFO     | ui.gui | [TERMINAL] 'response'
+2025-11-19 22:42:02 | INFO     | ui.gui | [TERMINAL] VALUE:
+2025-11-19 22:42:02 | INFO     | ui.gui | [TERMINAL] 'print("Hello")'
+2025-11-19 22:42:02 | INFO     | ui.gui | [TERMINAL] FIELD:
+2025-11-19 22:42:02 | INFO     | ui.gui | [TERMINAL] 'status'
+2025-11-19 22:42:02 | INFO     | ui.gui | [TERMINAL] VALUE:
+2025-11-19 22:42:02 | INFO     | ui.gui | [TERMINAL] 'pending'
+2025-11-19 22:42:03 | INFO     | ui.gui | [TERMINAL] FIELD:
+2025-11-19 22:42:03 | INFO     | ui.gui | [TERMINAL] 'created_at'
+2025-11-19 22:42:03 | INFO     | ui.gui | [TERMINAL] VALUE:
+2025-11-19 22:42:03 | INFO     | ui.gui | [TERMINAL] '1763572320.202657'
+2025-11-19 22:42:03 | INFO     | ui.gui | [TERMINAL] FIELD:
+2025-11-19 22:42:03 | INFO     | ui.gui | [TERMINAL] 'last_accessed'
+2025-11-19 22:42:03 | INFO     | ui.gui | [TERMINAL] VALUE:
+2025-11-19 22:42:04 | INFO     | ui.gui | [TERMINAL] '1763572320.202657'
+2025-11-19 22:42:04 | INFO     | ui.gui | [TERMINAL] FIELD:
+2025-11-19 22:42:04 | INFO     | ui.gui | [TERMINAL] 'access_count'
+2025-11-19 22:42:04 | INFO     | ui.gui | [TERMINAL] VALUE:
+2025-11-19 22:42:04 | INFO     | ui.gui | [TERMINAL] ❌ Exiting from system tray...
+2025-11-19 22:42:04 | INFO     | ui.gui | [TERMINAL] '1'
+2025-11-19 22:42:04 | INFO     | ui.gui | 🧹 Starting cleanup...
+2025-11-19 22:42:04 | INFO     | ui.gui | 🔊 Volume restored
+2025-11-19 22:42:04 | INFO     | audio.coordinator | 🧹 Cleaning up audio coordinator...
+2025-11-19 22:42:04 | WARNING  | audio.coordinator | 🚨 Force releasing audio coordinator locks
+2025-11-19 22:42:04 | INFO     | audio.coordinator | ✅ Audio coordinator cleanup complete
+2025-11-19 22:42:04 | INFO     | ui.gui | 🌐 Closing STT ChromeDriver...
+2025-11-19 22:42:04 | INFO     | audio.stt | 🧹 Starting STT cleanup...
+2025-11-19 22:42:04 | INFO     | ui.gui | [TERMINAL] Exception in thread
+2025-11-19 22:42:05 | INFO     | ui.gui | [TERMINAL] Thread-16 (generate_instructions)
+2025-11-19 22:42:05 | INFO     | ui.gui | [TERMINAL] :
+2025-11-19 22:42:05 | INFO     | ui.gui | [TERMINAL] Traceback (most recent call last):
+2025-11-19 22:42:05 | INFO     | ui.gui | [TERMINAL] File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.12_3.12.2800.0_x64__qbz5n2kfra8p0\Lib\threading.py", line 1075, in _bootstrap_inner
+2025-11-19 22:42:05 | INFO     | ui.gui | [TERMINAL] self.run()
+2025-11-19 22:42:05 | INFO     | ui.gui | [TERMINAL] File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.12_3.12.2800.0_x64__qbz5n2kfra8p0\Lib\threading.py", line 1012, in run
+2025-11-19 22:42:05 | INFO     | ui.gui | [TERMINAL] self._target(*self._args, **self._kwargs)
+2025-11-19 22:42:05 | INFO     | ui.gui | [TERMINAL] File "C:\Users\Nandlal\Documents\.NANDLAL\python\JARVIS\ai\instructions.py", line 571, in generate_instructions
+2025-11-19 22:42:05 | INFO     | ui.gui | [TERMINAL] cache_key = cache.set_pending(prompt, response)
+2025-11-19 22:42:05 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:42:05 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:42:05 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:42:06 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:42:06 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:42:06 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:42:06 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:42:06 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:42:06 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:42:06 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:42:06 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:42:06 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:42:06 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:42:06 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:42:06 | WARNING  | urllib3.connectionpool | Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001CF840E8BC0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/6716a01a4089c5ac7baf37338fbeb150
+2025-11-19 22:42:07 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:42:07 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:42:07 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:42:07 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:42:07 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:42:07 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:42:07 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:42:07 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:42:07 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:42:07 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:42:07 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:42:08 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:42:08 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:42:08 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:42:08 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:42:08 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:42:08 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:42:08 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:42:08 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:42:08 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:42:08 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:42:08 | INFO     | ui.gui | [TERMINAL] File "C:\Users\Nandlal\Documents\.NANDLAL\python\JARVIS\ai\redis_cache.py", line 95, in set_pending
+2025-11-19 22:42:08 | INFO     | ui.gui | [TERMINAL] return self.db.hset(key, mapping=mapping)
+2025-11-19 22:42:09 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:42:09 | WARNING  | urllib3.connectionpool | Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001CF86E59160>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/6716a01a4089c5ac7baf37338fbeb150
+2025-11-19 22:42:09 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:42:09 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:42:09 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:42:09 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:42:09 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:42:09 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:42:09 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:42:09 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:42:09 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:42:09 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:42:09 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:42:09 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:42:10 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:42:10 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:42:10 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:42:10 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:42:10 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:42:10 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:42:10 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:42:10 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:42:10 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:42:10 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:42:10 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:42:10 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:42:11 | WARNING  | urllib3.connectionpool | Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001CF86E5A7E0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/6716a01a4089c5ac7baf37338fbeb150
+2025-11-19 22:42:11 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:42:11 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:42:11 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:42:11 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:42:11 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:42:11 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:42:11 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:42:11 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:42:11 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:42:11 | INFO     | ui.gui | [TERMINAL] File "C:\Users\Nandlal\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\redis\commands\core.py", line 5191, in hset
+2025-11-19 22:42:11 | INFO     | ui.gui | [TERMINAL] return self.execute_command("HSET", name, *pieces)
+2025-11-19 22:42:11 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:42:12 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:42:12 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:42:12 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:42:12 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:42:12 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:42:12 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:42:12 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:42:12 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:42:12 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:42:12 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:42:12 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:42:13 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:42:13 | INFO     | audio.volume | Volume lowered: 8% → 5%
+2025-11-19 22:42:13 | INFO     | audio.volume | Volume restored to 7%
+2025-11-19 22:42:13 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:42:13 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:42:13 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:42:13 | INFO     | audio.volume | Volume lowered: 8% → 5%
+2025-11-19 22:42:13 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:42:13 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:42:13 | INFO     | audio.volume | Volume restored to 7%
+2025-11-19 22:42:13 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:42:13 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:42:13 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:42:13 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:42:13 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:42:13 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:42:13 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:42:14 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:42:14 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:42:14 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:42:14 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:42:14 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:42:14 | INFO     | ui.gui | [TERMINAL] ^
+2025-11-19 22:42:14 | INFO     | audio.stt | ✅ STT cleanup completed
+2025-11-19 22:42:17 | INFO     | ui.gui | [TERMINAL] Exception in Tkinter callback
+2025-11-19 22:42:23 | ERROR    | audio.stt | Driver not ready for recording
+2025-11-19 22:42:24 | ERROR    | audio.stt | Driver not ready, triggering restart
+2025-11-19 22:42:25 | WARNING  | urllib3.connectionpool | Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001CF86F32540>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/6716a01a4089c5ac7baf37338fbeb150/execute/sync
+2025-11-19 22:42:26 | WARNING  | urllib3.connectionpool | Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001CF86F5D400>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/6716a01a4089c5ac7baf37338fbeb150
+2025-11-19 22:42:27 | WARNING  | urllib3.connectionpool | Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001CF86F70740>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/6716a01a4089c5ac7baf37338fbeb150/execute/sync
+2025-11-19 22:42:28 | WARNING  | urllib3.connectionpool | Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001CF8A2100E0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/6716a01a4089c5ac7baf37338fbeb150
+2025-11-19 22:42:29 | WARNING  | urllib3.connectionpool | Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001CF8A244740>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/6716a01a4089c5ac7baf37338fbeb150/execute/sync
+2025-11-19 22:42:30 | WARNING  | urllib3.connectionpool | Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001CF8A2DB920>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/6716a01a4089c5ac7baf37338fbeb150
+2025-11-19 22:43:40 | INFO     | JARVIS | ============================================================
+2025-11-19 22:43:40 | INFO     | JARVIS | 🚀 JARVIS Started - 2025-11-19 22:43:40
+2025-11-19 22:43:40 | INFO     | JARVIS | 📁 Log Directory: C:\Users\Nandlal\Documents\.NANDLAL\python\JARVIS\Data\logs
+2025-11-19 22:43:40 | INFO     | JARVIS | ============================================================
+2025-11-19 22:44:01 | INFO     | ai.providers | ✅ Using Cohere COHERE Key 1 key
+2025-11-19 22:44:01 | INFO     | root | 🎤 Initializing Native TTS...
+2025-11-19 22:44:01 | INFO     | audio.tts_native | ✅ Native TTS initialized with Microsoft David Desktop - English (United States)
+2025-11-19 22:44:01 | INFO     | audio.tts | ✅ Global TTS engine set
+2025-11-19 22:44:01 | INFO     | root | ✅ Native TTS initialized
+2025-11-19 22:44:03 | INFO     | JARVIS | ✅ TTS ready
+2025-11-19 22:44:05 | INFO     | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-19 22:44:05 | INFO     | ai.providers | ✅ Using GROQ Key 1 key
+2025-11-19 22:44:05 | INFO     | ai.providers | ✅ Using HUGGINGFACE Key 1 key
+2025-11-19 22:44:05 | INFO     | ai.providers | ✅ Using OPENROUTER Key 1 key
+2025-11-19 22:44:05 | INFO     | ai.providers | ✅ Using MISTRAL Key 1 key
+2025-11-19 22:44:07 | INFO     | audio.stt | ✅ STT ChromeDriver created (attempt 1)
+2025-11-19 22:44:07 | INFO     | audio.stt | ✅ FORTIFIED STT initialized
+2025-11-19 22:44:07 | INFO     | JARVIS | ✅ STT ready
+2025-11-19 22:44:07 | INFO     | audio.volume | Volume controller initialized (current: 7%)
+2025-11-19 22:44:07 | INFO     | core.local_server | 🚀 Local context server started at http://localhost:8989
+2025-11-19 22:44:09 | INFO     | audio.stt_fallback | ✅ Fallback STT initialized
+2025-11-19 22:44:09 | INFO     | monitors.clipboard | ✅ Event-driven clipboard monitor started
+2025-11-19 22:44:09 | INFO     | ui.gui | 📺 Auto-selected secondary monitor
+2025-11-19 22:44:09 | INFO     | ai.task_queue | ✅ Started 3 AI worker threads
+2025-11-19 22:44:10 | WARNING  | urllib3.connectionpool | Connection pool is full, discarding connection: localhost. Connection pool size: 1
+2025-11-19 22:44:11 | INFO     | JARVIS | 🚀 JARVIS is now running
+2025-11-19 22:44:13 | INFO     | audio.stt | ✅ STT page fully initialized
+2025-11-19 22:44:13 | WARNING  | urllib3.connectionpool | Connection pool is full, discarding connection: localhost. Connection pool size: 1
+2025-11-19 22:44:13 | INFO     | audio.stt | ✅ STT page fully initialized
+2025-11-19 22:44:14 | INFO     | config.aliases | Loaded 1 custom aliases
+2025-11-19 22:44:15 | INFO     | ui.gui | [TERMINAL] 🌐 Internet Connected
+2025-11-19 22:44:15 | INFO     | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-19 22:44:16 | INFO     | ui.gui | [TERMINAL] DEBUG PROMPT:
+2025-11-19 22:44:16 | INFO     | ui.gui | [TERMINAL] <class 'str'>
+2025-11-19 22:44:16 | INFO     | ui.gui | [TERMINAL] hello
+2025-11-19 22:44:16 | INFO     | ui.gui | [TERMINAL] DEBUG RESPONSE:
+2025-11-19 22:44:16 | INFO     | ui.gui | [TERMINAL] <class 'str'>
+2025-11-19 22:44:16 | INFO     | ui.gui | [TERMINAL] print("Hello")
+2025-11-19 22:44:16 | INFO     | ui.gui | [TERMINAL] FINAL MAPPING:
+2025-11-19 22:44:16 | INFO     | ui.gui | [TERMINAL] {'prompt': 'hello', 'response': 'print("Hello")', 'status': 'pending', 'created_at': '1763572456.0008185', 'last_accessed': '1763572456.0008185', 'access_count': '1'}
+2025-11-19 22:44:16 | INFO     | ui.gui | [TERMINAL] FIELD:
+2025-11-19 22:44:16 | INFO     | ui.gui | [TERMINAL] 'prompt'
+2025-11-19 22:44:16 | INFO     | ui.gui | [TERMINAL] VALUE:
+2025-11-19 22:44:16 | INFO     | ui.gui | [TERMINAL] 'hello'
+2025-11-19 22:44:16 | INFO     | ui.gui | [TERMINAL] FIELD:
+2025-11-19 22:44:16 | INFO     | ui.gui | [TERMINAL] 'response'
+2025-11-19 22:44:16 | INFO     | ui.gui | [TERMINAL] VALUE:
+2025-11-19 22:44:17 | INFO     | ui.gui | [TERMINAL] 'print("Hello")'
+2025-11-19 22:44:17 | INFO     | audio.stt | 🎤 Real-time Mic Watchdog thread has started and is now waiting for events.
+2025-11-19 22:44:17 | INFO     | ui.gui | [TERMINAL] FIELD:
+2025-11-19 22:44:17 | INFO     | ui.gui | [TERMINAL] 'status'
+2025-11-19 22:44:17 | INFO     | ui.gui | [TERMINAL] VALUE:
+2025-11-19 22:44:17 | INFO     | ui.gui | [TERMINAL] 'pending'
+2025-11-19 22:44:17 | INFO     | ui.gui | [TERMINAL] FIELD:
+2025-11-19 22:44:17 | INFO     | ui.gui | [TERMINAL] 'created_at'
+2025-11-19 22:44:17 | INFO     | ui.gui | [TERMINAL] VALUE:
+2025-11-19 22:44:17 | INFO     | ui.gui | [TERMINAL] '1763572456.0008185'
+2025-11-19 22:44:17 | INFO     | ui.gui | [TERMINAL] FIELD:
+2025-11-19 22:44:17 | INFO     | ui.gui | [TERMINAL] 'last_accessed'
+2025-11-19 22:44:17 | INFO     | ui.gui | [TERMINAL] VALUE:
+2025-11-19 22:44:17 | INFO     | ui.gui | [TERMINAL] '1763572456.0008185'
+2025-11-19 22:44:17 | INFO     | ui.gui | [TERMINAL] FIELD:
+2025-11-19 22:44:18 | INFO     | ui.gui | [TERMINAL] 'access_count'
+2025-11-19 22:44:18 | INFO     | ui.gui | [TERMINAL] VALUE:
+2025-11-19 22:44:18 | INFO     | ui.gui | [TERMINAL] '1'
+2025-11-19 22:44:18 | INFO     | ui.gui | [TERMINAL] Moving ahead.
+2025-11-19 22:44:18 | INFO     | ui.gui | [TERMINAL] Hello
+2025-11-19 22:44:25 | INFO     | ui.gui | [TERMINAL] Exception in Tkinter callback
+2025-11-19 22:44:25 | INFO     | ui.gui | [TERMINAL] Traceback (most recent call last):
+2025-11-19 22:44:25 | INFO     | ui.gui | [TERMINAL] File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.12_3.12.2800.0_x64__qbz5n2kfra8p0\Lib\tkinter\__init__.py", line 1968, in __call__
+    return self.func(*args)
+           ^^^^^^^^^^^^^^^^
+2025-11-19 22:44:25 | INFO     | ui.gui | [TERMINAL] File "C:\Users\Nandlal\Documents\.NANDLAL\python\JARVIS\ai\instructions.py", line 720, in on_accept
+    cache.accept(cache_key)
+2025-11-19 22:44:25 | INFO     | ui.gui | [TERMINAL] File "C:\Users\Nandlal\Documents\.NANDLAL\python\JARVIS\ai\redis_cache.py", line 106, in accept
+    self.db.hset(key, "status", "accepted")
+2025-11-19 22:44:25 | INFO     | ui.gui | [TERMINAL] File "C:\Users\Nandlal\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\redis\commands\core.py", line 5191, in hset
+    return self.execute_command("HSET", name, *pieces)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-11-19 22:44:25 | INFO     | ui.gui | [TERMINAL] File "C:\Users\Nandlal\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\redis\client.py", line 657, in execute_command
+    return self._execute_command(*args, **options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-11-19 22:44:25 | INFO     | ui.gui | [TERMINAL] File "C:\Users\Nandlal\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\redis\client.py", line 668, in _execute_command
+    return conn.retry.call_with_retry(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-11-19 22:44:25 | INFO     | ui.gui | [TERMINAL] File "C:\Users\Nandlal\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\redis\retry.py", line 116, in call_with_retry
+    return do()
+           ^^^^
+2025-11-19 22:44:25 | INFO     | ui.gui | [TERMINAL] File "C:\Users\Nandlal\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\redis\client.py", line 669, in <lambda>
+    lambda: self._send_command_parse_response(
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-11-19 22:44:25 | INFO     | ui.gui | [TERMINAL] File "C:\Users\Nandlal\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\redis\client.py", line 639, in _send_command_parse_response
+    conn.send_command(*args, **options)
+2025-11-19 22:44:25 | INFO     | ui.gui | [TERMINAL] File "C:\Users\Nandlal\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\redis\connection.py", line 1097, in send_command
+    self._command_packer.pack(*args),
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-11-19 22:44:25 | INFO     | ui.gui | [TERMINAL] File "C:\Users\Nandlal\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\redis\connection.py", line 134, in pack
+    for arg in map(self.encode, args):
+               ^^^^^^^^^^^^^^^^^^^^^^
+2025-11-19 22:44:25 | INFO     | ui.gui | [TERMINAL] File "C:\Users\Nandlal\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\redis\_parsers\encoders.py", line 20, in encode
+    raise DataError(
+2025-11-19 22:44:25 | INFO     | ui.gui | [TERMINAL] redis.exceptions.DataError: Invalid input of type: 'bool'. Convert to a bytes, string, int or float first.
+2025-11-19 22:44:33 | INFO     | ui.gui | [TERMINAL] 📝 Opening cache editor...
+2025-11-19 22:44:41 | INFO     | ui.gui | [TERMINAL] Exception in Tkinter callback
+2025-11-19 22:44:41 | INFO     | ui.gui | [TERMINAL] Traceback (most recent call last):
+2025-11-19 22:44:41 | INFO     | ui.gui | [TERMINAL] File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.12_3.12.2800.0_x64__qbz5n2kfra8p0\Lib\tkinter\__init__.py", line 1968, in __call__
+    return self.func(*args)
+           ^^^^^^^^^^^^^^^^
+2025-11-19 22:44:41 | INFO     | ui.gui | [TERMINAL] File "C:\Users\Nandlal\Documents\.NANDLAL\python\JARVIS\ai\instructions.py", line 729, in on_reject
+    cache.reject(cache_key)
+2025-11-19 22:44:41 | INFO     | ui.gui | [TERMINAL] File "C:\Users\Nandlal\Documents\.NANDLAL\python\JARVIS\ai\redis_cache.py", line 109, in reject
+    self.db.hset(key, "status", "rejected")
+2025-11-19 22:44:41 | INFO     | ui.gui | [TERMINAL] File "C:\Users\Nandlal\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\redis\commands\core.py", line 5191, in hset
+    return self.execute_command("HSET", name, *pieces)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-11-19 22:44:41 | INFO     | ui.gui | [TERMINAL] File "C:\Users\Nandlal\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\redis\client.py", line 657, in execute_command
+    return self._execute_command(*args, **options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-11-19 22:44:41 | INFO     | ui.gui | [TERMINAL] File "C:\Users\Nandlal\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\redis\client.py", line 668, in _execute_command
+    return conn.retry.call_with_retry(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-11-19 22:44:41 | INFO     | ui.gui | [TERMINAL] File "C:\Users\Nandlal\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\redis\retry.py", line 116, in call_with_retry
+    return do()
+           ^^^^
+2025-11-19 22:44:41 | INFO     | ui.gui | [TERMINAL] File "C:\Users\Nandlal\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\redis\client.py", line 669, in <lambda>
+    lambda: self._send_command_parse_response(
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-11-19 22:44:41 | INFO     | ui.gui | [TERMINAL] File "C:\Users\Nandlal\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\redis\client.py", line 639, in _send_command_parse_response
+    conn.send_command(*args, **options)
+2025-11-19 22:44:41 | INFO     | ui.gui | [TERMINAL] File "C:\Users\Nandlal\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\redis\connection.py", line 1097, in send_command
+    self._command_packer.pack(*args),
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-11-19 22:44:41 | INFO     | ui.gui | [TERMINAL] File "C:\Users\Nandlal\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\redis\connection.py", line 134, in pack
+    for arg in map(self.encode, args):
+               ^^^^^^^^^^^^^^^^^^^^^^
+2025-11-19 22:44:42 | INFO     | ui.gui | [TERMINAL] File "C:\Users\Nandlal\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\redis\_parsers\encoders.py", line 20, in encode
+    raise DataError(
+2025-11-19 22:44:42 | INFO     | ui.gui | [TERMINAL] redis.exceptions.DataError: Invalid input of type: 'bool'. Convert to a bytes, string, int or float first.
+2025-11-19 22:45:07 | WARNING  | urllib3.connectionpool | Connection pool is full, discarding connection: localhost. Connection pool size: 1
+2025-11-19 22:45:43 | INFO     | ui.gui | [TERMINAL] ❌ Exiting from system tray...
+2025-11-19 22:45:43 | INFO     | ui.gui | 🧹 Starting cleanup...
+2025-11-19 22:45:43 | INFO     | ui.gui | 🔊 Volume restored
+2025-11-19 22:45:43 | INFO     | audio.coordinator | 🧹 Cleaning up audio coordinator...
+2025-11-19 22:45:43 | WARNING  | audio.coordinator | 🚨 Force releasing audio coordinator locks
+2025-11-19 22:45:43 | INFO     | audio.coordinator | ✅ Audio coordinator cleanup complete
+2025-11-19 22:45:43 | INFO     | ui.gui | 🌐 Closing STT ChromeDriver...
+2025-11-19 22:45:43 | INFO     | audio.stt | 🧹 Starting STT cleanup...
+2025-11-19 22:45:45 | WARNING  | urllib3.connectionpool | Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000027CF0575D30>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/064741b0bc421ffb34a7583fea012b72
+2025-11-19 22:45:47 | WARNING  | urllib3.connectionpool | Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000027CEEA4BAA0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/064741b0bc421ffb34a7583fea012b72
+2025-11-19 22:45:49 | WARNING  | urllib3.connectionpool | Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000027CF42C94F0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/064741b0bc421ffb34a7583fea012b72
+2025-11-19 22:45:52 | INFO     | audio.stt | ✅ STT cleanup completed
+2025-11-19 22:45:52 | INFO     | ui.gui | [TERMINAL] Exception in Tkinter callback
+2025-11-19 22:45:52 | INFO     | ui.gui | [TERMINAL] Traceback (most recent call last):
+2025-11-19 22:45:52 | INFO     | ui.gui | [TERMINAL] File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.12_3.12.2800.0_x64__qbz5n2kfra8p0\Lib\tkinter\__init__.py", line 1968, in __call__
+    return self.func(*args)
+           ^^^^^^^^^^^^^^^^
+2025-11-19 22:45:52 | INFO     | ui.gui | [TERMINAL] File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.12_3.12.2800.0_x64__qbz5n2kfra8p0\Lib\tkinter\__init__.py", line 862, in callit
+    func(*args)
+2025-11-19 22:45:52 | INFO     | ui.gui | [TERMINAL] File "C:\Users\Nandlal\Documents\.NANDLAL\python\JARVIS\ui\gui.py", line 200, in _pulse_animation
+    self.canvas.itemconfig(self.glow_outer, width=new_width)
+2025-11-19 22:45:53 | INFO     | ui.gui | [TERMINAL] File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.12_3.12.2800.0_x64__qbz5n2kfra8p0\Lib\tkinter\__init__.py", line 2990, in itemconfigure
+    return self._configure(('itemconfigure', tagOrId), cnf, kw)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-11-19 22:45:53 | INFO     | ui.gui | [TERMINAL] File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.12_3.12.2800.0_x64__qbz5n2kfra8p0\Lib\tkinter\__init__.py", line 1712, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+2025-11-19 22:45:53 | INFO     | ui.gui | [TERMINAL] _tkinter.TclError: invalid command name ".!toplevel.!canvas"
+2025-11-19 22:45:53 | INFO     | ui.gui | ✅ Cleanup completed
+2025-11-19 22:45:53 | INFO     | root | 🧹 Starting shutdown sequence...
+2025-11-19 22:45:53 | INFO     | audio.stt | 🧹 Starting STT cleanup...
+2025-11-19 22:45:55 | WARNING  | urllib3.connectionpool | Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000027CF0FA15B0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/064741b0bc421ffb34a7583fea012b72
+2025-11-19 22:45:57 | WARNING  | urllib3.connectionpool | Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000027CF44593D0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/064741b0bc421ffb34a7583fea012b72
+2025-11-19 22:45:59 | WARNING  | urllib3.connectionpool | Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000027CF05CD820>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/064741b0bc421ffb34a7583fea012b72
+2025-11-19 22:47:15 | INFO     | JARVIS | ============================================================
+2025-11-19 22:47:15 | INFO     | JARVIS | 🚀 JARVIS Started - 2025-11-19 22:47:15
+2025-11-19 22:47:15 | INFO     | JARVIS | 📁 Log Directory: C:\Users\Nandlal\Documents\.NANDLAL\python\JARVIS\Data\logs
+2025-11-19 22:47:15 | INFO     | JARVIS | ============================================================
+2025-11-19 22:47:34 | INFO     | ai.providers | ✅ Using Cohere COHERE Key 1 key
+2025-11-19 22:47:34 | INFO     | root | 🎤 Initializing Native TTS...
+2025-11-19 22:47:34 | INFO     | audio.tts_native | ✅ Native TTS initialized with Microsoft David Desktop - English (United States)
+2025-11-19 22:47:34 | INFO     | audio.tts | ✅ Global TTS engine set
+2025-11-19 22:47:34 | INFO     | root | ✅ Native TTS initialized
+2025-11-19 22:47:36 | INFO     | JARVIS | ✅ TTS ready
+2025-11-19 22:47:39 | INFO     | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-19 22:47:39 | INFO     | ai.providers | ✅ Using GROQ Key 1 key
+2025-11-19 22:47:39 | INFO     | ai.providers | ✅ Using HUGGINGFACE Key 1 key
+2025-11-19 22:47:39 | INFO     | ai.providers | ✅ Using OPENROUTER Key 1 key
+2025-11-19 22:47:39 | INFO     | ai.providers | ✅ Using MISTRAL Key 1 key
+2025-11-19 22:47:39 | INFO     | audio.stt | ✅ STT ChromeDriver created (attempt 1)
+2025-11-19 22:47:39 | INFO     | audio.stt | ✅ FORTIFIED STT initialized
+2025-11-19 22:47:39 | INFO     | JARVIS | ✅ STT ready
+2025-11-19 22:47:39 | INFO     | audio.volume | Volume controller initialized (current: 7%)
+2025-11-19 22:47:40 | INFO     | core.local_server | 🚀 Local context server started at http://localhost:8989
+2025-11-19 22:47:42 | INFO     | audio.stt_fallback | ✅ Fallback STT initialized
+2025-11-19 22:47:42 | INFO     | monitors.clipboard | ✅ Event-driven clipboard monitor started
+2025-11-19 22:47:42 | INFO     | ui.gui | 📺 Auto-selected secondary monitor
+2025-11-19 22:47:42 | INFO     | ai.task_queue | ✅ Started 3 AI worker threads
+2025-11-19 22:47:44 | WARNING  | urllib3.connectionpool | Connection pool is full, discarding connection: localhost. Connection pool size: 1
+2025-11-19 22:47:44 | INFO     | JARVIS | 🚀 JARVIS is now running
+2025-11-19 22:47:47 | INFO     | audio.stt | ✅ STT page fully initialized
+2025-11-19 22:47:47 | WARNING  | urllib3.connectionpool | Connection pool is full, discarding connection: localhost. Connection pool size: 1
+2025-11-19 22:47:47 | INFO     | audio.stt | ✅ STT page fully initialized
+2025-11-19 22:47:48 | INFO     | ui.gui | [TERMINAL] 🌐 Internet Connected
+2025-11-19 22:47:49 | INFO     | ui.gui | [TERMINAL] 📝 Opening cache editor...
+2025-11-19 22:47:49 | INFO     | audio.stt | 🎤 Real-time Mic Watchdog thread has started and is now waiting for events.
+2025-11-19 22:47:56 | INFO     | ui.gui | [TERMINAL] Exception in Tkinter callback
+2025-11-19 22:47:57 | INFO     | ui.gui | [TERMINAL] Traceback (most recent call last):
+2025-11-19 22:47:57 | INFO     | ui.gui | [TERMINAL] File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.12_3.12.2800.0_x64__qbz5n2kfra8p0\Lib\tkinter\__init__.py", line 1968, in __call__
+    return self.func(*args)
+           ^^^^^^^^^^^^^^^^
+2025-11-19 22:47:57 | INFO     | ui.gui | [TERMINAL] File "C:\Users\Nandlal\Documents\.NANDLAL\python\JARVIS\ui\cache_manager.py", line 81, in create_backup
+    key_str = key.decode()
+              ^^^^^^^^^^
+2025-11-19 22:47:57 | INFO     | ui.gui | [TERMINAL] AttributeError: 'str' object has no attribute 'decode'. Did you mean: 'encode'?
+2025-11-19 22:48:04 | INFO     | config.aliases | Loaded 1 custom aliases
+2025-11-19 22:48:04 | INFO     | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-19 22:48:04 | INFO     | ui.gui | [TERMINAL] DEBUG PROMPT:
+2025-11-19 22:48:04 | INFO     | ui.gui | [TERMINAL] <class 'str'>
+2025-11-19 22:48:04 | INFO     | ui.gui | [TERMINAL] hello
+2025-11-19 22:48:04 | INFO     | ui.gui | [TERMINAL] DEBUG RESPONSE:
+2025-11-19 22:48:04 | INFO     | ui.gui | [TERMINAL] <class 'str'>
+2025-11-19 22:48:05 | INFO     | ui.gui | [TERMINAL] print("Hello")
+2025-11-19 22:48:05 | INFO     | ui.gui | [TERMINAL] FINAL MAPPING:
+2025-11-19 22:48:05 | INFO     | ui.gui | [TERMINAL] {'prompt': 'hello', 'response': 'print("Hello")', 'status': 'pending', 'created_at': '1763572684.7634854', 'last_accessed': '1763572684.7634854', 'access_count': '1'}
+2025-11-19 22:48:05 | INFO     | ui.gui | [TERMINAL] FIELD:
+2025-11-19 22:48:05 | INFO     | ui.gui | [TERMINAL] 'prompt'
+2025-11-19 22:48:05 | INFO     | ui.gui | [TERMINAL] VALUE:
+2025-11-19 22:48:05 | INFO     | ui.gui | [TERMINAL] 'hello'
+2025-11-19 22:48:05 | INFO     | ui.gui | [TERMINAL] FIELD:
+2025-11-19 22:48:05 | INFO     | ui.gui | [TERMINAL] 'response'
+2025-11-19 22:48:05 | INFO     | ui.gui | [TERMINAL] VALUE:
+2025-11-19 22:48:05 | INFO     | ui.gui | [TERMINAL] 'print("Hello")'
+2025-11-19 22:48:05 | INFO     | ui.gui | [TERMINAL] FIELD:
+2025-11-19 22:48:05 | INFO     | ui.gui | [TERMINAL] 'status'
+2025-11-19 22:48:05 | INFO     | ui.gui | [TERMINAL] VALUE:
+2025-11-19 22:48:06 | INFO     | ui.gui | [TERMINAL] 'pending'
+2025-11-19 22:48:06 | INFO     | ui.gui | [TERMINAL] FIELD:
+2025-11-19 22:48:06 | INFO     | ui.gui | [TERMINAL] 'created_at'
+2025-11-19 22:48:06 | INFO     | ui.gui | [TERMINAL] VALUE:
+2025-11-19 22:48:06 | INFO     | ui.gui | [TERMINAL] '1763572684.7634854'
+2025-11-19 22:48:06 | INFO     | ui.gui | [TERMINAL] FIELD:
+2025-11-19 22:48:06 | INFO     | ui.gui | [TERMINAL] 'last_accessed'
+2025-11-19 22:48:06 | INFO     | ui.gui | [TERMINAL] VALUE:
+2025-11-19 22:48:06 | INFO     | ui.gui | [TERMINAL] '1763572684.7634854'
+2025-11-19 22:48:06 | INFO     | ui.gui | [TERMINAL] FIELD:
+2025-11-19 22:48:06 | INFO     | ui.gui | [TERMINAL] 'access_count'
+2025-11-19 22:48:06 | INFO     | ui.gui | [TERMINAL] VALUE:
+2025-11-19 22:48:06 | INFO     | ui.gui | [TERMINAL] '1'
+2025-11-19 22:48:06 | INFO     | ui.gui | [TERMINAL] Starting operation.
+2025-11-19 22:48:07 | INFO     | ui.gui | [TERMINAL] Hello
+2025-11-19 22:48:10 | INFO     | ui.gui | [TERMINAL] Entry accepted.
+2025-11-19 22:48:16 | INFO     | ui.gui | [TERMINAL] 📝 Opening cache editor...
+2025-11-19 22:48:25 | INFO     | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-19 22:48:25 | INFO     | ui.gui | [TERMINAL] DEBUG PROMPT:
+2025-11-19 22:48:25 | INFO     | ui.gui | [TERMINAL] <class 'str'>
+2025-11-19 22:48:25 | INFO     | ui.gui | [TERMINAL] open chrome
+2025-11-19 22:48:26 | INFO     | ui.gui | [TERMINAL] DEBUG RESPONSE:
+2025-11-19 22:48:26 | INFO     | ui.gui | [TERMINAL] <class 'str'>
+2025-11-19 22:48:26 | INFO     | ui.gui | [TERMINAL] import os
+os.system('start chrome')
+2025-11-19 22:48:26 | INFO     | ui.gui | [TERMINAL] FINAL MAPPING:
+2025-11-19 22:48:26 | INFO     | ui.gui | [TERMINAL] {'prompt': 'open chrome', 'response': "import os\nos.system('start chrome')", 'status': 'pending', 'created_at': '1763572705.9176652', 'last_accessed': '1763572705.9176652', 'access_count': '1'}
+2025-11-19 22:48:26 | INFO     | ui.gui | [TERMINAL] FIELD:
+2025-11-19 22:48:26 | INFO     | ui.gui | [TERMINAL] 'prompt'
+2025-11-19 22:48:26 | INFO     | ui.gui | [TERMINAL] VALUE:
+2025-11-19 22:48:26 | INFO     | ui.gui | [TERMINAL] 'open chrome'
+2025-11-19 22:48:26 | INFO     | ui.gui | [TERMINAL] FIELD:
+2025-11-19 22:48:26 | INFO     | ui.gui | [TERMINAL] 'response'
+2025-11-19 22:48:26 | INFO     | ui.gui | [TERMINAL] VALUE:
+2025-11-19 22:48:27 | INFO     | ui.gui | [TERMINAL] "import os\nos.system('start chrome')"
+2025-11-19 22:48:27 | INFO     | ui.gui | [TERMINAL] FIELD:
+2025-11-19 22:48:27 | INFO     | ui.gui | [TERMINAL] 'status'
+2025-11-19 22:48:27 | INFO     | ui.gui | [TERMINAL] VALUE:
+2025-11-19 22:48:27 | INFO     | ui.gui | [TERMINAL] 'pending'
+2025-11-19 22:48:27 | INFO     | ui.gui | [TERMINAL] FIELD:
+2025-11-19 22:48:27 | INFO     | ui.gui | [TERMINAL] 'created_at'
+2025-11-19 22:48:27 | INFO     | ui.gui | [TERMINAL] VALUE:
+2025-11-19 22:48:27 | INFO     | ui.gui | [TERMINAL] '1763572705.9176652'
+2025-11-19 22:48:27 | INFO     | ui.gui | [TERMINAL] FIELD:
+2025-11-19 22:48:28 | INFO     | ui.gui | [TERMINAL] 'last_accessed'
+2025-11-19 22:48:28 | INFO     | ui.gui | [TERMINAL] VALUE:
+2025-11-19 22:48:28 | INFO     | ui.gui | [TERMINAL] '1763572705.9176652'
+2025-11-19 22:48:28 | INFO     | ui.gui | [TERMINAL] FIELD:
+2025-11-19 22:48:28 | INFO     | ui.gui | [TERMINAL] 'access_count'
+2025-11-19 22:48:28 | INFO     | ui.gui | [TERMINAL] VALUE:
+2025-11-19 22:48:28 | INFO     | ui.gui | [TERMINAL] '1'
+2025-11-19 22:48:28 | INFO     | ui.gui | [TERMINAL] Copy that.
+2025-11-19 22:48:32 | INFO     | ui.gui | [TERMINAL] Entry synced.
+2025-11-19 22:48:54 | WARNING  | audio.stt | 🎤 Mic watchdog [EVENT]: Mic use by Chrome's specific process path not found. Forcing re-activation.
+2025-11-19 22:49:14 | INFO     | ui.gui | [TERMINAL] 🔄 Restarting from system tray...
+2025-11-19 22:49:14 | INFO     | ui.gui | [TERMINAL] 🔄 Restarting program...
+2025-11-19 22:49:22 | INFO     | JARVIS | ============================================================
+2025-11-19 22:49:22 | INFO     | JARVIS | 🚀 JARVIS Started - 2025-11-19 22:49:22
+2025-11-19 22:49:22 | INFO     | JARVIS | 📁 Log Directory: C:\Users\Nandlal\Documents\.NANDLAL\python\JARVIS\Data\logs
+2025-11-19 22:49:22 | INFO     | JARVIS | ============================================================
+2025-11-19 22:49:41 | INFO     | ai.providers | ✅ Using Cohere COHERE Key 1 key
+2025-11-19 22:49:41 | INFO     | root | 🎤 Initializing Native TTS...
+2025-11-19 22:49:42 | INFO     | audio.tts_native | ✅ Native TTS initialized with Microsoft David Desktop - English (United States)
+2025-11-19 22:49:42 | INFO     | audio.tts | ✅ Global TTS engine set
+2025-11-19 22:49:42 | INFO     | root | ✅ Native TTS initialized
+2025-11-19 22:49:44 | INFO     | JARVIS | ✅ TTS ready
+2025-11-19 22:49:47 | INFO     | audio.stt | ✅ STT ChromeDriver created (attempt 1)
+2025-11-19 22:49:47 | INFO     | audio.stt | ✅ FORTIFIED STT initialized
+2025-11-19 22:49:47 | INFO     | JARVIS | ✅ STT ready
+2025-11-19 22:49:47 | INFO     | audio.volume | Volume controller initialized (current: 7%)
+2025-11-19 22:49:48 | INFO     | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-19 22:49:48 | INFO     | ai.providers | ✅ Using GROQ Key 1 key
+2025-11-19 22:49:48 | INFO     | ai.providers | ✅ Using HUGGINGFACE Key 1 key
+2025-11-19 22:49:48 | INFO     | ai.providers | ✅ Using OPENROUTER Key 1 key
+2025-11-19 22:49:48 | INFO     | ai.providers | ✅ Using MISTRAL Key 1 key
+2025-11-19 22:49:48 | INFO     | core.local_server | 🚀 Local context server started at http://localhost:8989
+2025-11-19 22:49:50 | INFO     | audio.stt_fallback | ✅ Fallback STT initialized
+2025-11-19 22:49:50 | INFO     | monitors.clipboard | ✅ Event-driven clipboard monitor started
+2025-11-19 22:49:50 | INFO     | ui.gui | 📺 Auto-selected secondary monitor
+2025-11-19 22:49:50 | INFO     | ai.task_queue | ✅ Started 3 AI worker threads
+2025-11-19 22:49:51 | WARNING  | urllib3.connectionpool | Connection pool is full, discarding connection: localhost. Connection pool size: 1
+2025-11-19 22:49:52 | INFO     | JARVIS | 🚀 JARVIS is now running
+2025-11-19 22:49:54 | INFO     | audio.stt | ✅ STT page fully initialized
+2025-11-19 22:49:54 | INFO     | audio.stt | ✅ STT page fully initialized
+2025-11-19 22:49:54 | WARNING  | urllib3.connectionpool | Connection pool is full, discarding connection: localhost. Connection pool size: 1
+2025-11-19 22:49:56 | INFO     | ui.gui | [TERMINAL] 🌐 Internet Connected
+2025-11-19 22:49:57 | INFO     | audio.stt | 🎤 Real-time Mic Watchdog thread has started and is now waiting for events.
+2025-11-19 22:50:10 | INFO     | config.aliases | Loaded 1 custom aliases
+2025-11-19 22:50:11 | INFO     | ui.gui | [TERMINAL] Task repetition confirmed.
+2025-11-19 22:50:11 | INFO     | ui.gui | [TERMINAL] Hello
+2025-11-19 22:50:37 | INFO     | ui.gui | [TERMINAL] 🔄 Restarting from system tray...
+2025-11-19 22:50:37 | INFO     | ui.gui | [TERMINAL] 🔄 Restarting program...
+2025-11-19 22:50:45 | INFO     | JARVIS | ============================================================
+2025-11-19 22:50:45 | INFO     | JARVIS | 🚀 JARVIS Started - 2025-11-19 22:50:45
+2025-11-19 22:50:45 | INFO     | JARVIS | 📁 Log Directory: C:\Users\Nandlal\Documents\.NANDLAL\python\JARVIS\Data\logs
+2025-11-19 22:50:45 | INFO     | JARVIS | ============================================================
+2025-11-19 22:51:03 | INFO     | ai.providers | ✅ Using Cohere COHERE Key 1 key
+2025-11-19 22:51:03 | INFO     | root | 🎤 Initializing Native TTS...
+2025-11-19 22:51:03 | INFO     | audio.tts_native | ✅ Native TTS initialized with Microsoft David Desktop - English (United States)
+2025-11-19 22:51:03 | INFO     | audio.tts | ✅ Global TTS engine set
+2025-11-19 22:51:03 | INFO     | root | ✅ Native TTS initialized
+2025-11-19 22:51:05 | INFO     | JARVIS | ✅ TTS ready
+2025-11-19 22:51:07 | INFO     | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-19 22:51:07 | INFO     | ai.providers | ✅ Using GROQ Key 1 key
+2025-11-19 22:51:07 | INFO     | ai.providers | ✅ Using HUGGINGFACE Key 1 key
+2025-11-19 22:51:07 | INFO     | ai.providers | ✅ Using OPENROUTER Key 1 key
+2025-11-19 22:51:07 | INFO     | ai.providers | ✅ Using MISTRAL Key 1 key
+2025-11-19 22:51:09 | INFO     | audio.stt | ✅ STT ChromeDriver created (attempt 1)
+2025-11-19 22:51:09 | INFO     | audio.stt | ✅ FORTIFIED STT initialized
+2025-11-19 22:51:09 | INFO     | JARVIS | ✅ STT ready
+2025-11-19 22:51:09 | INFO     | audio.volume | Volume controller initialized (current: 7%)
+2025-11-19 22:51:09 | INFO     | core.local_server | 🚀 Local context server started at http://localhost:8989
+2025-11-19 22:51:11 | INFO     | audio.stt_fallback | ✅ Fallback STT initialized
+2025-11-19 22:51:11 | INFO     | monitors.clipboard | ✅ Event-driven clipboard monitor started
+2025-11-19 22:51:11 | INFO     | ui.gui | 📺 Auto-selected secondary monitor
+2025-11-19 22:51:11 | INFO     | ai.task_queue | ✅ Started 3 AI worker threads
+2025-11-19 22:51:12 | WARNING  | urllib3.connectionpool | Connection pool is full, discarding connection: localhost. Connection pool size: 1
+2025-11-19 22:51:14 | INFO     | JARVIS | 🚀 JARVIS is now running
+2025-11-19 22:51:15 | INFO     | audio.stt | ✅ STT page fully initialized
+2025-11-19 22:51:15 | WARNING  | urllib3.connectionpool | Connection pool is full, discarding connection: localhost. Connection pool size: 1
+2025-11-19 22:51:15 | INFO     | audio.stt | ✅ STT page fully initialized
+2025-11-19 22:51:17 | INFO     | ui.gui | [TERMINAL] 🌐 Internet Connected
+2025-11-19 22:51:19 | INFO     | audio.stt | 🎤 Real-time Mic Watchdog thread has started and is now waiting for events.
+2025-11-19 22:51:37 | INFO     | config.aliases | Loaded 1 custom aliases
+2025-11-19 22:51:37 | INFO     | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-19 22:51:37 | INFO     | ui.gui | [TERMINAL] Moving ahead.
+2025-11-19 22:52:07 | INFO     | ui.gui | [TERMINAL] 📝 Opening cache editor...
+2025-11-19 22:52:35 | INFO     | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-19 22:52:35 | INFO     | ui.gui | [TERMINAL] Running task.
+2025-11-19 22:52:44 | INFO     | ui.gui | [TERMINAL] Entry accepted.
+2025-11-19 22:52:47 | INFO     | ui.gui | [TERMINAL] 📝 Opening cache editor...
+2025-11-19 22:53:01 | INFO     | ui.gui | [TERMINAL] 📝 Opening cache editor...
+2025-11-19 22:53:08 | INFO     | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-19 22:53:08 | INFO     | ui.gui | [TERMINAL] Command received.
+2025-11-19 22:53:11 | WARNING  | ui.gui | [TERMINAL] Suspended.
+2025-11-19 22:53:11 | WARNING  | ui.gui | [TERMINAL] Entry gone.
+2025-11-19 22:53:14 | INFO     | ui.gui | [TERMINAL] 📝 Opening cache editor...
+2025-11-19 22:53:18 | INFO     | audio.volume | Volume lowered: 8% → 5%
+2025-11-19 22:53:21 | WARNING  | audio.stt | 🎤 Mic watchdog [EVENT]: Mic use by Chrome's specific process path not found. Forcing re-activation.
+2025-11-19 22:53:27 | INFO     | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-19 22:53:27 | INFO     | ui.gui | [TERMINAL] Command received.
+2025-11-19 22:53:28 | INFO     | audio.volume | Volume restored to 7%
+2025-11-19 22:53:29 | WARNING  | urllib3.connectionpool | Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None)': /session/d2e58cdc07fe32ede72d2fbb785c3474/element/f.D20BA7F4EF256A47C212FF7F01884F5A.d.504F2B5F3AECB5530CF2C079E4C090A0.e.26/text

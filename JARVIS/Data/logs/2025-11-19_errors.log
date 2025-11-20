@@ -1,0 +1,115 @@
+2025-11-19 19:24:19 | ERROR    | audio.stt | _create_driver_with_retry:493
+STT driver creation failed (attempt 1): Message: session not created: Chrome instance exited. Examine ChromeDriver verbose log to determine the cause.; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#sessionnotcreatedexception
+Stacktrace:
+Symbols not available. Dumping unresolved backtrace:
+	0x7ff79450a235
+	0x7ff794262630
+	0x7ff793ff16dd
+	0x7ff7940304a5
+	0x7ff79402bc03
+	0x7ff794080bc2
+	0x7ff794080400
+	0x7ff79403b0ed
+	0x7ff79403bf63
+	0x7ff794535d60
+	0x7ff79452fe8a
+	0x7ff794551005
+	0x7ff79427d71e
+	0x7ff794284e1f
+	0x7ff79426b7c4
+	0x7ff79426b97f
+	0x7ff7942518e8
+	0x7ffe95a8e8d7
+	0x7ffe9624c53c
+
+
+2025-11-19 19:24:31 | ERROR    | audio.stt | _create_driver_with_retry:493
+STT driver creation failed (attempt 2): Message: session not created: Chrome failed to start: crashed.
+  (session not created: DevToolsActivePort file doesn't exist)
+  (The process started from chrome location C:\Program Files\Google\Chrome\Application\chrome.exe is no longer running, so ChromeDriver is assuming that Chrome has crashed.); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#sessionnotcreatedexception
+Stacktrace:
+Symbols not available. Dumping unresolved backtrace:
+	0x7ff79450a235
+	0x7ff794262630
+	0x7ff793ff16dd
+	0x7ff7940306f0
+	0x7ff79402bc03
+	0x7ff794080bc2
+	0x7ff794080400
+	0x7ff79403b0ed
+	0x7ff79403bf63
+	0x7ff794535d60
+	0x7ff79452fe8a
+	0x7ff794551005
+	0x7ff79427d71e
+	0x7ff794284e1f
+	0x7ff79426b7c4
+	0x7ff79426b97f
+	0x7ff7942518e8
+	0x7ffe95a8e8d7
+	0x7ffe9624c53c
+
+
+2025-11-19 19:24:42 | ERROR    | audio.stt | _create_driver_with_retry:493
+STT driver creation failed (attempt 3): Message: session not created: Chrome failed to start: crashed.
+  (session not created: DevToolsActivePort file doesn't exist)
+  (The process started from chrome location C:\Program Files\Google\Chrome\Application\chrome.exe is no longer running, so ChromeDriver is assuming that Chrome has crashed.); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#sessionnotcreatedexception
+Stacktrace:
+Symbols not available. Dumping unresolved backtrace:
+	0x7ff79450a235
+	0x7ff794262630
+	0x7ff793ff16dd
+	0x7ff7940306f0
+	0x7ff79402bc03
+	0x7ff794080bc2
+	0x7ff794080400
+	0x7ff79403b0ed
+	0x7ff79403bf63
+	0x7ff794535d60
+	0x7ff79452fe8a
+	0x7ff794551005
+	0x7ff79427d71e
+	0x7ff794284e1f
+	0x7ff79426b7c4
+	0x7ff79426b97f
+	0x7ff7942518e8
+	0x7ffe95a8e8d7
+	0x7ffe9624c53c
+
+
+2025-11-19 19:24:42 | ERROR    | JARVIS | main:188
+❌ STT initialization failed: Message: session not created: Chrome failed to start: crashed.
+  (session not created: DevToolsActivePort file doesn't exist)
+  (The process started from chrome location C:\Program Files\Google\Chrome\Application\chrome.exe is no longer running, so ChromeDriver is assuming that Chrome has crashed.); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#sessionnotcreatedexception
+Stacktrace:
+Symbols not available. Dumping unresolved backtrace:
+	0x7ff79450a235
+	0x7ff794262630
+	0x7ff793ff16dd
+	0x7ff7940306f0
+	0x7ff79402bc03
+	0x7ff794080bc2
+	0x7ff794080400
+	0x7ff79403b0ed
+	0x7ff79403bf63
+	0x7ff794535d60
+	0x7ff79452fe8a
+	0x7ff794551005
+	0x7ff79427d71e
+	0x7ff794284e1f
+	0x7ff79426b7c4
+	0x7ff79426b97f
+	0x7ff7942518e8
+	0x7ffe95a8e8d7
+	0x7ffe9624c53c
+
+
+2025-11-19 19:42:49 | ERROR    | audio.tts_native | stop_speaking:126
+Stop speaking error: 'NoneType' object has no attribute 'Speak'
+
+2025-11-19 22:42:23 | ERROR    | audio.stt | main:519
+Driver not ready for recording
+
+2025-11-19 22:42:24 | ERROR    | audio.stt | listen_for_wake_word:474
+Driver not ready, triggering restart
+
