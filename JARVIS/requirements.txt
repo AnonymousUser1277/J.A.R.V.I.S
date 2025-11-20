@@ -19,7 +19,6 @@ numpy
 # Audio Processing
 pygame
 pycaw
-winsound; sys_platform == 'win32'
 pyttsx3
 SpeechRecognition
 
