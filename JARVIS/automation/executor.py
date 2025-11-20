@@ -173,15 +173,16 @@ def run_generated_code(code, gui_handler, script_path=None):
         gui_handler.show_terminal_output(error_msg, color="red")
         logger.error(error_msg)
     
+    # In automation/executor.py
+
     finally:
         # After execution restore streams first
         sys.stdout = old_stdout
         sys.stderr = old_stderr
 
-        # Speak only the last printed message (if any) — obey AUTO_TTS and ENABLE_TTS if available
+        # Speak only the last printed message (if any)
         try:
             if ENABLE_TTS and AUTO_TTS and printed_messages:
-                # Prefer the last non-empty line
                 last_msg = None
                 for txt in reversed(printed_messages):
                     if txt and str(txt).strip():
@@ -189,20 +190,21 @@ def run_generated_code(code, gui_handler, script_path=None):
                         break
 
                 if last_msg:
-                    # 🔧 FIX: Set mic to idle and restore volume BEFORE speaking
-                    # This ensures the mic shows normal state and volume is audible
+                    # [FIX] Force UI Reset BEFORE speaking to prevent "stuck" look
                     try:
-                        gui_handler.queue_gui_task(lambda: gui_handler._update_button_state("idle"))
+                        if hasattr(gui_handler, 'queue_gui_task'):
+                            gui_handler.queue_gui_task(lambda: gui_handler._update_button_state("idle"))
                     except Exception:
                         pass
                     
+                    # [FIX] Restore volume BEFORE speaking so you can actually hear it
                     try:
-                        gui_handler.volume_controller.restore_volume()
+                        if hasattr(gui_handler, 'volume_controller'):
+                            gui_handler.volume_controller.restore_volume()
                     except Exception:
                         pass
                     
-                    # Now speak at full volume with idle mic state
+                    # Now speak (this might block depending on tts settings, but UI is already fixed)
                     speak(last_msg)
         except Exception:
-            # Never raise from TTS in cleanup
             pass
