@@ -1,372 +1,581 @@
-# JARVIS - Just A Rather Very Intelligent System
+# 🤖 JARVIS - Just A Rather Very Intelligent System
 
 <div align="center">
 
-![JARVIS](https://img.shields.io/badge/JARVIS-AI%20Assistant-00ff00?style=for-the-badge)
-![Python](https://img.shields.io/badge/Python-3.8+-blue?style=for-the-badge&logo=python)
-![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
-![Platform](https://img.shields.io/badge/Platform-Windows-0078D6?style=for-the-badge&logo=windows)
+![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)
+![License](https://img.shields.io/badge/License-MIT-green.svg)
+![Platform](https://img.shields.io/badge/Platform-Windows-lightgrey.svg)
+![Status](https://img.shields.io/badge/Status-Active-success.svg)
 
-**An advanced AI-powered desktop assistant with voice control, context awareness, and intelligent automation**
+**A powerful AI-powered voice assistant inspired by Iron Man's JARVIS**
 
-[Features](#-features) • [Installation](#-installation) • [Usage](#-usage) • [Configuration](#%EF%B8%8F-configuration) • [Architecture](#-architecture)
+[Features](#-features) • [Installation](#-installation) • [Configuration](#-configuration) • [Usage](#-usage) • [Documentation](#-documentation)
 
 </div>
 
 ---
 
-## 🌟 Features
+## 📋 Table of Contents
 
-### 🎤 Voice & Speech
-- **Wake Word Detection**: Always-listening "Jarvis" wake word activation
-- **Multi-Provider Speech-to-Text**: Web-based STT with automatic fallback system
-- **Natural Text-to-Speech**: Microsoft Edge TTS with multiple voice options
-- **Voice Commands**: Hands-free control with natural language processing
-
-### 🧠 AI Intelligence
-- **Multi-AI Provider Support**: Automatic failover between Cohere, Groq, Gemini, HuggingFace, OpenRouter, and Mistral
-- **Vision Capabilities**: Screen and camera analysis using Gemini 2.0
-- **Smart Caching**: SQLite-based cache system with acceptance workflow
-- **Context-Aware**: Understands browser URLs, active windows, clipboard, and system state
-
-### 🖥️ System Integration
-- **12 Real-Time Monitors**:
-  - Browser URL tracking (via Chrome/Edge extension)
-  - File Explorer path monitoring
-  - Clipboard content tracking
-  - Active window detection
-  - Downloads folder monitoring
-  - System performance (CPU, RAM, Disk)
-  - Battery status
-  - Network connectivity & WiFi
-  - USB/HDMI device detection
-  - Bluetooth devices
-  - User idle time detection
-
-### 🎨 User Interface
-- **Animated JARVIS Orb**: Dynamic, pulsing control interface with state indicators
-- **Persistent Terminal**: Non-intrusive floating message system
-- **Code View Dialog**: Alt+Shift+C to view generated code
-- **System Tray Integration**: Quick access to settings and controls
-- **Blur Effects**: Modern glassmorphism UI design
-
-### 🤖 Automation
-- **Code Generation**: AI generates Python code to execute tasks
-- **OCR Integration**: Click/move cursor to any text on screen
-- **Image Generation**: Text-to-image via HuggingFace models
-- **Hotkeys**: Win+Space (input), Win+Enter (mic toggle)
-- **File Upload**: Attach files to prompts for AI processing
-
-### 🔒 Security
-- **Face Recognition**: Optional facial authentication on startup
-- **Admin Detection**: Runs with appropriate privileges
-- **Destructive Command Warnings**: Confirmations for dangerous operations
+- [Overview](#-overview)
+- [Features](#-features)
+- [Architecture](#-architecture)
+- [Prerequisites](#-prerequisites)
+- [Installation](#-installation)
+- [Configuration](#-configuration)
+- [Usage](#-usage)
+- [Advanced Features](#-advanced-features)
+- [Troubleshooting](#-troubleshooting)
+- [Contributing](#-contributing)
+- [License](#-license)
 
 ---
 
-## 📋 Requirements
+## 🌟 Overview
 
-- **OS**: Windows 10/11
-- **Python**: 3.8 or higher
-- **Hardware**: Webcam (for vision/auth), Microphone (for voice)
-- **Software**: 
-  - Tesseract OCR
-  - Google Chrome/Edge (for STT/TTS)
+JARVIS is a sophisticated desktop AI assistant for Windows that combines voice recognition, natural language processing, and system automation. Built with Python, it offers a modular architecture supporting multiple AI providers and extensive customization options.
 
----
+### What Makes JARVIS Special?
 
-## 🚀 Installation
-
-### 1. Clone Repository
-```bash
-git clone https://github.com/yourusername/JARVIS.git
-cd JARVIS
-```
-
-### 2. Install Python Dependencies
-```bash
-pip install -r requirements.txt
-```
-
-### 3. Install External Dependencies
-
-#### Tesseract OCR
-Download and install from: https://github.com/UB-Mannheim/tesseract/wiki
-
-Default path: `C:\Program Files\Tesseract-OCR\tesseract.exe`
-
-### 4. Configure API Keys
-Create a `.env` file in the project root:
-
-```env
-# AI Providers (add at least one)
-COHERE_KEY_1=your_cohere_key
-GROQ_KEY_1=your_groq_key
-GEMINI_KEY_1=your_gemini_key
-HUGGINGFACE_KEY_1=your_huggingface_key
-
-# Optional: Additional keys for failover
-COHERE_KEY_2=backup_key
-GROQ_KEY_2=backup_key
-```
-
-### 5. Install Browser Extension (Optional)
-Load the `browser_extension` folder as an unpacked extension in Chrome/Edge for automatic URL tracking.
-
-**Chrome/Edge**: 
-1. Navigate to `chrome://extensions` or `edge://extensions`
-2. Enable "Developer mode"
-3. Click "Load unpacked"
-4. Select the `JARVIS/browser_extension` folder
+- **🎯 Multi-AI Provider Support** - Seamlessly switches between Cohere, Groq, HuggingFace, OpenRouter, Mistral, and Gemini
+- **🎤 Advanced Voice Control** - Wake word detection, real-time speech-to-text, and natural text-to-speech
+- **👁️ Vision Capabilities** - Screen capture and camera analysis using Gemini Vision
+- **🧠 Context Awareness** - Monitors browser, clipboard, file explorer, system performance, and more
+- **🎨 Modern UI** - Dark-themed interface with animated control orb and persistent terminal
+- **📊 Proactive Notifications** - Smart alerts for battery, downloads, network, devices, and system resources
+- **🔐 Face Recognition** - Secure authentication using facial recognition
 
 ---
 
-## 🎮 Usage
+## ✨ Features
 
-### First Run
-```bash
-python main.py
-```
+### Core Capabilities
 
-On first run, JARVIS will:
-1. Request face registration for authentication
-2. Initialize AI providers
-3. Start all monitoring systems
-4. Launch the control interface
+#### 🎙️ Voice Interaction
+- **Wake Word Detection** - Activate with "Hey JARVIS" (customizable)
+- **Real-time Speech Recognition** - Browser-based STT with automatic fallback
+- **Natural Text-to-Speech** - Windows SAPI with multiple voice options
+- **Volume Auto-Ducking** - Automatically lowers system volume during listening
 
-### Voice Commands
-Say **"Jarvis"** followed by your command:
-- "Jarvis, open YouTube"
-- "Jarvis, what's on my screen?"
-- "Jarvis, bookmark this page"
-- "Jarvis, send a message to John"
+#### 🤖 AI Integration
+- **Multi-Provider Architecture** - Automatic failover between AI providers
+- **Smart Caching System** - Redis-based response caching with acceptance workflow
+- **Code Generation** - Generates and executes Python code for complex tasks
+- **Vision Processing** - Analyzes screen content and camera input
 
-### Manual Input
-- **Win + Space**: Open text input dialog
-- **Click the orb**: Toggle voice recording
-- **Alt + Shift + C**: View last generated code
+#### 📊 Context Monitoring
+- **Browser Tracking** - Current URL via extension + UI automation fallback
+- **File Explorer** - Active folder monitoring
+- **Clipboard** - Event-driven clipboard tracking
+- **System Metrics** - CPU, RAM, disk, temperature monitoring
+- **Network Status** - WiFi SSID and connectivity tracking
+- **Device Detection** - USB, HDMI, Bluetooth device monitoring
+- **Battery Status** - Level and charging state tracking
 
-### System Tray
-Right-click the tray icon for:
-- Edit cache
-- Edit configuration
-- Open logs folder
-- Restart/Exit
+#### 🛠️ Automation Features
+- **Task Scheduling** - Schedule commands with natural language ("remind me in 2 hours")
+- **OCR Integration** - Click and interact with screen text via Tesseract
+- **Document Generation** - Create Word, Markdown, and text documents
+- **Image Generation** - Generate images using HuggingFace models
+- **Command Aliases** - Create shortcuts for frequently used commands
+- **File Management** - Handle multiple files in prompts with content reading
 
----
-
-## ⚙️ Configuration
-
-Edit `config.ini` to customize behavior:
-
-```ini
-[Audio]
-enable_stt = true
-enable_tts = true
-assistant_voice = en-GB-RyanNeural
-stt_language = en-IN
-
-[Behavior]
-confirm_ai_execution = false
-auto_tts_output = true
-dev_mode = false
-
-[Monitors]
-# Polling intervals (seconds)
-browser_url_poll = 1.0
-clipboard_poll = 2.0
-performance_poll = 10.0
-```
-
-### Key Settings:
-- `enable_stt`: Voice input on/off
-- `enable_tts`: Voice output on/off
-- `confirm_ai_execution`: Require confirmation before running generated code
-- `auto_tts_output`: Speak the last printed output from code
-- `dev_mode`: Enable file watcher for auto-reload during development
+#### 🎨 User Interface
+- **Animated Control Orb** - Dynamic visual states (idle/listening/processing)
+- **Persistent Terminal** - Scrolling message display with auto-fade
+- **Code Viewer** - View generated code with syntax highlighting
+- **Cache Editor** - Visual JSON editor for response cache
+- **Settings Dialog** - Comprehensive configuration interface
+- **Theme System** - Multiple color schemes (Dark, Light, Matrix, Cyberpunk)
+- **System Tray** - Background operation with quick access menu
 
 ---
 
 ## 🏗️ Architecture
 
-### Project Structure
 ```
 JARVIS/
-├── main.py                 # Entry point
-├── config.ini              # User configuration
-├── requirements.txt        # Python dependencies
+├── ai/                      # AI processing core
+│   ├── providers.py         # Multi-provider management with failover
+│   ├── instructions.py      # Prompt generation and code execution
+│   ├── vision.py            # Gemini-based vision processing
+│   ├── redis_cache.py       # Response caching system
+│   ├── ImageGeneration.py   # HuggingFace image generation
+│   └── proactive.py         # Proactive suggestion engine
 │
-├── ai/                     # AI processing
-│   ├── providers.py        # Multi-provider system with failover
-│   ├── instructions.py     # Command processing & code generation
-│   ├── vision.py           # Screen/camera analysis
-│   ├── cache.py            # SQLite cache system
-│   └── ImageGeneration.py  # Text-to-image
+├── audio/                   # Audio processing
+│   ├── stt.py               # Speech-to-text (Selenium-based)
+│   ├── stt_fallback.py      # Backup STT system
+│   ├── tts_native.py        # Windows SAPI TTS
+│   ├── volume.py            # Volume control
+│   └── coordinator.py       # STT/TTS coordination
 │
-├── audio/                  # Audio systems
-│   ├── stt.py              # Speech-to-Text (Selenium-based)
-│   ├── stt_fallback.py     # Backup STT with auto-recovery
-│   ├── tts_selenium.py     # Text-to-Speech engine
-│   ├── coordinator.py      # Prevents STT/TTS conflicts
-│   └── volume.py           # System volume control
+├── automation/              # System automation
+│   ├── executor.py          # Code execution engine
+│   ├── screen.py            # OCR and screen interaction
+│   └── hotkeys.py           # Global hotkey management
 │
-├── ui/                     # User interface
-│   ├── gui.py              # Main GUI with animated orb
-│   ├── terminal.py         # Floating message system
-│   ├── dialogs.py          # Input/response dialogs
-│   ├── cache_editor.py     # Visual cache editor
-│   └── tray.py             # System tray icon
+├── core/                    # Core functionality
+│   ├── context_manager.py   # System context tracking
+│   ├── notification.py      # Proactive notifications
+│   ├── task_scheduler.py    # Task scheduling system
+│   ├── auth.py              # Face recognition auth
+│   └── local_server.py      # Browser extension server
 │
-├── core/                   # Core functionality
-│   ├── context_manager.py  # Central context hub
-│   ├── notification.py     # Proactive alerts
-│   ├── auth.py             # Face recognition
-│   └── local_server.py     # Browser extension server
+├── monitors/                # Context monitors
+│   ├── browser.py           # Browser URL tracking
+│   ├── clipboard.py         # Clipboard monitoring
+│   ├── explorer.py          # File explorer tracking
+│   ├── system.py            # System metrics
+│   └── devices.py           # Device detection
 │
-├── monitors/               # System monitors
-│   ├── clipboard.py
-│   ├── explorer.py
-│   ├── window.py
-│   ├── system.py           # Performance, battery, network
-│   └── devices.py          # USB, HDMI, Bluetooth
+├── ui/                      # User interface
+│   ├── gui.py               # Main GUI handler
+│   ├── terminal.py          # Persistent terminal
+│   ├── startup.py           # Startup screen
+│   ├── settings_dialog.py   # Configuration UI
+│   ├── cache_editor.py      # Cache management UI
+│   └── theme_manager.py     # Theme system
 │
-├── automation/             # Automation tools
-│   ├── executor.py         # Safe code execution
-│   ├── screen.py           # OCR & screen interaction
-│   └── hotkeys.py          # Global hotkey manager
+├── config/                  # Configuration
+│   ├── loader.py            # Config file loader
+│   ├── api_keys.py          # API key management
+│   └── settings.py          # Settings constants
 │
-├── config/                 # Configuration
-│   ├── settings.py
-│   ├── api_keys.py
-│   └── loader.py
+├── integrations/            # External integrations
+│   ├── gmail_integration.py # Gmail IMAP/SMTP
+│   └── calendar_integration.py # iCal calendar
 │
-└── utils/                  # Utilities
-    ├── logger.py
-    ├── file_manager.py
-    └── decorators.py
+├── utils/                   # Utilities
+│   ├── setup_wizard.py      # First-time setup
+│   ├── logger.py            # Logging system
+│   └── file_manager.py      # File handling
+│
+├── browser_extension/       # Chrome extension
+│   ├── manifest.json        # Extension manifest
+│   └── background.js        # URL tracking script
+│
+├── main.py                  # Application entry point
+├── config.ini               # Configuration file
+└── .env                     # API keys (not in repo)
 ```
-
-### Key Components
-
-#### Multi-AI Failover System
-```python
-# Automatic provider switching on failure
-Cohere → Groq → HuggingFace → OpenRouter → Mistral → (cycle)
-```
-
-#### Context System
-12 real-time monitors feed into a central `ContextManager` that provides AI with:
-- Current browser page
-- Active folder path
-- Clipboard content
-- System performance
-- Connected devices
-- And more...
-
-#### Cache System
-- SQLite-based for performance
-- Acceptance workflow (accept/reject/edit)
-- Prevents duplicate executions
-- Visual JSON editor included
 
 ---
 
-## 🧪 Advanced Features
+## 📦 Prerequisites
+
+### System Requirements
+- **OS**: Windows 10/11 (64-bit)
+- **Python**: 3.8 or higher
+- **RAM**: 4GB minimum, 8GB recommended
+- **Storage**: 500MB for installation + cache
+- **Internet**: Required for AI providers and features
+
+### Required Software
+1. **Python 3.8+** - [Download](https://www.python.org/downloads/)
+2. **Redis** - [Download](https://github.com/microsoftarchive/redis/releases)
+3. **Tesseract OCR** - [Download](https://github.com/UB-Mannheim/tesseract/wiki)
+4. **Chrome/Edge Browser** - For speech recognition
+
+---
+
+## 🚀 Installation
+
+### Method 1: Automated Setup (Recommended)
+
+```bash
+# 1. Clone the repository
+git clone https://github.com/yourusername/JARVIS.git
+cd JARVIS
+
+# 2. Install Python dependencies
+pip install -r requirements.txt
+
+# 3. Install Redis (Windows)
+# Download and install from: https://github.com/microsoftarchive/redis/releases
+# Or use Chocolatey:
+choco install redis-64
+
+# 4. Start Redis server
+redis-server
+
+# 5. Install Tesseract OCR
+# Download from: https://github.com/UB-Mannheim/tesseract/wiki
+# Default path: C:\Program Files\Tesseract-OCR\tesseract.exe
+
+# 6. Run setup wizard
+python main.py
+```
+
+The setup wizard will guide you through:
+- ✅ API key configuration
+- ✅ System settings
+- ✅ Face registration
+- ✅ Audio preferences
+- ✅ Startup configuration
+
+### Method 2: Manual Setup
+
+1. **Create `.env` file** in project root:
+```env
+# Cohere API Keys
+COHERE_KEY_1=your_key_here
+COHERE_KEY_2=
+COHERE_KEY_3=
+
+# Groq API Keys
+GROQ_KEY_1=your_key_here
+GROQ_KEY_2=
+GROQ_KEY_3=
+
+# HuggingFace API Keys
+HUGGINGFACE_KEY_1=your_key_here
+HUGGINGFACE_KEY_2=
+HUGGINGFACE_KEY_3=
+
+# OpenRouter API Keys
+OPENROUTER_KEY_1=your_key_here
+OPENROUTER_KEY_2=
+OPENROUTER_KEY_3=
+
+# Mistral API Key
+MISTRAL_KEY_1=your_key_here
+
+# Gemini API Keys
+GEMINI_KEY_1=your_key_here
+GEMINI_KEY_2=
+GEMINI_KEY_3=
+```
+
+2. **Create `config.ini`** (see `config.ini.example` for template)
+
+3. **Install browser extension** (optional but recommended):
+   - Open Chrome/Edge
+   - Navigate to `chrome://extensions/`
+   - Enable "Developer mode"
+   - Click "Load unpacked"
+   - Select `JARVIS/browser_extension/` folder
+
+---
+
+## ⚙️ Configuration
+
+### Essential Settings
+
+Edit `config.ini`:
+
+```ini
+[Paths]
+Program_path = C:\path\to\JARVIS
+tesseract_cmd = C:\Program Files\Tesseract-OCR\tesseract.exe
+
+[Audio]
+enable_stt = true
+enable_tts = true
+stt_website_url = https://realtime-stt-devs-do-code.netlify.app/
+stt_language = en-IN
+TTS_Voice = Ryan
+Wake_word = jarvis
+
+[Behavior]
+confirm_ai_execution = false
+auto_tts_output = true
+dev_mode = false
+hide_console_window = true
+
+[Integrations]
+calendar_url = https://calendar.google.com/calendar/ical/.../basic.ics
+google_app_password = your_app_password
+your_email_address = your.email@gmail.com
+```
+
+### Getting API Keys
+
+| Provider | Free Tier | Get Key |
+|----------|-----------|---------|
+| Cohere | ✅ Yes | [cohere.com](https://cohere.com/) |
+| Groq | ✅ Yes | [groq.com](https://groq.com/) |
+| HuggingFace | ✅ Yes | [huggingface.co](https://huggingface.co/) |
+| OpenRouter | ⚠️ Paid | [openrouter.ai](https://openrouter.ai/) |
+| Mistral | ⚠️ Paid | [mistral.ai](https://mistral.ai/) |
+| Gemini | ✅ Free tier | [ai.google.dev](https://ai.google.dev/) |
+
+**Recommendation**: At minimum, configure Cohere + Groq + Gemini for free usage.
+
+---
+
+## 🎯 Usage
+
+### Starting JARVIS
+
+```bash
+# Method 1: Direct execution
+python main.py
+
+# Method 2: Use batch file
+Jarvis.bat
+
+# Method 3: Run as admin (for full features)
+# Right-click Jarvis.bat → Run as administrator
+```
+
+### Basic Voice Commands
+
+```
+"Hey JARVIS" or "JARVIS"          - Wake word activation
+"Open Chrome"                     - Launch applications
+"What's the weather today?"       - Information queries
+"Create a Python script to..."    - Code generation
+"What do you see on my screen?"   - Vision analysis
+"Click on Submit button"          - UI automation
+"Generate an image of a sunset"   - Image generation
+"Remind me in 1 hour to..."       - Task scheduling
+"Search for Python tutorials"     - Web searches
+"Send email to john@example.com"  - Email operations
+```
+
+### Keyboard Shortcuts
+
+| Shortcut | Action |
+|----------|--------|
+| `Win + Enter` | Toggle microphone |
+| `Win + Space` | Open text input dialog |
+| `Alt + Shift + C` | View generated code |
+| `Escape` | Exit fullscreen dialogs |
+
+### System Tray Menu
+
+Right-click the system tray icon for quick access to:
+- 📅 Show scheduled tasks
+- 📊 View current context
+- 📺 Select monitor
+- 📝 Edit cache
+- 💻 Open project in VS Code
+- 🗄️ View logs
+- 💡 Suggestions
+- ⚙️ Settings
+- 🔄 Restart
+- ❌ Exit
+
+---
+
+## 🔥 Advanced Features
+
+### Task Scheduling
+
+Schedule commands with natural language:
+
+```python
+# Voice commands
+"Remind me to call mom in 2 hours"
+"Every day at 9 AM open my email"
+"Schedule a meeting tomorrow at 3 PM"
+"Every Monday at 10 AM run backup"
+```
+
+### Command Aliases
+
+Create shortcuts for frequently used commands:
+
+1. Open system tray → "Command Aliases"
+2. Add alias: `email` → `open gmail`
+3. Use: Just say "email"
 
 ### Vision Analysis
-```python
-# Say: "Jarvis, what do you see?"
-# JARVIS captures screen + webcam → Gemini 2.0 analysis
+
+JARVIS can analyze:
+- **Screen content** - "What's on my screen?"
+- **Camera input** - "What do you see?"
+- **Specific regions** - Programmatically specify areas
+- **Code review** - "Review this code" (with code on screen)
+
+### Proactive Suggestions
+
+JARVIS learns your patterns and suggests:
+- ⏰ Time-based actions (morning emails, EOD tasks)
+- 🔋 Battery management (save work when low)
+- 📊 Workflow optimization (common app sequences)
+- 🎯 Context-aware actions (create charts from data)
+
+### Parallel Task Processing
+
+Queue multiple commands:
+
 ```
-
-### Code Generation
-```python
-# Say: "Jarvis, create a backup of my Downloads folder"
-# JARVIS generates Python code → Executes safely → Reports result
+"Background search for Python tutorials"
+"Background download that file"
+"Normal priority: send this email"
 ```
-
-### Proactive Notifications
-- Low battery alerts
-- Download completion notices
-- Device connection/disconnection
-- Network status changes
-
-### File Upload Support
-Attach files to prompts for:
-- Code review
-- Document analysis
-- Data processing
-- Image manipulation
-
----
-
-## 🔧 Development
-
-### File Watcher (Dev Mode)
-Set `dev_mode = true` in `config.ini` to enable auto-reload on file changes.
-
-### Logging
-Logs saved to `Data/logs/YYYY-MM-DD.log` with rotation (5MB max, 5 backups).
-
-### Cache Management
-- **View**: System tray → Edit Cache
-- **Format**: JSON with syntax highlighting
-- **Search**: Ctrl+F, F3 (next), Shift+F3 (previous)
 
 ---
 
 ## 🐛 Troubleshooting
 
-### STT Not Working
-- Check `enable_stt = true` in config.ini
-- Ensure microphone permissions granted
-- Try restarting JARVIS
+### Common Issues
 
-### TTS Not Working
-- Check `enable_tts = true` in config.ini
-- Verify internet connection (Edge TTS requires online)
-- Check logs for ChromeDriver errors
+#### STT Not Working
+```bash
+# Check Chrome/ChromeDriver processes
+tasklist | findstr chrome
 
-### AI Provider Failures
-- Verify API keys in `.env`
-- Check rate limits on provider dashboards
-- JARVIS will automatically try backup providers
+# Kill stuck processes
+taskkill /F /IM chrome.exe /T
+taskkill /F /IM chromedriver.exe /T
 
-### Vision Not Working
-- Ensure webcam connected and accessible
-- Check Gemini API keys
-- Vision queries must include phrases like "see", "look at", "what's on screen"
+# Clear temp files
+cd %TEMP%
+del /s /q jarvis_stt_*
+```
+
+#### TTS Not Speaking
+```bash
+# Verify Windows SAPI voices
+powershell "Add-Type -AssemblyName System.Speech; (New-Object System.Speech.Synthesis.SpeechSynthesizer).GetInstalledVoices().VoiceInfo.Name"
+
+# Reinstall if needed
+# Control Panel → Speech → Text to Speech
+```
+
+#### API Errors
+```bash
+# Check Redis is running
+redis-cli ping
+
+# View logs
+cd JARVIS/Data/logs
+type 2024-01-01.log
+
+# Test API keys
+python -c "from config.api_keys import *; print(COHERE_KEYS)"
+```
+
+#### Cache Issues
+```bash
+# Clear Redis cache
+redis-cli FLUSHDB
+
+# Or use GUI: System Tray → Edit Cache → Clear All
+```
+
+### Performance Optimization
+
+1. **Reduce Monitor Polling** - Edit `config.ini` [Monitors] section
+2. **Disable Unused Features** - Set `enable_stt=false` or `enable_tts=false`
+3. **Increase Cache** - Adjust `redis.conf` maxmemory setting
+4. **Close Background Apps** - JARVIS works best with available RAM
+
+### Debug Mode
+
+Enable detailed logging:
+
+```ini
+[Behavior]
+dev_mode = true
+hide_console_window = false
+```
+
+Logs location: `JARVIS/Data/logs/YYYY-MM-DD.log`
 
 ---
 
-## 📝 License
+## 📚 Documentation
 
-This project is licensed under the MIT License - see LICENSE file for details.
+### AI Instruction Customization
+
+Edit AI behavior in Settings → AI Instruction tab:
+
+```python
+# Current instruction template in ai/instructions.py
+full_prompt = f"""
+You are a python code generator for {operating_system} OS.
+Return ONLY pure python code without comments.
+... [customize behavior here]
+"""
+```
+
+### Adding Custom Settings
+
+Use the Settings Dialog → "+Add Setting" tab to dynamically create new configuration options without editing code.
+
+### MCP Integration
+
+JARVIS supports Model Context Protocol (MCP) for extended capabilities. Tools are automatically detected and integrated.
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome! Please follow these guidelines:
+
+1. **Fork the repository**
+2. **Create a feature branch**: `git checkout -b feature/AmazingFeature`
+3. **Commit changes**: `git commit -m 'Add AmazingFeature'`
+4. **Push to branch**: `git push origin feature/AmazingFeature`
+5. **Open a Pull Request**
+
+### Development Setup
+
+```bash
+# Install dev dependencies
+pip install -r requirements-dev.txt
+
+# Enable dev mode
+# In config.ini: dev_mode = true
+
+# Code will auto-reload on save
+```
+
+### Code Style
+
+- Follow PEP 8
+- Use type hints where possible
+- Add docstrings to functions
+- Keep functions under 50 lines
+- Write descriptive commit messages
+
+---
+
+## 📜 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ---
 
 ## 🙏 Acknowledgments
 
-- **AI Providers**: Cohere, Groq, Google (Gemini), HuggingFace, OpenRouter, Mistral
-- **TTS**: Microsoft Edge TTS
-- **OCR**: Tesseract OCR
-- **UI Inspiration**: Marvel's JARVIS
+- **OpenAI** - For AI research and inspiration
+- **Cohere, Groq, HuggingFace** - For AI model APIs
+- **Tesseract** - For OCR capabilities
+- **Redis** - For caching system
+- **Python Community** - For amazing libraries
 
 ---
 
 ## 📞 Support
 
-For issues, questions, or contributions:
-- Open an issue on GitHub
-- Check existing issues for solutions
-- Review logs in `Data/logs/`
+- **Issues**: [GitHub Issues](https://github.com/yourusername/JARVIS/issues)
+- **Discussions**: [GitHub Discussions](https://github.com/yourusername/JARVIS/discussions)
+- **Email**: your.email@example.com
+
+---
+
+## 🗺️ Roadmap
+
+- [ ] Linux/macOS support
+- [ ] Mobile companion app
+- [ ] Custom wake word training
+- [ ] Plugin system for extensions
+- [ ] Cloud sync for settings
+- [ ] Multi-language support
+- [ ] Voice cloning for TTS
+- [ ] Advanced automation workflows
 
 ---
 
 <div align="center">
 
-**Built with ❤️ by Nandlal Pandit**
+**⭐ Star this repo if you find it useful!**
 
-⭐ Star this repo if you find it helpful!
+Made with ❤️ by [Your Name]
 
 </div>
