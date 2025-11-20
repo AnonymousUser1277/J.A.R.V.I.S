@@ -242,7 +242,7 @@ redis-server
 # Download from: https://github.com/UB-Mannheim/tesseract/wiki
 # Default path: C:\Program Files\Tesseract-OCR\tesseract.exe
 
-# 5. Run the batch file as admin. for new user a step wizard will open to configure the program:
+# 5. Run the batch file as admin. for new user a setup wizard will open to configure the program:
 Jarvis.bat
 
 ```
@@ -616,5 +616,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 Made with ❤️ by Nandlal Pandit
 
 </div>
+
 
 
