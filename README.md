@@ -553,9 +553,9 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 📞 Support
 
-- **Issues**: [GitHub Issues](https://github.com/yourusername/JARVIS/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/yourusername/JARVIS/discussions)
-- **Email**: your.email@example.com
+- **Issues**: [GitHub Issues](https://github.com/AnonymousUser1277/J.A.R.V.I.S/issues)
+- **Discussions**: [GitHub Discussions](https://github.com/AnonymousUser1277/J.A.R.V.I.S/discussions)
+- **Email**: panditnandlal271@gmail.com
 
 ---
 
@@ -576,7 +576,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 **⭐ Star this repo if you find it useful!**
 
-Made with ❤️ by [Your Name]
+Made with ❤️ by Nandlal Pandit
 
 </div>
+
 
