@@ -19,6 +19,7 @@ from typing import Dict, List, Tuple
 import subprocess 
 import threading 
 import queue 
+import shutil
 
 class SetupWizard:
     """Interactive setup wizard for first-time users"""
@@ -481,7 +482,7 @@ class SetupWizard:
         self.root.after(100, self._check_install_queue)
 
     def _run_pip_install(self):
-        """Run Redis install, Tesseract install, and pip install in sequence"""
+        """Run Redis install, Tesseract install, and pip install in sequence (Skipping if exists)"""
         
         # --- Helper function to download and install ---
         def install_external_tool(name, url, filename, install_cmd):
@@ -502,20 +503,44 @@ class SetupWizard:
                 self.install_queue.put(("output", f"❌ Error installing {name}: {str(e)}\n"))
                 return False
 
+        # --- Helper to check if program exists ---
+        def is_program_installed(cmd_name, specific_paths=[]):
+            # 1. Check if in System PATH
+            if shutil.which(cmd_name):
+                return True
+            # 2. Check specific default locations
+            for path in specific_paths:
+                if os.path.exists(path):
+                    return True
+            return False
+
         # --- 1. Install Redis ---
-        redis_url = "https://github.com/microsoftarchive/redis/releases/download/win-3.2.100/Redis-x64-3.2.100.msi"
-        # /qn means Quiet/No UI
-        redis_cmd = 'msiexec /i "{PATH}"' 
+        redis_check_paths = [
+            r"C:\Program Files\Redis\redis-server.exe",
+            r"C:\Program Files (x86)\Redis\redis-server.exe"
+        ]
         
-        install_external_tool("Redis", redis_url, "Redis-x64.msi", redis_cmd)
+        if is_program_installed("redis-server", redis_check_paths):
+            self.install_queue.put(("output", "ℹ️ Redis is already installed. Skipping...\n"))
+        else:
+            redis_url = "https://github.com/microsoftarchive/redis/releases/download/win-3.2.100/Redis-x64-3.2.100.msi"
+            redis_cmd = 'msiexec /i "{PATH}"' 
+            install_external_tool("Redis", redis_url, "Redis-x64.msi", redis_cmd)
 
         # --- 2. Install Tesseract (VISIBLE VERSION) ---
-        tess_url = "https://github.com/tesseract-ocr/tesseract/releases/download/5.5.0/tesseract-ocr-w64-setup-5.5.0.20241111.exe"
-        
-        # REMOVED "/S" -> Now the standard Tesseract setup window will appear
-        tess_cmd = '"{PATH}"'
-        
-        install_external_tool("Tesseract OCR", tess_url, "tesseract-setup.exe", tess_cmd)
+        tess_check_paths = [
+            r"C:\Program Files\Tesseract-OCR\tesseract.exe",
+            r"C:\Program Files (x86)\Tesseract-OCR\tesseract.exe",
+            os.path.expanduser(r"~\AppData\Local\Tesseract-OCR\tesseract.exe")
+        ]
+
+        if is_program_installed("tesseract", tess_check_paths):
+            self.install_queue.put(("output", "ℹ️ Tesseract OCR is already installed. Skipping...\n"))
+        else:
+            tess_url = "https://github.com/tesseract-ocr/tesseract/releases/download/5.5.0/tesseract-ocr-w64-setup-5.5.0.20241111.exe"
+            # REMOVED "/S" -> Now the standard Tesseract setup window will appear
+            tess_cmd = '"{PATH}"'
+            install_external_tool("Tesseract OCR", tess_url, "tesseract-setup.exe", tess_cmd)
 
         # --- 3. Install Python Requirements ---
         self.install_queue.put(("output", "\n📦 Starting Python Dependency Installation...\n"))
