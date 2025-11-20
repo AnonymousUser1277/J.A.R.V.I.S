@@ -608,10 +608,6 @@ class AIAssistantGUI:
         """Record speech and process - WITH PARALLEL OPTION"""
         from config.settings import IGNORE_WORDS, STOP_WORDS
         
-        # Safety check
-        if self.listener is None:
-            return
-
         try:
             while not self.listener.stop_listening:
                 speech = self.audio_coordinator.listen(
@@ -630,26 +626,27 @@ class AIAssistantGUI:
                     if speech_lower in IGNORE_WORDS:
                         continue
                     
-                    # ✅ NEW: Check if user wants parallel processing
+                    # Check background processing
                     if speech_lower.startswith("background "):
-                        # Process in background
                         from ai.task_queue import TaskPriority
-                        actual_prompt = speech[11:]  # Remove "background "
+                        actual_prompt = speech[11:]
                         self.ai_processor.submit_task(
                             actual_prompt,
                             priority=TaskPriority.LOW
                         )
-                        self.show_terminal_output(
-                            f"📋 Queued in background: {actual_prompt}",
-                            color="cyan"
-                        )
+                        self.show_terminal_output(f"📋 Queued: {actual_prompt}", color="cyan")
                         continue
                     
-                    # Normal processing (blocks)
+                    # --- VISUAL STATE UPDATE: PROCESSING ---
                     self.queue_gui_task(lambda: self._update_button_state("processing"))
                     
+                    # Execute the logic
                     from ai.instructions import generate_instructions
                     generate_instructions(speech, self.client, self)
+                    
+                    # --- [FIX ADDED HERE] VISUAL STATE UPDATE: IDLE ---
+                    # This ensures the ring turns blue again before listening starts
+                    self.queue_gui_task(lambda: self._update_button_state("idle"))
                     
                     if self.auto_turn_off_mic:
                         self.listener.stop_recording()
@@ -659,11 +656,9 @@ class AIAssistantGUI:
             self.show_terminal_output(f"Error: {str(e)}")
         
         finally:
-            # Safety checks in finally block
-            if self.listener:
-                self.listener.is_listening = False
-                self.listener.stop_listening = False
-            
+            # Cleanup logic (remains the same)
+            self.listener.is_listening = False
+            self.listener.stop_listening = False
             self.queue_gui_task(lambda: self._update_button_state("idle"))
             self.volume_controller.restore_volume()
             
