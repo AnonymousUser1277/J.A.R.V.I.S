@@ -217,8 +217,8 @@ JARVIS is a sophisticated desktop AI assistant for Windows that combines voice r
 
 ### Required Software
 1. **Python 3.8+** - [Download](https://www.python.org/downloads/)
-2. **Redis 3.2+** - [Download](https://github.com/microsoftarchive/redis/releases)
-3. **Tesseract OCR** - [Download](https://github.com/UB-Mannheim/tesseract/wiki)
+2. **Redis 3.2+** - [Download](https://github.com/microsoftarchive/redis/releases/download/win-3.2.100/Redis-x64-3.2.100.msi)
+3. **Tesseract OCR** - [Download](https://github.com/tesseract-ocr/tesseract/releases/download/5.5.0/tesseract-ocr-w64-setup-5.5.0.20241111.exe)
 4. **Chrome** - For speech recognition
 
 ---
@@ -616,6 +616,5 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 Made with ❤️ by Nandlal Pandit
 
 </div>
-
 
 
