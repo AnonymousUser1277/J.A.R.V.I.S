@@ -579,25 +579,33 @@ class AIAssistantGUI:
         self.control_dialog.geometry(f"+{x}+{y}")
     
     # ============= MIC CONTROL (keep existing) =============
-    
+
     def on_mic_click(self, event=None):
-        """Toggle microphone with safety check for uninitialized listener"""
-        # ✅ Fix: Check if listener is None (e.g. STT disabled or failed to load)
+        """Toggle microphone OR Stop TTS if speaking"""
         if self.listener is None:
-            self.show_terminal_output("⚠️ Voice control unavailable (STT disabled)", color="yellow")
+            self.show_terminal_output("⚠️ Voice control unavailable", color="yellow")
             return
 
+        # 1. STOP SPEAKING if currently talking
+        if self.audio_coordinator.is_speaking:
+            from audio.tts import stop_speaking
+            stop_speaking()
+            # Also cancel any queued code execution output
+            self.queue_gui_task(lambda: self._update_button_state("idle"))
+            return
+
+        # 2. Normal Toggle Logic
         if not self.listener.is_listening:
+            # Start Listening
             self._update_button_state("listening")
             self.stop_wake_word_detection()
             self.auto_turn_off_mic = False
-            # self.mic_button.config(bg='#2d2d2d', text="⏸")
             self.volume_controller.lower_volume(target_percent=5)
             threading.Thread(target=self.record_speech, daemon=True).start()
         else:
+            # Stop Listening manually
             self._update_button_state("idle")
             self.listener.stop_recording()
-            # self.mic_button.config(bg='#2d2d2d', text="▶")
             self.volume_controller.restore_volume()
     
     def toggle_mic(self):
