@@ -15,8 +15,9 @@ from tkinter import ttk, messagebox, scrolledtext
 from pathlib import Path
 import configparser
 from typing import Dict, List, Tuple
-
-# ⚠️ DO NOT import from config.* here - files don't exist yet!
+import subprocess 
+import threading 
+import queue 
 
 class SetupWizard:
     """Interactive setup wizard for first-time users"""
@@ -36,15 +37,19 @@ class SetupWizard:
         self.api_keys = {}
         self.config_values = {}
         self.current_step = 0  # This will now be an index for our steps list
-        
+        self.install_queue = queue.Queue() # Queue for thread communication
+        self.is_installing = False #  Flag to track installation status
         # Project paths
         self.project_root = Path(__file__).parent.parent
         self.env_path = self.project_root / '.env'
         self.config_path = self.project_root / 'config.ini'
         self.face_path = self.project_root / 'known_face.npy'
+        self.req_path = self.project_root / 'requirements.txt'
         self._load_existing_env_file()
-        # --- NEW: Build a dynamic list of steps to run ---
+        # --- Build a dynamic list of steps to run ---
         self.steps_to_run = [self._show_welcome]
+        if self.req_path.exists():
+            self.steps_to_run.append(self._show_requirements_install)
         if not self.env_path.exists():
             self.steps_to_run.append(self._show_api_keys)
         if not self.config_path.exists():
@@ -385,7 +390,175 @@ class SetupWizard:
                 bg='#0a0a0a',
                 fg=color
             ).pack(anchor='w', pady=2)
-    
+    def _show_requirements_install(self):
+        """Show requirements installation screen (Mandatory)"""
+        self._clear_content()
+        self._update_progress()
+        
+        # ⛔ MANDATORY: Hide skip button, Disable next button
+        self.skip_btn.pack_forget() 
+        self.next_btn.config(state='disabled')
+        
+        tk.Label(
+            self.content_frame,
+            text="📦 Install Dependencies",
+            font=("Arial", 18, "bold"),
+            bg='#0a0a0a',
+            fg='#00ff00'
+        ).pack(pady=(20, 10))
+        
+        tk.Label(
+            self.content_frame,
+            text="JARVIS requires external libraries to function.\n"
+                 "This step is mandatory and will install packages from requirements.txt.",
+            font=("Arial", 11),
+            bg='#0a0a0a',
+            fg='#cccccc'
+        ).pack(pady=(0, 20))
+
+        # Install Button
+        self.install_btn = tk.Button(
+            self.content_frame,
+            text="⬇️ Start Installation",
+            font=("Arial", 12, "bold"),
+            bg='#00ff00',
+            fg='#000000',
+            relief='flat',
+            cursor='hand2',
+            command=self._start_installation
+        )
+        self.install_btn.pack(pady=10)
+
+        # Progress Bar
+        self.install_progress = ttk.Progressbar(
+            self.content_frame,
+            length=600,
+            mode='determinate'
+        )
+        self.install_progress.pack(pady=10)
+        
+        # Terminal Output Window
+        output_container = tk.Frame(self.content_frame, bg='#1a1a1a', padx=2, pady=2)
+        output_container.pack(fill=tk.BOTH, expand=True, padx=30, pady=10)
+        
+        tk.Label(output_container, text="Installation Log:", bg='#1a1a1a', fg='#888888', font=("Arial", 8)).pack(anchor='nw')
+        
+        self.terminal_output = scrolledtext.ScrolledText(
+            output_container,
+            height=12,
+            bg='#000000',
+            fg='#00ff00',
+            font=("Consolas", 9),
+            state='disabled'
+        )
+        self.terminal_output.pack(fill=tk.BOTH, expand=True)
+        
+        # Estimate progress max based on line count of requirements.txt
+        try:
+            with open(self.req_path, 'r') as f:
+                # Count non-empty lines that aren't comments
+                lines = [line for line in f if line.strip() and not line.startswith('#')]
+                # Multiply by 2 (download + install steps roughly)
+                self.install_progress['maximum'] = len(lines) * 2 + 5
+        except Exception:
+            self.install_progress['maximum'] = 100
+
+    def _start_installation(self):
+        """Start the pip install process in a background thread"""
+        self.install_btn.config(state='disabled', text="⏳ Installing... Please Wait")
+        self.back_btn.config(state='disabled') # Lock navigation
+        self.is_installing = True
+        
+        self._append_terminal("🚀 Starting installation process...\n")
+        self._append_terminal(f"📂 Using requirements: {self.req_path}\n")
+        self._append_terminal("-" * 40 + "\n")
+        
+        # Start thread
+        threading.Thread(target=self._run_pip_install, daemon=True).start()
+        
+        # Start monitoring queue
+        self.root.after(100, self._check_install_queue)
+
+    def _run_pip_install(self):
+        """Run pip install in subprocess and pipe output to queue"""
+        # Use sys.executable to ensure we install in the CURRENT python environment
+        cmd = [sys.executable, "-m", "pip", "install", "-r", str(self.req_path)]
+        
+        try:
+            process = subprocess.Popen(
+                cmd,
+                stdout=subprocess.PIPE,
+                stderr=subprocess.STDOUT,
+                text=True,
+                bufsize=1,
+                universal_newlines=True,
+                cwd=self.project_root
+            )
+            
+            # Read stdout line by line real-time
+            for line in process.stdout:
+                self.install_queue.put(("output", line))
+                
+            process.wait()
+            
+            if process.returncode == 0:
+                self.install_queue.put(("done", True))
+            else:
+                self.install_queue.put(("done", False))
+                
+        except Exception as e:
+            self.install_queue.put(("output", f"\n❌ Critical Error: {str(e)}\n"))
+            self.install_queue.put(("done", False))
+
+    def _check_install_queue(self):
+        """Monitor the installation queue to update UI"""
+        try:
+            while True:
+                msg_type, content = self.install_queue.get_nowait()
+                
+                if msg_type == "output":
+                    self._append_terminal(content)
+                    # Heuristic progress update based on keywords
+                    lower_content = content.lower()
+                    if "collecting" in lower_content or "installing" in lower_content or "satisfied" in lower_content:
+                        try:
+                            self.install_progress.step(1)
+                        except: pass
+                        
+                elif msg_type == "done":
+                    self.is_installing = False
+                    success = content
+                    
+                    if success:
+                        self._append_terminal("\n✅ ALL DEPENDENCIES INSTALLED SUCCESSFULLY!\n")
+                        self.install_progress['value'] = self.install_progress['maximum']
+                        self.install_btn.config(text="✅ Installed", bg='#2d2d2d', fg='#00ff00')
+                        
+                        # Enable navigation
+                        self.next_btn.config(state='normal')
+                        self.back_btn.config(state='normal')
+                        
+                        messagebox.showinfo("Success", "Dependencies installed successfully!\nYou may now proceed.", parent=self.root)
+                    else:
+                        self._append_terminal("\n❌ INSTALLATION FAILED.\nCheck the log above for errors.\n")
+                        self.install_btn.config(state='normal', text="🔄 Retry Installation", bg='#ff4444')
+                        self.back_btn.config(state='normal')
+                        # Next button remains disabled
+                    
+                    return # Stop the loop
+
+        except queue.Empty:
+            pass
+        
+        if self.is_installing:
+            self.root.after(100, self._check_install_queue)
+
+    def _append_terminal(self, text: str):
+        """Safely append text to the scrolled text widget"""
+        self.terminal_output.config(state='normal')
+        self.terminal_output.insert(tk.END, text)
+        self.terminal_output.see(tk.END) # Auto scroll to bottom
+        self.terminal_output.config(state='disabled')
     # =============== STEP 1: API KEYS ===============
     
     def _show_api_keys(self):
@@ -850,7 +1023,8 @@ class SetupWizard:
     def _skip_step(self):
         """Skip the current optional step"""
         current_step_func = self.steps_to_run[self.current_step]
-
+        if current_step_func == self._show_requirements_install:
+             return
         if current_step_func == self._show_api_keys:  # API keys
             result = messagebox.askyesno(
                 "Skip API Keys?",
