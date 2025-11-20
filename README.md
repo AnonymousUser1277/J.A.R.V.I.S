@@ -232,23 +232,19 @@ JARVIS is a sophisticated desktop AI assistant for Windows that combines voice r
 git clone https://github.com/AnonymousUser1277/J.A.R.V.I.S.git
 cd JARVIS
 
-# 2. Install Python dependencies
-pip install -r requirements.txt
-
-# 3. Install Redis (Windows)
+# 2. Install Redis (Windows)
 # Download and install from: https://github.com/microsoftarchive/redis/releases
-# Or use Chocolatey:
-choco install redis-64
 
-# 4. Start Redis server
+# 3. Start Redis server
 redis-server
 
-# 5. Install Tesseract OCR
+# 4. Install Tesseract OCR
 # Download from: https://github.com/UB-Mannheim/tesseract/wiki
 # Default path: C:\Program Files\Tesseract-OCR\tesseract.exe
 
-# 6. Run the batch file as admin:
+# 5. Run the batch file as admin. for new user a step wizard will open to configure the program:
 Jarvis.bat
+
 ```
 
 The setup wizard will guide you through:
@@ -353,14 +349,14 @@ your_email_address = your.email@gmail.com
 ### Starting JARVIS
 
 ```bash
-# Method 1: Direct execution
-python main.py
-
-# Method 2: Use batch file
+# Method 1: Direct execution  (Recommended)
+# Run as admin (for full features)
+# Right-click Jarvis.bat → Run as administrator
 Jarvis.bat
 
-# Method 3: Run as admin (for full features)
-# Right-click Jarvis.bat → Run as administrator
+# Method 2: Or using python file
+python main.py
+
 ```
 
 ### Basic Voice Commands
@@ -560,9 +556,6 @@ Contributions are welcome! Please follow these guidelines:
 ### Development Setup
 
 ```bash
-# Install dev dependencies
-pip install -r requirements-dev.txt
-
 # Enable dev mode
 # In config.ini: dev_mode = true
 
@@ -623,3 +616,5 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 Made with ❤️ by Nandlal Pandit
 
 </div>
+
+
