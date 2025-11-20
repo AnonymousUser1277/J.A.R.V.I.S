@@ -311,12 +311,13 @@ def Vision_main(Query, gui_handler=None, debug=False, region=None):
             
             # --- START: CORRECTED CODE ---
             # Stop mic if active and use the NEW state manager
-            if gui_handler and hasattr(gui_handler, "listener"):
-                gui_handler.listener.stop_recording()
-                gui_handler.listener.is_listening = False
-                # Use the new, correct way to update the UI
+            if gui_handler:
+                # Just reset the visual state, don't kill the listener logic
                 gui_handler.queue_gui_task(lambda: gui_handler._update_button_state("idle"))
-                gui_handler.volume_controller.restore_volume()
+                # Restore volume so user can hear the description
+                try:
+                    gui_handler.volume_controller.restore_volume()
+                except: pass
             # --- END: CORRECTED CODE ---
             
             # ✅ Speak response (if TTS enabled)
