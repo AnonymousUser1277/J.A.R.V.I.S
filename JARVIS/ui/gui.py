@@ -901,7 +901,10 @@ class AIAssistantGUI:
                     t.start()
                 
                 for t in threads:
-                    t.join(timeout=0.1)
+                    try:
+                    # Reduce timeout to prevent hanging UI if clipboard is locked
+                        t.join(timeout=0.2) 
+                    except Exception: pass
                 
                 if 'folder' in results and results['folder']:
                     self.context_manager.update_folder(results['folder'])
