@@ -1,44 +1,69 @@
-# Core Dependencies
-opencv-python
-face-recognition
-numpy
-
-# Audio
-pygame
-edge-tts
-pyttsx3
-pycaw
-
-# AI Providers
-cohere
-groq
-google-generativeai
-
-# UI & Automation
-pyautogui
-pytesseract
-pystray
-Pillow
-pynput
-dateparser
-pyspellchecker
-# Web & Scraping
-selenium
-mss
-google-auth 
-google-auth-oauthlib 
-google-api-python-client 
-google-auth-httplib2
-# Driver manager for Selenium (auto-download chromedriver)
-webdriver-manager
-
-# System Monitoring
+# Core & System
 psutil
 wmi
 pywin32
 comtypes
-
-# Utilities
-python-dotenv
+winshell
 watchdog
+python-dotenv
 requests
+urllib3
+
+# UI & Graphics
+tkinter-tooltip
+pillow
+pystray
+opencv-python
+numpy
+
+# Audio Processing
+pygame
+pycaw
+winsound; sys_platform == 'win32'
+pyttsx3
+SpeechRecognition
+
+# Automation & Input
+pyautogui
+pynput
+keyboard
+pytesseract
+mss
+
+# Web & Browser Automation
+selenium
+webdriver-manager
+beautifulsoup4
+
+# AI & LLM Providers
+groq
+cohere
+google-generativeai
+huggingface-hub
+openai
+
+# Data & Caching
+redis
+icalendar
+dateparser
+pyspellchecker
+
+# Networking & Server (Mobile Companion)
+flask
+flask-cors
+flask-socketio
+eventlet
+
+# Google Integrations
+google-auth
+google-auth-oauthlib
+google-api-python-client
+google-auth-httplib2
+
+# Document Generation
+python-docx
+
+# Facial Recognition
+face-recognition
+dlib
+cmake
