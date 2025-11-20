@@ -581,7 +581,12 @@ class AIAssistantGUI:
     # ============= MIC CONTROL (keep existing) =============
     
     def on_mic_click(self, event=None):
-        """Toggle microphone"""
+        """Toggle microphone with safety check for uninitialized listener"""
+        # ✅ Fix: Check if listener is None (e.g. STT disabled or failed to load)
+        if self.listener is None:
+            self.show_terminal_output("⚠️ Voice control unavailable (STT disabled)", color="yellow")
+            return
+
         if not self.listener.is_listening:
             self._update_button_state("listening")
             self.stop_wake_word_detection()
@@ -603,6 +608,10 @@ class AIAssistantGUI:
         """Record speech and process - WITH PARALLEL OPTION"""
         from config.settings import IGNORE_WORDS, STOP_WORDS
         
+        # Safety check
+        if self.listener is None:
+            return
+
         try:
             while not self.listener.stop_listening:
                 speech = self.audio_coordinator.listen(
@@ -650,8 +659,11 @@ class AIAssistantGUI:
             self.show_terminal_output(f"Error: {str(e)}")
         
         finally:
-            self.listener.is_listening = False
-            self.listener.stop_listening = False
+            # Safety checks in finally block
+            if self.listener:
+                self.listener.is_listening = False
+                self.listener.stop_listening = False
+            
             self.queue_gui_task(lambda: self._update_button_state("idle"))
             self.volume_controller.restore_volume()
             
@@ -726,6 +738,10 @@ class AIAssistantGUI:
     def activate_mic_from_wake_word(self):
         """Activate mic from wake word"""
         try:
+            # ✅ Fix: Guard against None listener
+            if self.listener is None:
+                return
+
             if not self.listener.is_listening:
                 self.auto_turn_off_mic = True
                 
@@ -735,8 +751,6 @@ class AIAssistantGUI:
                 # ✅ FIX: Set listening state properly
                 self.listener.is_listening = True
                 self.listener.stop_listening = False
-                
-                
                 
                 threading.Thread(target=self.record_speech, daemon=True).start()
         except Exception as e:
