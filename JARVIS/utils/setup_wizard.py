@@ -8,7 +8,8 @@ to avoid circular dependencies during first-time setup.
 """
 
 import os
-import shutil
+import urllib.request  
+import tempfile        
 import sys
 import tkinter as tk
 from tkinter import ttk, messagebox, scrolledtext
@@ -480,8 +481,46 @@ class SetupWizard:
         self.root.after(100, self._check_install_queue)
 
     def _run_pip_install(self):
-        """Run pip install in subprocess and pipe output to queue"""
-        # Use sys.executable to ensure we install in the CURRENT python environment
+        """Run Redis install, Tesseract install, and pip install in sequence"""
+        
+        # --- Helper function to download and install ---
+        def install_external_tool(name, url, filename, install_cmd):
+            try:
+                self.install_queue.put(("output", f"\n⬇️ Downloading {name}...\n"))
+                temp_path = os.path.join(tempfile.gettempdir(), filename)
+                
+                # Download
+                urllib.request.urlretrieve(url, temp_path)
+                self.install_queue.put(("output", f"✅ {name} Downloaded.\n"))
+                
+                # Install
+                self.install_queue.put(("output", f"⚙️ Installing {name} (This may take a moment)...\n"))
+                subprocess.run(install_cmd.replace("{PATH}", temp_path), shell=True, check=True)
+                self.install_queue.put(("output", f"✅ {name} Installed Successfully.\n"))
+                return True
+            except Exception as e:
+                self.install_queue.put(("output", f"❌ Error installing {name}: {str(e)}\n"))
+                return False
+
+        # --- 1. Install Redis ---
+        redis_url = "https://github.com/microsoftarchive/redis/releases/download/win-3.2.100/Redis-x64-3.2.100.msi"
+        # /qn means Quiet/No UI
+        redis_cmd = 'msiexec /i "{PATH}"' 
+        
+        install_external_tool("Redis", redis_url, "Redis-x64.msi", redis_cmd)
+
+        # --- 2. Install Tesseract (VISIBLE VERSION) ---
+        tess_url = "https://github.com/tesseract-ocr/tesseract/releases/download/5.5.0/tesseract-ocr-w64-setup-5.5.0.20241111.exe"
+        
+        # REMOVED "/S" -> Now the standard Tesseract setup window will appear
+        tess_cmd = '"{PATH}"'
+        
+        install_external_tool("Tesseract OCR", tess_url, "tesseract-setup.exe", tess_cmd)
+
+        # --- 3. Install Python Requirements ---
+        self.install_queue.put(("output", "\n📦 Starting Python Dependency Installation...\n"))
+        self.install_queue.put(("output", "-" * 40 + "\n"))
+
         cmd = [sys.executable, "-m", "pip", "install", "-r", str(self.req_path)]
         
         try:
@@ -509,7 +548,6 @@ class SetupWizard:
         except Exception as e:
             self.install_queue.put(("output", f"\n❌ Critical Error: {str(e)}\n"))
             self.install_queue.put(("done", False))
-
     def _check_install_queue(self):
         """Monitor the installation queue to update UI"""
         try:
