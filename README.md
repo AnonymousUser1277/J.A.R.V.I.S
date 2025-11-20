@@ -173,9 +173,9 @@ JARVIS/
 
 ### Required Software
 1. **Python 3.8+** - [Download](https://www.python.org/downloads/)
-2. **Redis** - [Download](https://github.com/microsoftarchive/redis/releases)
+2. **Redis 3.2+** - [Download](https://github.com/microsoftarchive/redis/releases)
 3. **Tesseract OCR** - [Download](https://github.com/UB-Mannheim/tesseract/wiki)
-4. **Chrome/Edge Browser** - For speech recognition
+4. **Chrome** - For speech recognition
 
 ---
 
@@ -185,7 +185,7 @@ JARVIS/
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/yourusername/JARVIS.git
+git clone https://github.com/AnonymousUser1277/J.A.R.V.I.S.git
 cd JARVIS
 
 # 2. Install Python dependencies
@@ -579,3 +579,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 Made with ❤️ by [Your Name]
 
 </div>
+
