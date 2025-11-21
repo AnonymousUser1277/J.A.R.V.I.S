@@ -64,7 +64,7 @@ class AIAssistantGUI:
         self.hover_dialog = None  # Separate dialog for hover buttons
         self._hide_buttons_job = None
         self.create_control_dialog()
-        
+        self.create_force_button()
         # Input/Response dialogs
         self.input_dialog = None
         self.input_visible = False
@@ -157,11 +157,88 @@ class AIAssistantGUI:
             x = self.root.winfo_screenwidth() - self.canvas_size - 60
             y = self.root.winfo_screenheight() - self.canvas_size - 80
 
+        # self.control_dialog.geometry(f"{self.canvas_size}x{self.canvas_size}+{x}+{y}")
+        self.main_x = x
+        self.main_y = y
+
         self.control_dialog.geometry(f"{self.canvas_size}x{self.canvas_size}+{x}+{y}")
         
         # Start the idle animation
+        self.state = "idle" # Ensure state is set
+        # Start the idle animation
         self._pulse_animation()
+    def create_force_button(self):
+        """Create a small satellite button to force-toggle the internal mic"""
+        try:
+            self.force_btn_dialog = tk.Toplevel(self.root)
+            self.force_btn_dialog.title("Force Mic")
+            self.force_btn_dialog.configure(bg='#0a0a0a')
+            self.force_btn_dialog.attributes('-topmost', True)
+            self.force_btn_dialog.attributes('-transparentcolor', '#0a0a0a')
+            self.force_btn_dialog.overrideredirect(True)
+            
+            size = 30
+            canvas = tk.Canvas(
+                self.force_btn_dialog, 
+                width=size, 
+                height=size, 
+                bg='#0a0a0a', 
+                highlightthickness=0
+            )
+            canvas.pack()
+            
+            canvas.create_oval(2, 2, size-2, size-2, fill="#1a1a1a", outline="#ffaa00", width=2)
+            canvas.create_text(size/2, size/2, text="⚡", fill="#ffaa00", font=("Arial", 14))
+            
+            def force_click(event):
+                try:
+                    if self.listener and hasattr(self.listener, 'driver'):
+                        self.listener.driver.execute_script(
+                            "var btn = document.getElementById('click_to_record'); if(btn) btn.click();"
+                        )
+                        self.show_terminal_output("Yes!", color="yellow")
+                        canvas.itemconfig(1, outline="#ffffff")
+                        self.root.after(200, lambda: canvas.itemconfig(1, outline="#ffaa00"))
+                except Exception as e:
+                    print(f"Force click failed: {e}")
 
+            canvas.bind('<Button-1>', force_click)
+            
+            # ✅ FIX: Use saved coordinates immediately
+            if hasattr(self, 'main_x') and hasattr(self, 'main_y'):
+                btn_x = self.main_x + 100 - 5  # 100 is canvas size, -5 overlap
+                btn_y = self.main_y
+                self.force_btn_dialog.geometry(f"30x30+{btn_x}+{btn_y}")
+            else:
+                # Fallback if variables missing
+                self.update_force_button_position()
+            
+        except Exception as e:
+            print(f"Failed to create force button: {e}")
+    def update_force_button_position(self):
+        """Snap the force button to the Right-Up corner of the main orb"""
+        if hasattr(self, 'control_dialog') and self.control_dialog.winfo_exists():
+            if hasattr(self, 'force_btn_dialog') and self.force_btn_dialog.winfo_exists():
+                try:
+                    self.control_dialog.update_idletasks()
+                    
+                    x = self.control_dialog.winfo_x()
+                    y = self.control_dialog.winfo_y()
+                    
+                    # Sync variables for future reference
+                    self.main_x = x
+                    self.main_y = y
+                    
+                    w = self.control_dialog.winfo_width()
+                    
+                    # Position: Right side (x + width), Top aligned (y)
+                    btn_x = x + w - 5 
+                    btn_y = y 
+                    
+                    self.force_btn_dialog.geometry(f"30x30+{btn_x}+{btn_y}")
+                    self.force_btn_dialog.lift()
+                except:
+                    pass
     def _update_button_state(self, new_state: str):
         """Changes the visual state and manages animations for the JARVIS orb."""
         # --- Stop any and all previous animations ---
@@ -579,6 +656,7 @@ class AIAssistantGUI:
         x = self.control_dialog.winfo_x() + event.x - self.drag_x
         y = self.control_dialog.winfo_y() + event.y - self.drag_y
         self.control_dialog.geometry(f"+{x}+{y}")
+        self.update_force_button_position()
     
     # ============= MIC CONTROL (keep existing) =============
 
