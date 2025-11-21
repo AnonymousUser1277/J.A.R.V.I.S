@@ -130,8 +130,8 @@ class SpeechToTextListener:
     # ### MODIFIED ### - The watchdog now uses the precise path-matching logic.
     def _mic_watchdog_event_driven(self):
         """
-        A stabilized, event-driven watchdog that precisely checks for the
-        chrome.exe process path as seen in the registry.
+        A stabilized, event-driven watchdog that monitors mic changes in real-time,
+        waits 3 seconds for automatic recovery, then re-activates if needed.
         """
         
         HKEY_CURRENT_USER = 0x80000001
@@ -142,8 +142,12 @@ class SpeechToTextListener:
 
         time.sleep(10)
         logger.info("🎤 Real-time Mic Watchdog thread has started and is now waiting for events.")
+        
+        mic_was_active = False  # Track previous state
+        
         while not self.shutdown_flag:
             try:
+                # Wait for registry change event (blocking)
                 reg_key = winreg.OpenKey(HKEY_CURRENT_USER, key_path, 0, KEY_NOTIFY)
                 RegNotifyChangeKeyValue(reg_key.handle, True, REG_NOTIFY_CHANGE_LAST_SET, None, False)
                 winreg.CloseKey(reg_key)
@@ -151,28 +155,65 @@ class SpeechToTextListener:
                 if self.shutdown_flag:
                     break
                 
-                # Debounce to wait for the registry state to be stable.
-                time.sleep(1)
+                # Registry changed! Now check what happened
+                time.sleep(0.5)  # Small debounce for registry to stabilize
 
+                # Only care if we're actively listening
                 if not self.is_listening and not self.wake_word_listening:
+                    mic_was_active = False
                     continue
                 
-                # Get the set of full registry paths for apps using the mic.
+                # Get the set of full registry paths for apps using the mic
                 current_user_paths = self._get_current_mic_users()
                 
                 # Check if ANY of the active user paths end with '#chrome.exe'
                 is_chrome_active = any(path.lower().endswith("#chrome.exe") for path in current_user_paths)
 
-                if not is_chrome_active:
-                    logger.warning("🎤 Mic watchdog [EVENT]: Mic use by Chrome's specific process path not found. Forcing re-activation.")
-                    try:
-                        with self.lock:
-                            self.driver.execute_script("document.getElementById('click_to_record')?.click()")
+                # Detect state change: mic went from active to inactive
+                if mic_was_active and not is_chrome_active:
+                    logger.warning("🎤 Mic watchdog [EVENT]: Chrome mic access lost! Waiting 3 seconds for auto-recovery...")
+                    
+                    # Wait 3 seconds for automatic recovery
+                    recovery_start = time.time()
+                    recovered = False
+                    
+                    while time.time() - recovery_start < 3.0:
+                        if self.shutdown_flag:
+                            break
                         
-                        # Cooldown to prevent its own action from causing a feedback loop.
-                        time.sleep(3)
-                    except Exception as e:
-                        logger.error(f"Mic watchdog failed to re-click button via event: {e}")
+                        time.sleep(0.5)
+                        
+                        # Check if it recovered on its own
+                        current_user_paths = self._get_current_mic_users()
+                        is_chrome_active = any(path.lower().endswith("#chrome.exe") for path in current_user_paths)
+                        
+                        if is_chrome_active:
+                            logger.info("✅ Mic recovered automatically within 3 seconds!")
+                            recovered = True
+                            break
+                    
+                    # If it didn't recover, force re-activation
+                    if not recovered and not self.shutdown_flag:
+                        logger.warning("⚠️ Mic did NOT recover after 3 seconds. Forcing re-activation...")
+                        try:
+                            with self.lock:
+                                self.driver.execute_script("document.getElementById('click_to_record')?.click()")
+                            
+                            # Wait a moment and verify
+                            time.sleep(1)
+                            current_user_paths = self._get_current_mic_users()
+                            is_chrome_active = any(path.lower().endswith("#chrome.exe") for path in current_user_paths)
+                            
+                            if is_chrome_active:
+                                logger.info("✅ Mic successfully re-activated via button click")
+                            else:
+                                logger.error("❌ Failed to re-activate mic, may need page reload")
+                                
+                        except Exception as e:
+                            logger.error(f"Mic watchdog failed to re-click button: {e}")
+                
+                # Update state for next iteration
+                mic_was_active = is_chrome_active
 
             except FileNotFoundError:
                 logger.error("Mic watchdog: Registry key not found. Monitoring cannot continue.")
@@ -180,8 +221,10 @@ class SpeechToTextListener:
             except Exception as e:
                 logger.error(f"Mic watchdog encountered a critical error: {e}")
                 time.sleep(10)
+        
+        logger.info("🎤 Mic watchdog thread has stopped.")
 
-    # ... (The rest of the file is unchanged and remains exactly as you provided before) ...
+
     def _get_memory_usage(self):
         total_memory = 0
         try:
