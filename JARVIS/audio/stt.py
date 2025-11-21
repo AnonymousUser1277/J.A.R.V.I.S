@@ -77,7 +77,18 @@ class SpeechToTextListener:
         self.chrome_options.add_argument("--disable-extensions")
         self.chrome_options.add_argument("--js-flags=--max-old-space-size=256")
         self.chrome_options.add_experimental_option('excludeSwitches', ['enable-logging'])
-        self.chrome_options.page_load_strategy = 'normal'
+        prefs = {
+            "profile.managed_default_content_settings.images": 2,  # Block images
+            "profile.managed_default_content_settings.stylesheets": 2, # Block CSS
+            "profile.managed_default_content_settings.fonts": 2, # Block fonts
+            "profile.default_content_setting_values.notifications": 2,
+            "profile.managed_default_content_settings.popups": 2,
+            "profile.managed_default_content_settings.geolocation": 2,
+            "profile.managed_default_content_settings.media_stream": 1, # Allow Mic
+        }
+        self.chrome_options.add_experimental_option("prefs", prefs)
+        self.chrome_options.page_load_strategy = 'eager' # Don't wait for full page load
+        # self.chrome_options.page_load_strategy = 'normal'
         self.driver = self._create_driver_with_retry()
         self.wait = WebDriverWait(self.driver, self.element_wait_timeout)
         self.driver_valid = True
