@@ -162,7 +162,7 @@ def get_calendar_integration():
     return _calendar_instance
 def generate_instructions(prompt, client, gui_handler, file_manager=None):
     """Enhanced with full context awareness and file support"""
-
+    
     if not prompt or not gui_handler:
         logger.error("Invalid parameters to generate_instructions")
         return
@@ -170,7 +170,9 @@ def generate_instructions(prompt, client, gui_handler, file_manager=None):
     if client is None:
         gui_handler.show_terminal_output("❌ AI client not initialized", color="red")
         return
-    
+    if not check_destructive_command(prompt, gui_handler):
+        gui_handler.queue_gui_task(lambda: gui_handler._update_button_state("idle"))
+        return  # Command was rejected by user
     
     # Categorize command
     prompt_lower = prompt.lower()
@@ -376,9 +378,7 @@ def generate_instructions(prompt, client, gui_handler, file_manager=None):
     edit_cache._gui_instance = gui_handler
     
     # Check for destructive commands first
-    if not check_destructive_command(prompt, gui_handler):
-        gui_handler.queue_gui_task(lambda: gui_handler._update_button_state("idle"))
-        return  # Command was rejected by user
+    
     if any(keyword in prompt_lower for keyword in ['create report', 'generate document', 'write memo', 'create proposal','write a letter','write letter','write document','generate report','create document','make document','make report']):
         gui_handler.show_terminal_output("📄 Generating document...", color="cyan")
         
@@ -506,7 +506,7 @@ def generate_instructions(prompt, client, gui_handler, file_manager=None):
         file_contents_directive = "\n\nNOTE: The full contents for each selected file are included above under each path. Use those contents when answering, and use the filesystem as required with delays so that system able to load."
     
     full_prompt = f"""
-You are a python code generator for {operating_system} OS and my real professional JARVIS or act like one.
+Act as JARVIS. OS: {operating_system}. Output: Python code ONLY. No markdown. No comments.
 
 Return ONLY the pure python code without any input() or comments in it, because i cannot interact with your generated code so write it to work instantly.
 Make sure to import required libraries as needed, do not import any extra or unecessary module.
