@@ -443,9 +443,10 @@ Queue multiple commands:
 
 #### OCR or Cache System Not Working 
 
-Make Sure Redis 3.2+ And Tesseract are automatically installed during Setup:
-**Redis 3.2+** - [Download](https://github.com/microsoftarchive/redis/releases/)
-**Tesseract OCR** - [Download](https://github.com/tesseract-ocr/tesseract/releases/download/5.5.0/tesseract-ocr-w64-setup-5.5.0.20241111.exe)
+### Make Sure Redis 3.2+ And Tesseract are automatically installed during Setup:
+
+1. **Redis 3.2+** - [Download](https://github.com/microsoftarchive/redis/releases/)
+2. **Tesseract OCR** - [Download](https://github.com/tesseract-ocr/tesseract/releases/download/5.5.0/tesseract-ocr-w64-setup-5.5.0.20241111.exe)
 
 
 #### STT Not Working
@@ -611,5 +612,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 Made with ❤️ by Nandlal Pandit
 
 </div>
+
 
 
