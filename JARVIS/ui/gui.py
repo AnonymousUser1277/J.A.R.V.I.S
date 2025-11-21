@@ -193,6 +193,8 @@ class AIAssistantGUI:
 
     def _pulse_animation(self):
         """Creates a gentle pulsing effect for the idle state."""
+        if not self.control_dialog or not self.control_dialog.winfo_exists():
+            return # Dialog closed
         if self.state != "idle":
             return # Stop the animation if not idle
 
