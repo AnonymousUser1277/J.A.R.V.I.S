@@ -30,6 +30,8 @@ class ReloadHandler(FileSystemEventHandler):
             pass
 
         path = event.src_path
+        if any(x in path for x in ['Data\\logs', 'Data\\Cache', '__pycache__', '.git', 'scheduled_tasks.db']):
+            return
         # Only Python files
         if not path.endswith('.py'):
             return
