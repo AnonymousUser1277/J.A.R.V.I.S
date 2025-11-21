@@ -176,11 +176,26 @@ def run_generated_code(code, gui_handler, script_path=None):
     # In automation/executor.py
 
     finally:
-        # After execution restore streams first
+        # 1. Restore output streams immediately
         sys.stdout = old_stdout
         sys.stderr = old_stderr
 
-        # Speak only the last printed message (if any)
+        # 2. [CRITICAL FIX] Reset UI state UNCONDITIONALLY
+        # Do this before speaking, so the visual state is correct even if TTS is silent
+        try:
+            if hasattr(gui_handler, 'queue_gui_task'):
+                gui_handler.queue_gui_task(lambda: gui_handler._update_button_state("idle"))
+        except Exception:
+            pass
+
+        # 3. [CRITICAL FIX] Restore volume UNCONDITIONALLY
+        try:
+            if hasattr(gui_handler, 'volume_controller'):
+                gui_handler.volume_controller.restore_volume()
+        except Exception:
+            pass
+
+        # 4. Speak the output (if any)
         try:
             if ENABLE_TTS and AUTO_TTS and printed_messages:
                 last_msg = None
@@ -190,21 +205,6 @@ def run_generated_code(code, gui_handler, script_path=None):
                         break
 
                 if last_msg:
-                    # [FIX] Force UI Reset BEFORE speaking to prevent "stuck" look
-                    try:
-                        if hasattr(gui_handler, 'queue_gui_task'):
-                            gui_handler.queue_gui_task(lambda: gui_handler._update_button_state("idle"))
-                    except Exception:
-                        pass
-                    
-                    # [FIX] Restore volume BEFORE speaking so you can actually hear it
-                    try:
-                        if hasattr(gui_handler, 'volume_controller'):
-                            gui_handler.volume_controller.restore_volume()
-                    except Exception:
-                        pass
-                    
-                    # Now speak (this might block depending on tts settings, but UI is already fixed)
                     speak(last_msg)
         except Exception:
             pass
