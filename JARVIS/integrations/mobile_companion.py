@@ -78,10 +78,10 @@ class MobileCompanion:
             name="Mobile-Broadcast"
         )
         self.broadcast_thread.start()
-        
+        self.file_lock = threading.Lock()
         logger.info(f"✅ Mobile Companion started on port {self.port}")
         logger.info(f"📱 Connect from: http://<your-ip>:{self.port}")
-    
+
     def _load_tokens(self) -> Dict:
         """Load authentication tokens"""
         if self.auth_file.exists():
@@ -94,8 +94,9 @@ class MobileCompanion:
     
     def _save_tokens(self):
         """Save authentication tokens"""
-        with open(self.auth_file, 'w') as f:
-            json.dump(self.tokens, f, indent=2)
+        with self.file_lock:
+            with open(self.auth_file, 'w') as f:
+                json.dump(self.tokens, f, indent=2)
     
     def _generate_token(self) -> str:
         """Generate new authentication token"""
