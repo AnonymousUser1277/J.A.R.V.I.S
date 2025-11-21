@@ -270,6 +270,7 @@ class TaskScheduler:
         while self.running:
             try:
                 current_time = time.time()
+                next_wake_time = current_time + 10  # Default sleep 10 seconds
                 
                 with self.lock:
                     for task in list(self.tasks.values()):
@@ -279,9 +280,14 @@ class TaskScheduler:
                         # Check if task is due
                         if task.next_run and task.next_run <= current_time:
                             self._execute_task(task)
-                
-                # Sleep for 10 seconds
-                time.sleep(10)
+                        if task.status == TaskStatus.PENDING and task.next_run:
+                            if task.next_run > current_time:
+                                time_to_task = task.next_run - current_time
+                                if time_to_task < next_wake_time:
+                                    next_wake_time = time_to_task
+                # Sleep exactly until the next task (or max 10s)
+                sleep_duration = max(0.1, min(10, next_wake_time)) 
+                time.sleep(sleep_duration)
             
             except Exception as e:
                 logger.error(f"Scheduler loop error: {e}")
