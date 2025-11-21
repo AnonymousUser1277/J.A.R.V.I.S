@@ -120,7 +120,6 @@ JARVIS is a sophisticated desktop AI assistant for Windows that combines voice r
 │   ├── 🌐 tts.html                          # Web Speech UI | Browser TTS Interface
 │   ├── 🔊 tts.py                            # TTS Wrapper | Compatibility Layer
 │   ├── 🗣️ tts_native.py                     # Offline TTS | Windows SAPI5
-│   ├── 🌐 tts_selenium.py                   # Online TTS | Natural Browser Voices
 │   ├── 🔉 volume.py                         # Auto Volume | Ducking Logic
 │   └── 📦 __init__.py                       # Audio Init
 │
@@ -612,6 +611,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 Made with ❤️ by Nandlal Pandit
 
 </div>
+
 
 
 
