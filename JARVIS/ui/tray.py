@@ -163,6 +163,8 @@ def create_tray_icon(gui_handler):
         pystray.MenuItem("📊 Show Context", on_show_context),
         pystray.MenuItem("📺 Select Monitor", on_select_monitor),
         pystray.MenuItem("📝 Edit Cache", on_edit_cache),
+        pystray.MenuItem("💾 Cache Backups", on_backup_manager),
+        pystray.Menu.SEPARATOR,
         pystray.MenuItem("💻 Edit Code", on_edit_code),
         pystray.MenuItem("🗄️ Open Log", on_open_logs),
         pystray.Menu.SEPARATOR,
@@ -170,8 +172,7 @@ def create_tray_icon(gui_handler):
         pystray.MenuItem("⚡ Command Aliases", on_alias_editor),
         pystray.MenuItem("🎨 Change Theme", on_change_theme),
         pystray.MenuItem("⚙️ Settings", on_settings),
-        pystray.Menu.SEPARATOR,
-        pystray.MenuItem("💾 Cache Backups", on_backup_manager),
+        pystray.Menu.SEPARATOR,   
         pystray.MenuItem("🔄 Restart", on_restart),
         pystray.Menu.SEPARATOR,
         pystray.MenuItem("❌ Exit", on_exit)
