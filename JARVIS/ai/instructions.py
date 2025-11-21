@@ -513,6 +513,7 @@ Make sure to import required libraries as needed, do not import any extra or une
 Use correct structure and syntax, make sure the code is executable without errors for {operating_system} Operating System.
 Do NOT explain or use extra words or heading, no symbols like '`'.
 You can use print() if you want to talk to me or give any text output from your side but do not talk unecessary or for spaming, use it professionally only once, you should not print more than that of any kind of output.
+if the task is to open any application then always use os.system('start application_name') for that purpose. YOU MUST USE NON-BLOCKING COMMANDS.
 You can generate any code which is best, accurate and fast and should work, in order to complete the given task, like if task it to bookmark something use shorcut key 'ctrl' + 'd' and 'enter'. This is just a example the given task can you more complex so be like a real JARVIS and complete the given task accordingly.
 if you want to use keyboard shortcut then consider using pyautogui for that purpose.
 If you are using subprocess.run then make sure to include shell=True. Only use check=True if the command is expected to return exit code 0 (for commands like screen lock that return non-zero on success, omit check=True).
