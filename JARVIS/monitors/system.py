@@ -117,31 +117,20 @@ def downloads_monitor(context_manager, poll=...):
             pass
         time.sleep(poll)
 def check_internet_connectivity():
-    """
-    Check internet connectivity using multiple endpoints
-    More reliable than single ping
-    More reliable than single ping
-    """
-    import socket
-    
-    # Test multiple endpoints
-    endpoints = [
-        ("8.8.8.8", 53),      # Google DNS
-        ("1.1.1.1", 53),      # Cloudflare DNS
-        ("208.67.222.222", 53) # OpenDNS
-    ]
-    
-    for host, port in endpoints:
-        try:
-            sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-            sock.settimeout(2.0)
-            sock.connect((host, port))
-            sock.close()
-            return True  # At least one endpoint reachable
-        except:
-            continue
-    
-    return False  # All endpoints failed
+    try:
+        # Attempt to reach Google DNS (8.8.8.8) on port 53 (DNS)
+        # connectionless (UDP) is faster/lighter than TCP for a "pulse check"
+        # BUT socket.connect on UDP doesn't send packets, it just checks route.
+        # For true check, TCP to port 53 or 80 is better.
+        
+        import socket
+        socket.setdefaulttimeout(3) # Global timeout enforcement
+        s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        s.connect(("8.8.8.8", 53))
+        s.close()
+        return True
+    except Exception:
+        return False
 
 
 def network_monitor(context_manager, poll=...):
