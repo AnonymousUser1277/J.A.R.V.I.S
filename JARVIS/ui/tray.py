@@ -19,8 +19,11 @@ def create_tray_icon(gui_handler):
     def on_restart(icon, item):
         """Restart program with confirmation"""
         def ask_restart():
-            # Bring main window context to front for the dialog
+            # Make the root window invisible (transparent) but active
+            gui_handler.root.attributes('-alpha', 0.0)
             gui_handler.root.deiconify()
+            gui_handler.root.lift()
+            gui_handler.root.focus_force()
             
             confirm = messagebox.askyesno(
                 "Confirm Restart",
@@ -29,17 +32,45 @@ def create_tray_icon(gui_handler):
                 parent=gui_handler.root
             )
             
+            # Restore state (hide root and reset opacity)
+            gui_handler.root.withdraw()
+            gui_handler.root.attributes('-alpha', 1.0)
+            
             if confirm:
                 print("🔄 Restarting from system tray...")
                 from utils.helpers import restart_program
                 restart_program()
-            else:
-                # Re-hide the main window if user cancels
-                gui_handler.root.withdraw()
 
         # Run on main thread
         gui_handler.root.after(0, ask_restart)
-        
+    def on_exit(icon, item):
+        """Exit program with confirmation"""
+        def ask_exit():
+            # Make the root window invisible (transparent) but active
+            gui_handler.root.attributes('-alpha', 0.0)
+            gui_handler.root.deiconify()
+            gui_handler.root.lift()
+            gui_handler.root.focus_force()
+            
+            confirm = messagebox.askyesno(
+                "Confirm Shutdown",
+                "Are you sure you want to shutdown JARVIS?",
+                icon='warning',
+                parent=gui_handler.root
+            )
+            
+            # Restore state (hide root and reset opacity)
+            gui_handler.root.withdraw()
+            gui_handler.root.attributes('-alpha', 1.0)
+            
+            if confirm:
+                print("❌ Exiting from system tray...")
+                gui_handler.cleanup()
+                icon.stop()
+                gui_handler.root.quit()
+
+        # Run on main thread
+        gui_handler.root.after(0, ask_exit)
     def on_edit_cache(icon, item):
         """Open cache editor"""
         print("📝 Opening cache editor...")
@@ -89,30 +120,6 @@ def create_tray_icon(gui_handler):
         except Exception as e:
             print(f"Failed to open logs folder: {e}")
     
-    def on_exit(icon, item):
-        """Exit program with confirmation"""
-        def ask_exit():
-            # Bring main window context to front for the dialog
-            gui_handler.root.deiconify()
-            
-            confirm = messagebox.askyesno(
-                "Confirm Shutdown",
-                "Are you sure you want to shutdown JARVIS?",
-                icon='warning',
-                parent=gui_handler.root
-            )
-            
-            if confirm:
-                print("❌ Exiting from system tray...")
-                gui_handler.cleanup()
-                icon.stop()
-                gui_handler.root.quit()
-            else:
-                # Re-hide the main window if user cancels
-                gui_handler.root.withdraw()
-
-        # Run on main thread
-        gui_handler.root.after(0, ask_exit)
     def on_select_monitor(icon, item):
         """Show monitor selection dialog"""
         try:
