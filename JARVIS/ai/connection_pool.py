@@ -88,7 +88,7 @@ class ConnectionPool:
         # Keep-alive headers
         session.headers.update({
             'Connection': 'keep-alive',
-            'Keep-Alive': 'timeout=60, max=1000'
+            'Keep-Alive': 'timeout=20, max=1000'
         })
         
         return session
