@@ -6,7 +6,7 @@ from datetime import datetime
 import os
 import pystray
 from PIL import Image, ImageDraw
-
+from tkinter import messagebox
 def create_tray_icon(gui_handler):
     """Create system tray icon with menu"""
     
@@ -17,10 +17,28 @@ def create_tray_icon(gui_handler):
     draw.text((20, 18), "AI", fill=(255, 255, 255))
     
     def on_restart(icon, item):
-        """Restart program"""
-        print("🔄 Restarting from system tray...")
-        from utils.helpers import restart_program
-        restart_program()
+        """Restart program with confirmation"""
+        def ask_restart():
+            # Bring main window context to front for the dialog
+            gui_handler.root.deiconify()
+            
+            confirm = messagebox.askyesno(
+                "Confirm Restart",
+                "Are you sure you want to restart JARVIS?",
+                icon='warning',
+                parent=gui_handler.root
+            )
+            
+            if confirm:
+                print("🔄 Restarting from system tray...")
+                from utils.helpers import restart_program
+                restart_program()
+            else:
+                # Re-hide the main window if user cancels
+                gui_handler.root.withdraw()
+
+        # Run on main thread
+        gui_handler.root.after(0, ask_restart)
         
     def on_edit_cache(icon, item):
         """Open cache editor"""
@@ -72,11 +90,29 @@ def create_tray_icon(gui_handler):
             print(f"Failed to open logs folder: {e}")
     
     def on_exit(icon, item):
-        """Exit program"""
-        print("❌ Exiting from system tray...")
-        gui_handler.cleanup()
-        icon.stop()
-        gui_handler.root.after(0, gui_handler.root.quit)
+        """Exit program with confirmation"""
+        def ask_exit():
+            # Bring main window context to front for the dialog
+            gui_handler.root.deiconify()
+            
+            confirm = messagebox.askyesno(
+                "Confirm Shutdown",
+                "Are you sure you want to shutdown JARVIS?",
+                icon='warning',
+                parent=gui_handler.root
+            )
+            
+            if confirm:
+                print("❌ Exiting from system tray...")
+                gui_handler.cleanup()
+                icon.stop()
+                gui_handler.root.quit()
+            else:
+                # Re-hide the main window if user cancels
+                gui_handler.root.withdraw()
+
+        # Run on main thread
+        gui_handler.root.after(0, ask_exit)
     def on_select_monitor(icon, item):
         """Show monitor selection dialog"""
         try:
