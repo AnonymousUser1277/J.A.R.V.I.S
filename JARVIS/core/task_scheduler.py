@@ -100,7 +100,7 @@ class TaskScheduler:
     
     def _init_db(self):
         """Initialize SQLite database"""
-        with sqlite3.connect(str(self.db_path)) as conn:
+        with sqlite3.connect(str(self.db_path),timeout=10) as conn:
             conn.execute("""
                 CREATE TABLE IF NOT EXISTS tasks (
                     task_id TEXT PRIMARY KEY,
@@ -123,7 +123,7 @@ class TaskScheduler:
     def _load_tasks(self):
         """Load tasks from database"""
         try:
-            with sqlite3.connect(str(self.db_path)) as conn:
+            with sqlite3.connect(str(self.db_path),timeout=10) as conn:
                 conn.row_factory = sqlite3.Row
                 cursor = conn.execute(
                     "SELECT * FROM tasks WHERE status IN ('pending', 'running')"
@@ -144,6 +144,7 @@ class TaskScheduler:
                         max_runs=row['max_runs'],
                         run_count=row['run_count']
                     )
+
                     self.tasks[task.task_id] = task
         
         except Exception as e:
@@ -153,7 +154,7 @@ class TaskScheduler:
         """Save task to database"""
         try:
             data = task.to_dict()
-            with sqlite3.connect(str(self.db_path)) as conn:
+            with sqlite3.connect(str(self.db_path),timeout=10) as conn:
                 conn.execute("""
                     INSERT OR REPLACE INTO tasks 
                     (task_id, name, command, task_type, scheduled_time, status,
@@ -165,6 +166,7 @@ class TaskScheduler:
                     data['created_at'], data['last_run'], data['next_run'],
                     data['recurrence_rule'], data['max_runs'], data['run_count']
                 ))
+                conn.commit()
         except Exception as e:
             logger.error(f"Failed to save task: {e}")
     
