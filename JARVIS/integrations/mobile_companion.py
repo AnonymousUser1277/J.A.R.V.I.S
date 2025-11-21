@@ -308,6 +308,8 @@ class MobileCompanion:
     def _run_server(self):
         """Run Flask server"""
         try:
+            log = logging.getLogger('werkzeug')
+            log.setLevel(logging.ERROR)
             self.socketio.run(
                 self.app,
                 host='0.0.0.0',
