@@ -17,12 +17,18 @@ class FastCache:
     """Thread-safe Redis cache engine"""
 
     def __init__(self):
-        self.db = redis.Redis(
-            host="localhost",
-            port=6379,
-            db=0,
-            decode_responses=True       # easier & cleaner
-        )
+        self.enabled = False
+        try:
+            self.db = redis.Redis(
+                host="localhost",
+                port=6379,
+                db=0,
+                decode_responses=True       # easier & cleaner
+            )
+            self.db.ping()
+        except Exception as e:
+            logger.error(f"⚠️ Redis unavailable. Caching disabled. Error: {e}")
+            self.enabled = False
 
         self.lock = threading.RLock()
 
@@ -36,6 +42,8 @@ class FastCache:
     # MAIN GET
     # -------------------------------------------------
     def get(self, prompt):
+        if not self.enabled:
+            return None
         key = self._hash_key(prompt)
         d = self.db.hgetall(key)
 
