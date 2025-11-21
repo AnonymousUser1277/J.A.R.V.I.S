@@ -569,6 +569,7 @@ Task: {prompt}
                     gui_handler.queue_gui_task(lambda: gui_handler._update_button_state("idle"))
                 except Exception:
                     pass
+        
         except Exception as e:
             gui_handler.show_terminal_output(f"⚠️ Error: {e}", color="yellow")
         return
@@ -577,10 +578,20 @@ Task: {prompt}
         call_ai_model._gui_handler = gui_handler
         
         if should_cache(prompt):
+            # Try to set as pending. 
+            # If returns None, it means the key is ALREADY accepted (protection triggered)
             cache_key = cache.set_pending(prompt, response)
-            gui_handler.root.after(100, lambda: show_cache_acceptance_dialog(
-                gui_handler, prompt, response, cache_key
-            ))
+            
+            if cache_key:
+                # Only show dialog if we actually created a NEW pending entry
+                gui_handler.root.after(100, lambda: show_cache_acceptance_dialog(
+                    gui_handler, prompt, response, cache_key
+                ))
+            else:
+                # It was already accepted! We just saved the user from a popup.
+                # Next time, get() will definitely find it because we fixed the 'enabled' bug.
+                print("✅ Command exists in cache (skipping dialog).")
+            
     
     if not response:
         print("Failed to generate command.")
