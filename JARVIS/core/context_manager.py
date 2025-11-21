@@ -32,7 +32,7 @@ class OptimizedContextManager:
     def __init__(self):
         self.lock = threading.RLock()
         self._shell_windows = None
-        
+        self.is_dirty = True
         # Cache system
         self.cache_ttl = 0.5  # 500ms
         self._context_cache = None
@@ -97,48 +97,50 @@ class OptimizedContextManager:
         """
         with self.lock:
             # Return cached version if valid
-            if self._context_cache and not self._context_cache.is_expired(self.cache_ttl):
-                return self._context_cache.data
-            
-            # Generate new context
-            context_parts = []
-            
-            if self.current_url:
-                domain = self.current_url.split('/')[2] if '/' in self.current_url else self.current_url
-                context_parts.append(f"Browser: {domain}")
-            
-            if self.current_folder:
-                folder_name = os.path.basename(self.current_folder)
-                context_parts.append(f"Folder: {folder_name}")
-            
-            if self.clipboard_content:
-                clip_type, clip_data = self.clipboard_content
-                if clip_type == 'text':
-                    preview = clip_data[:50].replace('\n', ' ')
-                    context_parts.append(f"Clipboard: {preview}...")
-            
-            if self.active_window:
-                context_parts.append(f"Active: {self.active_window}")
-            
-            if self.recent_downloads:
-                latest = self.recent_downloads[-1]
-                context_parts.append(f"Downloaded: {latest}")
-            
-            if self.cpu_percent > 70 or self.ram_percent > 80:
-                context_parts.append(f"⚠️ High usage: CPU {self.cpu_percent}%, RAM {self.ram_percent}%")
-            
-            if self.battery_percent is not None:
-                context_parts.append(f"Battery: {self.battery_percent}%")
-            
-            if self.wifi_ssid:
-                context_parts.append(f"WiFi: {self.wifi_ssid}")
-            
-            result = " | ".join(context_parts) if context_parts else "No context"
-            
-            # Cache result
-            self._context_cache = CachedContext(result, time.time())
-            return result
-    
+            if self.is_dirty or (self._context_cache and self._context_cache.is_expired(self.cache_ttl)):
+                if self._context_cache and not self._context_cache.is_expired(self.cache_ttl):
+                    return self._context_cache.data
+                
+                # Generate new context
+                context_parts = []
+                
+                if self.current_url:
+                    domain = self.current_url.split('/')[2] if '/' in self.current_url else self.current_url
+                    context_parts.append(f"Browser: {domain}")
+                
+                if self.current_folder:
+                    folder_name = os.path.basename(self.current_folder)
+                    context_parts.append(f"Folder: {folder_name}")
+                
+                if self.clipboard_content:
+                    clip_type, clip_data = self.clipboard_content
+                    if clip_type == 'text':
+                        preview = clip_data[:50].replace('\n', ' ')
+                        context_parts.append(f"Clipboard: {preview}...")
+                
+                if self.active_window:
+                    context_parts.append(f"Active: {self.active_window}")
+                
+                if self.recent_downloads:
+                    latest = self.recent_downloads[-1]
+                    context_parts.append(f"Downloaded: {latest}")
+                
+                if self.cpu_percent > 70 or self.ram_percent > 80:
+                    context_parts.append(f"⚠️ High usage: CPU {self.cpu_percent}%, RAM {self.ram_percent}%")
+                
+                if self.battery_percent is not None:
+                    context_parts.append(f"Battery: {self.battery_percent}%")
+                
+                if self.wifi_ssid:
+                    context_parts.append(f"WiFi: {self.wifi_ssid}")
+                
+                result = " | ".join(context_parts) if context_parts else "No context"
+                
+                # Cache result
+                self._context_cache = CachedContext(result, time.time())
+                self.is_dirty = False
+                return result
+            return self._context_cache.data
     def get_full_context_for_ai(self) -> str:
         """
         Get full context with caching
@@ -194,6 +196,7 @@ Context Rules:
     def update_url(self, url: str):
         """Update current browser URL"""
         with self.lock:
+            self.is_dirty = True
             if url and url != self.current_url:
                 self.last_url = self.current_url
                 self.current_url = url
@@ -202,6 +205,7 @@ Context Rules:
     def update_folder(self, folder: str):
         """Update current explorer folder"""
         with self.lock:
+            self.is_dirty = True
             if folder and folder != self.current_folder:
                 self.last_folder = self.current_folder
                 self.current_folder = folder
@@ -210,6 +214,7 @@ Context Rules:
     def update_clipboard(self, content: Tuple):
         """Update clipboard content"""
         with self.lock:
+            self.is_dirty = True
             if content and content != self.clipboard_content:
                 self.clipboard_content = content
                 self.clipboard_history.append((time.time(), content))
@@ -222,6 +227,7 @@ Context Rules:
     def update_window(self, window_title: str):
         """Update active window"""
         with self.lock:
+            self.is_dirty = True
             if window_title and window_title != self.active_window:
                 self.active_window = window_title
                 self.window_history.append((time.time(), window_title))
@@ -234,6 +240,7 @@ Context Rules:
     def update_performance(self, cpu: float, ram: float, disk: float):
         """Update system performance metrics"""
         with self.lock:
+            self.is_dirty = True
             # Only invalidate if significant change
             changed = (
                 abs(self.cpu_percent - cpu) > 5 or
@@ -251,6 +258,7 @@ Context Rules:
     def update_network(self, connected: bool, ssid: Optional[str] = None):
         """Update network status"""
         with self.lock:
+            self.is_dirty = True
             if self.network_connected != connected or self.wifi_ssid != ssid:
                 self.network_connected = connected
                 self.wifi_ssid = ssid
@@ -259,6 +267,7 @@ Context Rules:
     def update_battery(self, percent: int, status: str):
         """Update battery status"""
         with self.lock:
+            self.is_dirty = True
             # Only invalidate if significant change
             changed = (
                 self.battery_percent is None or
@@ -283,6 +292,7 @@ Context Rules:
     def update_device(self, device_id: str, device_info: Dict):
         """Add/update connected device"""
         with self.lock:
+            self.is_dirty = True
             self.connected_devices[device_id] = device_info
             # Don't invalidate for every device update
     
@@ -294,12 +304,14 @@ Context Rules:
     def update_idle_time(self, idle_secs: float):
         """Update user idle time"""
         with self.lock:
+            self.is_dirty = True
             self.idle_time = idle_secs
             if idle_secs < 5:
                 self.last_activity = time.time()
     
     def update_bluetooth_device(self, device_id, device_info):
         with self.lock:
+            self.is_dirty = True
             self.bluetooth_devices[device_id] = device_info
     
     def remove_bluetooth_device(self, device_id):
