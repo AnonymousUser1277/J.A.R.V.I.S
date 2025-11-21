@@ -217,9 +217,7 @@ JARVIS is a sophisticated desktop AI assistant for Windows that combines voice r
 
 ### Required Software
 1. **Python 3.8+** - [Download](https://www.python.org/downloads/)
-2. **Redis 3.2+** - [Download](https://github.com/microsoftarchive/redis/releases/download/win-3.2.100/Redis-x64-3.2.100.msi)
-3. **Tesseract OCR** - [Download](https://github.com/tesseract-ocr/tesseract/releases/download/5.5.0/tesseract-ocr-w64-setup-5.5.0.20241111.exe)
-4. **Chrome** - For speech recognition
+2. **Chrome** - For speech recognition
 
 ---
 
@@ -232,22 +230,14 @@ JARVIS is a sophisticated desktop AI assistant for Windows that combines voice r
 git clone https://github.com/AnonymousUser1277/J.A.R.V.I.S.git
 cd JARVIS
 
-# 2. Install Redis (Windows)
-# Download and install from: https://github.com/microsoftarchive/redis/releases
-
-# 3. Start Redis server
-redis-server
-
-# 4. Install Tesseract OCR
-# Download from: https://github.com/UB-Mannheim/tesseract/wiki
-# Default path: C:\Program Files\Tesseract-OCR\tesseract.exe
-
-# 5. Run the batch file as admin. for new user a setup wizard will open to configure the program:
+# 2. Run the batch file as admin. for new user a setup wizard will open to configure the program:
 Jarvis.bat
 
 ```
 
 The setup wizard will guide you through:
+
+- ✅ Automatic Requirements installation 
 - ✅ API key configuration
 - ✅ System settings
 - ✅ Face registration
@@ -350,8 +340,6 @@ your_email_address = your.email@gmail.com
 
 ```bash
 # Method 1: Direct execution  (Recommended)
-# Run as admin (for full features)
-# Right-click Jarvis.bat → Run as administrator
 Jarvis.bat
 
 # Method 2: Or using python file
@@ -452,6 +440,13 @@ Queue multiple commands:
 ## 🐛 Troubleshooting
 
 ### Common Issues
+
+#### OCR or Cache System Not Working 
+
+Make Sure Redis 3.2+ And Tesseract are automatically installed during Setup:
+**Redis 3.2+** - [Download](https://github.com/microsoftarchive/redis/releases/)
+**Tesseract OCR** - [Download](https://github.com/tesseract-ocr/tesseract/releases/download/5.5.0/tesseract-ocr-w64-setup-5.5.0.20241111.exe)
+
 
 #### STT Not Working
 ```bash
