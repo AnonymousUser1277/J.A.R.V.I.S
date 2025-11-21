@@ -43,6 +43,13 @@ import logging
 import threading
 import atexit
 from config.settings import ENABLE_STT, ENABLE_TTS
+import gc
+def memory_maintenance():
+    """Run garbage collection every 5 minutes"""
+    import time
+    while True:
+        time.sleep(300)
+        gc.collect()
 # --- Hide console window if configured ---
 HIDE_CONSOLE = settings.hide_console_window
 if HIDE_CONSOLE:
@@ -193,6 +200,7 @@ def main():
     
     # 9. Hide startup UI and run
     startup_ui.close()
+    threading.Thread(target=memory_maintenance, daemon=True, name="GC-Maintenance").start()
     if ENABLE_TTS and tts_engine:
         threading.Thread(target=greeting, daemon=True).start()
     logger.info("🚀 JARVIS is now running")
