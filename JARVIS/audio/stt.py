@@ -550,10 +550,15 @@ class SpeechToTextListener:
                     if text != last_text:
                         if wake_word in text:
                             self.clear_text()
+                            time.sleep(0.1)
                             op_time = time.time() - operation_start; self.operation_times.append(op_time)
                             if len(self.operation_times) > 100: self.operation_times.pop(0)
                             return True
-                        last_text = text
+                        if len(text) > 150:
+                            self.clear_text()
+                            last_text = ""
+                        else:
+                            last_text = text
                     consecutive_errors = 0; time.sleep(0.1)
                 except NoSuchElementException as e:
                     consecutive_errors += 1; logger.warning(f"Element not found (error {consecutive_errors}/3): {e}")
@@ -574,6 +579,8 @@ class SpeechToTextListener:
         if not self.initialized:
             try: self._initialize_stt_page()
             except: return ""
+        self.clear_text()
+        time.sleep(0.1)
         try:
             if not self.driver.find_element(By.ID, "is_recording").text.startswith("Recording: True"):
                 self.driver.find_element(By.ID, "click_to_record").click(); time.sleep(0.1)
@@ -619,6 +626,20 @@ class SpeechToTextListener:
 
     def _emergency_cleanup(self):
         logger.info("🚨 STT Emergency cleanup triggered")
+        self.shutdown_flag = True; self._kill_tracked_processes(); self._nuclear_cleanup()
+
+    def cleanup(self):
+        logger.info("🧹 Starting STT cleanup...")
+        self.shutdown_flag = True
+        with self.lock:
+            self.wake_word_listening = False; self.stop_listening = True; self.driver_valid = False
+            self._kill_tracked_processes()
+            try:
+                if hasattr(self, 'driver') and self.driver:
+                    self.driver.quit(); time.sleep(0.5)
+            except: pass
+            self._nuclear_cleanup(); gc.collect()
+        logger.info("✅ STT cleanup completed")
         self.shutdown_flag = True; self._kill_tracked_processes(); self._nuclear_cleanup()
 
     def cleanup(self):
