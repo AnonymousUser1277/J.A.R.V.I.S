@@ -821,17 +821,17 @@ class AIAssistantGUI:
     def activate_mic_from_wake_word(self):
         """Activate mic from wake word"""
         try:
-            # ✅ Fix: Guard against None listener
+           
             if self.listener is None:
                 return
 
             if not self.listener.is_listening:
                 self.auto_turn_off_mic = True
                 
-                # ✅ FIX: Update button in main thread
+                self.listener.clear_text()
                 # self.root.after(0, lambda: self.mic_button.config(bg='#2d2d2d', text="⏸"))
                 self.queue_gui_task(lambda: self._update_button_state("listening"))
-                # ✅ FIX: Set listening state properly
+                
                 self.listener.is_listening = True
                 self.listener.stop_listening = False
                 
