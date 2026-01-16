@@ -21,6 +21,7 @@ from ai.document_generator import generate_document_from_prompt
 logger = logging.getLogger(__name__)
 _gmail_instance = None
 _calendar_instance = None
+_last_executed_command = None
 def show_destructive_warning(gui_handler, dangerous_word, callback):
     """Show warning dialog for destructive commands"""
     import tkinter as tk
@@ -160,9 +161,10 @@ def get_calendar_integration():
                 logger.error(f"Failed to initialize Calendar integration: {e}")
                 _calendar_instance = None # Ensure it remains None on failure
     return _calendar_instance
+
 def generate_instructions(prompt, client, gui_handler, file_manager=None):
     """Enhanced with full context awareness and file support"""
-    
+    global _last_executed_command
     if not prompt or not gui_handler:
         logger.error("Invalid parameters to generate_instructions")
         return
@@ -492,7 +494,37 @@ def generate_instructions(prompt, client, gui_handler, file_manager=None):
     
     context_info = context.get_full_context_for_ai()
     operating_system = get_os_info()
+    if _last_executed_command is None:
+        previous_task_str = "No previous task"
+    else:
+        previous_task_str = _last_executed_command
+
+    # --- BUG FIX: SMART HISTORY UPDATE ---
+    # If the user says "do it again", we do NOT want to overwrite the history with "do it again".
+    # We want to keep the ORIGINAL command (e.g., "open notepad") in history 
+    # so subsequent "do it again" commands still refer to the original task.
     
+    repeat_triggers = [
+        "do it again", "repeat", "repeat that", "run again", 
+        "run it again", "once more", "do that again", "again"
+    ]
+    
+    # Simple check: is the prompt basically just a repeat command?
+    clean_prompt = prompt.lower().strip(" .?!")
+    is_repeat_command = False
+    
+    if clean_prompt in repeat_triggers:
+        is_repeat_command = True
+    else:
+        # Check if it contains the phrase and is short (e.g., "jarvis do it again")
+        for trigger in repeat_triggers:
+            if trigger in clean_prompt and len(clean_prompt) < 25:
+                is_repeat_command = True
+                break
+
+    # Only update history if it is NOT a repetition command
+    if not is_repeat_command:
+        _last_executed_command = prompt
     # Add file information to prompt if files are selected
     file_info_section = ""
     if file_manager and file_manager.file_count > 0:
@@ -531,9 +563,14 @@ NEVER import unnecessary or unused modules.
 
 Remember, i use edge browser as my default browser. and this is the user path 'C:\\Users\\os.getlogin()\\' use it when required.
 
+{"Current date is: ", __import__("datetime").date.today()}
+{"Current time is: ", __import__("datetime").datetime.now().strftime("%I:%M %p")}
+
 {context_info}{file_info_section}{file_contents_directive}
 
-Task: {prompt}
+Previous Task was: {previous_task_str}
+
+New Task: {prompt}
 """
 
     # Indicate processing visually and log file info
