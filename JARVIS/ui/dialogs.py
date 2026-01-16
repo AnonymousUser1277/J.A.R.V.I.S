@@ -7,13 +7,6 @@ from tkinter import filedialog
 import os
 from utils.file_manager import FileManager
 
-try:
-    from spellchecker import SpellChecker 
-    SPELL_CHECK_AVAILABLE = True
-except ImportError:
-    SPELL_CHECK_AVAILABLE = False
-    print("⚠️ Install pyspellchecker for spell check: pip install pyspellchecker")
-
 def create_input_dialog(gui_handler):
     """Create input dialog with file upload capability"""
     # Initialize file manager for this dialog
@@ -105,143 +98,6 @@ def create_input_dialog(gui_handler):
             update_search_display()
             return "break"  # Prevent default backspace
     
-    
-    if SPELL_CHECK_AVAILABLE:
-        spell = SpellChecker()
-        suggestion_popup = None
-        def show_suggestions(misspelled_word, suggestions):
-            """Show a popup with spelling suggestions"""
-            nonlocal suggestion_popup
-            
-            # Close existing popup
-            if suggestion_popup:
-                try:
-                    suggestion_popup.destroy()
-                except:
-                    pass
-            
-            if not suggestions:
-                return
-            
-            # Create popup window
-            suggestion_popup = tk.Toplevel(dialog)
-            suggestion_popup.overrideredirect(True)
-            suggestion_popup.configure(bg='#2d2d2d')
-            suggestion_popup.attributes('-topmost', True)
-            
-            # Frame for suggestions
-            frame = tk.Frame(suggestion_popup, bg='#2d2d2d', padx=10, pady=8)
-            frame.pack()
-            
-            # Title
-            tk.Label(
-                frame,
-                text=f"Did you mean:",
-                font=("Arial", 10, "bold"),
-                bg='#2d2d2d',
-                fg='#ffaa00'
-            ).pack(anchor='w')
-            
-            # Suggestion buttons
-            for suggestion in list(suggestions)[:5]:  # Show max 5 suggestions
-                btn = tk.Button(
-                    frame,
-                    text=suggestion,
-                    font=("Arial", 10),
-                    bg='#3d3d3d',
-                    fg='#ffffff',
-                    relief='flat',
-                    cursor='hand2',
-                    padx=12,
-                    pady=4,
-                    command=lambda s=suggestion, w=misspelled_word: replace_word(w, s)
-                )
-                btn.pack(fill='x', pady=2)
-                
-                # Hover effect
-                btn.bind('<Enter>', lambda e, b=btn: b.config(bg='#4d4d4d'))
-                btn.bind('<Leave>', lambda e, b=btn: b.config(bg='#3d3d3d'))
-            
-            # Ignore button
-            ignore_btn = tk.Button(
-                frame,
-                text="Ignore",
-                font=("Arial", 9),
-                bg='#2d2d2d',
-                fg='#888888',
-                relief='flat',
-                cursor='hand2',
-                command=close_suggestions
-            )
-            ignore_btn.pack(pady=(5, 0))
-            
-            # Position near the entry widget
-            entry_x = text_entry.winfo_rootx()
-            entry_y = text_entry.winfo_rooty()
-            entry_height = text_entry.winfo_height()
-            
-            suggestion_popup.update_idletasks()
-            popup_width = suggestion_popup.winfo_width()
-            
-            suggestion_popup.geometry(f"+{entry_x}+{entry_y + entry_height + 5}")
-            
-            # Auto-close after 10 seconds
-            suggestion_popup.after(10000, close_suggestions)
-        
-        def close_suggestions():
-            """Close suggestion popup"""
-            nonlocal suggestion_popup
-            if suggestion_popup:
-                try:
-                    suggestion_popup.destroy()
-                except:
-                    pass
-                suggestion_popup = None
-        
-        def replace_word(old_word, new_word):
-            """Replace misspelled word with suggestion"""
-            text = text_entry.get()
-            # Simple word replacement
-            new_text = text.replace(old_word, new_word)
-            text_entry.delete(0, tk.END)
-            text_entry.insert(0, new_text)
-            text_entry.config(bg='#2d2d2d')  # Reset background
-            close_suggestions()
-        
-        def check_spelling(event=None):
-            """Check spelling and highlight errors"""
-            text = text_entry.get()
-            if not text.strip():
-                text_entry.config(bg='#2d2d2d')
-                close_suggestions()
-                return
-            
-            words = text.split()
-            misspelled = spell.unknown(words)
-            
-            if misspelled:
-                # Show visual feedback
-                text_entry.config(bg='#3d2d2d')  # Slight red tint
-                
-                # Show suggestions for first misspelled word
-                first_misspelled = list(misspelled)[0]
-                suggestions = spell.candidates(first_misspelled)
-                
-                if suggestions:
-                    show_suggestions(first_misspelled, suggestions)
-            else:
-                text_entry.config(bg='#2d2d2d')  # Normal
-                close_suggestions()
-        
-        # Check spelling on key release (with debounce)
-        spell_check_job = None
-        def debounced_spell_check(event):
-            nonlocal spell_check_job
-            if spell_check_job:
-                gui_handler.root.after_cancel(spell_check_job)
-            spell_check_job = gui_handler.root.after(800, check_spelling)  # Increased delay
-        
-        
     # Make draggable
     def start_drag(event):
         dialog.drag_x = event.x
@@ -320,14 +176,14 @@ def create_input_dialog(gui_handler):
         takefocus=1
     )
     text_entry.place(in_=canvas, x=30, y=30, width=630, height=40)
-    if SPELL_CHECK_AVAILABLE:
-        text_entry.bind('<KeyRelease>', debounced_spell_check)
+
     # Bind search keys
     text_entry.bind('<Control-r>', search_next)
     text_entry.bind('<Escape>', lambda e: exit_search_mode())
     text_entry.bind('<Key>', lambda e: on_search_key(e) if search_mode['active'] else None)
     text_entry.bind('<BackSpace>', on_backspace_in_search)
     text_entry.bind('<Return>', lambda e: (exit_search_mode(), on_submit(e)))
+    
     # File upload button
     def on_file_select():
         """Open file dialog to select one or more files"""
@@ -379,6 +235,7 @@ def create_input_dialog(gui_handler):
     
     canvas.bind('<Button-1>', start_drag)
     canvas.bind('<B1-Motion>', on_drag)
+    
     # ===== SELECTED FILES DISPLAY AREA =====
     # Create/destroy files area dynamically. No scrollbar or mouse-wheel behavior.
     dialog.files_frame = None
