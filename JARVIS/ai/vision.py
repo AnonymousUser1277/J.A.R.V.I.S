@@ -171,7 +171,7 @@ def call_gemini(question, images=None, gui_handler=None):
             
             genai.configure(api_key=api_key, transport='rest')
             
-            model = genai.GenerativeModel("gemini-2.0-flash-exp")
+            model = genai.GenerativeModel("gemini-3-flash-preview")
             
             custom_prompt = (
                 "YOU have human eyes, so give response like human in short and accurate way "
