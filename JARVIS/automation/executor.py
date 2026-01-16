@@ -134,7 +134,7 @@ def run_generated_code(code, gui_handler, script_path=None):
         import json
         import re
         import threading
-        
+        import datetime
         # Try to import clipboard module (optional)
         try:
             import pyperclip as clipboard_module
@@ -157,6 +157,7 @@ def run_generated_code(code, gui_handler, script_path=None):
             'json': json,
             're': re,
             'threading': threading,
+            'datetime': datetime,
         }
         
         # Add clipboard if available
